@@ -1,4 +1,4 @@
-package com.example.thrive;
+package com.group20.thrive;
 
 import android.content.Context;
 
