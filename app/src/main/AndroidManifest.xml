@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thrive">
         <activity
-            android:name="com.group20.thrive.MainActivity"
+            android:name=".SignInActivityTest"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -19,8 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.group20.thrive.SplashActivity" />
-        <activity android:name="com.group20.thrive.SignInActivity" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".SignInActivity" />
     </application>
 
 </manifest>
