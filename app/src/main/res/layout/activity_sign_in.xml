@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sign_in"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/title_sign_in"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="@dimen/activity_sign_in_margin"
+        android:layout_marginEnd="128dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/title_sign_in"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/btn_sign_in_Google"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/activity_sign_in_margin"
+        android:layout_marginEnd="@dimen/activity_sign_in_margin"
+        android:layout_marginBottom="32dp"
+        android:text="@string/sign_in_Google"
+        android:background="@drawable/rounded_corners_btn"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign_in_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/btn_sign_in_app"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/activity_sign_in_margin"
+        android:layout_marginEnd="@dimen/activity_sign_in_margin"
+        android:layout_marginBottom="32dp"
+        android:text="@string/sign_in_app"
+        android:onClick="popUpWindow"
+        android:background="@drawable/rounded_corners_btn"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign_up_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/btn_sign_up_app"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/activity_sign_in_margin"
+        android:layout_marginEnd="@dimen/activity_sign_in_margin"
+        android:layout_marginBottom="@dimen/activity_sign_in_margin"
+        android:text="@string/sign_up_app"
+        android:onClick="popUpWindow"
+        android:background="@drawable/rounded_corners_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,4 +4,8 @@
     <string name="title_diary">Diary</string>
     <string name="title_plans">Plans</string>
     <string name="title_profile">Profile</string>
+    <string name="title_sign_in">sign in</string>
+    <string name="sign_in_Google">Google</string>
+    <string name="sign_in_app">Sign in</string>
+    <string name="sign_up_app">Sign up</string>
 </resources>
