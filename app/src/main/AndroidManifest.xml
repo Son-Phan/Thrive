@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thrive">
         <activity
-            android:name="com.group20.thrive.MainActivity"
+            android:name=".PlansTest"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
