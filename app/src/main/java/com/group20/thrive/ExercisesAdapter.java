@@ -12,17 +12,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ExerciseAdapter extends BaseAdapter {
+public class ExercisesAdapter extends BaseAdapter {
+
     private Context context;
     private int layout;
-    private List<Exercise> exerciseList;
+    private List<Exercises> exerciseList;
 
-    public ExerciseAdapter(Context context, int layout, List<Exercise> exerciseList) {
+    public ExercisesAdapter(Context context, int layout, List<Exercises> exerciseList) {
         this.context = context;
         this.layout = layout;
         this.exerciseList = exerciseList;
     }
-
 
     @Override
     public int getCount() {
@@ -44,13 +44,18 @@ public class ExerciseAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(layout, null);
 
-        TextView txtTitleName = (TextView) view.findViewById(R.id.textviewTitleName);
-        ImageView imagePicture = (ImageView) view.findViewById(R.id.imageviewPicture);
-        Exercise exercise = exerciseList.get(i);
-        txtTitleName.setText(exercise.getTitleName());
-        imagePicture.setImageResource(exercise.getId());
+        view = init(i, view);
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.animation_scale);
         view.startAnimation(animation);
+        return view;
+    }
+
+    protected View init(int i, View view){
+        TextView txtName = (TextView) view.findViewById(R.id.textviewTitleName);
+        TextView txtContent = (TextView) view.findViewById(R.id.textviewTitleName);
+        Exercises exercise = exerciseList.get(i);
+        txtName.setText(exercise.getName());
+        txtContent.setText(exercise.getContent());
         return view;
     }
 }

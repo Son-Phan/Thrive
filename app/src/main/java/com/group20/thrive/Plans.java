@@ -1,12 +1,12 @@
 package com.group20.thrive;
 
-public class Exercise {
+public class Plans {
 
 
     private String TitleName;
     private int Id;
 
-    public Exercise( String titleName, int id) {
+    public Plans(String titleName, int id) {
         TitleName = titleName;
         Id = id;
     }
