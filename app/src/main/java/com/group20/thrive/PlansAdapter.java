@@ -47,6 +47,7 @@ public class PlansAdapter extends BaseAdapter {
         view = init(i, view);
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.animation_scale);
         view.startAnimation(animation);
+
         return view;
     }
 

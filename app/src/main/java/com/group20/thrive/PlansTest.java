@@ -2,7 +2,10 @@ package com.group20.thrive;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,8 +22,17 @@ public class PlansTest extends AppCompatActivity {
         init();
         exerciseAdapter = new PlansAdapter(this, R.layout.listview_plans, exerciseArrayList);
         lvExercise.setAdapter(exerciseAdapter);
-
+        lvExercise.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(lvExercise.getContext(),ExerciseActivity.class);
+                lvExercise.getContext().startActivity(intent);
+                overridePendingTransition(R.anim.animation_enter_up_activity, R.anim.animation_exit_activity);
+            }
+        });
     }
+
+
 
     private void init(){
         lvExercise = (ListView) findViewById(R.id.listviewExercises);

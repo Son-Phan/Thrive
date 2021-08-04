@@ -51,8 +51,8 @@ public class ExercisesAdapter extends BaseAdapter {
     }
 
     protected View init(int i, View view){
-        TextView txtName = (TextView) view.findViewById(R.id.textviewTitleName);
-        TextView txtContent = (TextView) view.findViewById(R.id.textviewTitleName);
+        TextView txtName = (TextView) view.findViewById(R.id.textviewName);
+        TextView txtContent = (TextView) view.findViewById(R.id.textviewContent);
         Exercises exercise = exerciseList.get(i);
         txtName.setText(exercise.getName());
         txtContent.setText(exercise.getContent());
