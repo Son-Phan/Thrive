@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        >
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_weight="2"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_weight="4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_weight="2"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Start"
+            android:textSize="10sp"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

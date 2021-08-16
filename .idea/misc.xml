@@ -15,17 +15,25 @@
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_today.xml" value="0.29814814814814816" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/popup_window_sign_in_activity.xml" value="0.5" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/sign_up_dialog_custom.xml" value="0.5333333333333333" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/drawable-anydpi/ic_x_button.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/drawable/circle_progress_bar.xml" value="0.5703125" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/drawable/custom_listview_sample.xml" value="0.346875" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/drawable/ic_launcher_background.xml" value="0.34739583333333335" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_exercise.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_main.xml" value="0.32708333333333334" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_plans_test.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_sign_in.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_sign_in_test.xml" value="0.3234375" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_diary.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_exercises_list.xml" value="0.3203125" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_plans.xml" value="0.2916666666666667" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_today.xml" value="0.5" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/item_int_listview_exercises.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/listvew_today.xml" value="0.16084093211752787" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/listview_exercise.xml" value="0.25" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/listview_exercises.xml" value="0.3307291666666667" />
-        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/listview_plans.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/listview_plans.xml" value="0.1" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/popup_window_sign_in_activity.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/layout/sign_up_dialog_custom.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/Thrive/app/src/main/res/menu/signup_popup.xml" value="0.3307291666666667" />
