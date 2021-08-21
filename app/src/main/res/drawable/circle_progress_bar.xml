@@ -9,16 +9,14 @@
         </shape>
     </item>
     <item>
-        <rotate
-            android:fromDegrees="270"
-            android:toDegrees="270"
-            >
-            <shape
-                android:shape="ring"
-                android:thicknessRatio="16"
-                android:useLevel="true">
-                <solid android:color= "@color/black"/>
-            </shape>
-        </rotate>
+        android:fromDegrees="270"
+        android:toDegrees="270"
+        >
+        <shape
+            android:shape="ring"
+            android:thicknessRatio="16"
+            android:useLevel="true">
+            <solid android:color= "@color/black"/>
+        </shape>
     </item>
 </layer-list>

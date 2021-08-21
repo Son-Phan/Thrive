@@ -30,8 +30,8 @@ public class TodayAdapter extends RecyclerView.Adapter<TodayAdapter.TodayAdapter
         this.todayList = list;
         notifyDataSetChanged();
     }
-    private Context context;
-    private List<Today> todayList;
+    protected Context context;
+    protected List<Today> todayList;
 
     @NonNull
     @Override
@@ -63,10 +63,10 @@ public class TodayAdapter extends RecyclerView.Adapter<TodayAdapter.TodayAdapter
 
     public class TodayAdapterViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView textView, textView1;
-        private ImageView imageView;
-        private ProgressBar progressBar;
-        private RecyclerView recyclerView;
+        public TextView textView, textView1;
+        public ImageView imageView;
+        public ProgressBar progressBar;
+        public RecyclerView recyclerView;
         public TodayAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textviewNameExercises);
