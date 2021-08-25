@@ -1,22 +1,16 @@
-package com.group20.thrive.ui.Plans;
+package com.group20.thrive.ui.plans;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.group20.thrive.ExerciseActivity;
 import com.group20.thrive.Exercises;
 import com.group20.thrive.ExercisesAdapter;
-import com.group20.thrive.Plans;
-import com.group20.thrive.PlansAdapter;
 import com.group20.thrive.R;
 //import com.group20.thrive.databinding.FragmentPlansBinding;
 

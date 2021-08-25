@@ -1,4 +1,4 @@
-package com.group20.thrive.ui.Profile;
+package com.group20.thrive.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

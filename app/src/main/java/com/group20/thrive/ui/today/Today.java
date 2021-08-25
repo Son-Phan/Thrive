@@ -1,4 +1,4 @@
-package com.group20.thrive.ui.Today;
+package com.group20.thrive.ui.today;
 
 import java.util.List;
 

@@ -1,16 +1,16 @@
-package com.group20.thrive.ui.Plans;
+package com.group20.thrive.ui.diary;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class PlansViewModel extends ViewModel {
+public class DiaryViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public PlansViewModel() {
+    public DiaryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {

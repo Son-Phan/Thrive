@@ -8,25 +8,25 @@
 
     <fragment
         android:id="@+id/navigation_today"
-        android:name="com.group20.thrive.ui.Today.TodayFragment"
+        android:name="com.group20.thrive.ui.today.TodayFragment"
         android:label="@string/title_today"
         tools:layout="@layout/fragment_today" />
 
     <fragment
         android:id="@+id/navigation_diary"
-        android:name="com.group20.thrive.ui.Diary.DiaryFragment"
+        android:name="com.group20.thrive.ui.diary.DiaryFragment"
         android:label="@string/title_diary"
         tools:layout="@layout/fragment_diary" />
 
     <fragment
         android:id="@+id/navigation_plans"
-        android:name="com.group20.thrive.ui.Plans.PlansFragment"
+        android:name="com.group20.thrive.ui.plans.PlansFragment"
         android:label="@string/title_plans"
         tools:layout="@layout/fragment_plans" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.group20.thrive.ui.Profile.ProfileFragment"
+        android:name="com.group20.thrive.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

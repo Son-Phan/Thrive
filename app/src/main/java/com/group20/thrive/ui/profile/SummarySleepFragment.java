@@ -1,4 +1,4 @@
-package com.group20.thrive.ui.Profile;
+package com.group20.thrive.ui.profile;
 
 import android.os.Bundle;
 
@@ -9,13 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.group20.thrive.R;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_skills#newInstance} factory method to
+ * Use the {@link SummarySleepFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment_skills extends Fragment {
+public class SummarySleepFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +29,7 @@ public class Fragment_skills extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Fragment_skills() {
+    public SummarySleepFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +39,11 @@ public class Fragment_skills extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_skills.
+     * @return A new instance of fragment SummarySleepFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment_skills newInstance(String param1, String param2) {
-        Fragment_skills fragment = new Fragment_skills();
+    public static SummarySleepFragment newInstance(String param1, String param2) {
+        SummarySleepFragment fragment = new SummarySleepFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +63,23 @@ public class Fragment_skills extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_skills, container, false);
+        View view = inflater.inflate(R.layout.fragment_summary_exercise, container, false);
+
+        GraphView graphView = view.findViewById(R.id.graphView);
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
+                new DataPoint(0,4),
+                new DataPoint(1,3),
+                new DataPoint(2,5),
+                new DataPoint(4,7),
+                new DataPoint(7,6)
+        });
+
+        graphView.setTitle("temp graph view");
+        graphView.setTitleColor(R.color.black);
+        graphView.setTitleTextSize(36);
+        graphView.addSeries(series);
+
+        return view;
     }
 }

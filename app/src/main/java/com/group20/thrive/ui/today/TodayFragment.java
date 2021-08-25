@@ -1,28 +1,17 @@
-package com.group20.thrive.ui.Today;
+package com.group20.thrive.ui.today;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.group20.thrive.Plans;
-import com.group20.thrive.PlansAdapter;
 import com.group20.thrive.R;
 import com.group20.thrive.databinding.FragmentTodayBinding;
-import com.group20.thrive.ui.Plans.ExercisesFragment;
 
 import java.util.ArrayList;
 import java.util.List;

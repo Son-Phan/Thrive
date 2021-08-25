@@ -1,16 +1,16 @@
-package com.group20.thrive.ui.Today;
+package com.group20.thrive.ui.plans;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class TodayViewModel extends ViewModel {
+public class PlansViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public TodayViewModel() {
+    public PlansViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Today fragment");
+        mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {

@@ -4,7 +4,7 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:orientation="vertical"
 android:weightSum="10"
-tools:context=".ui.Plans.PlansFragment"
+tools:context=".ui.plans.PlansFragment"
 android:id="@+id/fragment_plans_layout"
 xmlns:android="http://schemas.android.com/apk/res/android">
 <!--<TextView-->
