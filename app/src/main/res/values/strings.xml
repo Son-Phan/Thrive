@@ -9,6 +9,10 @@
     <string name="sign_in_app">Sign in</string>
     <string name="sign_up_app">Sign up</string>
     <string name="today">Today</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <!-- Quote list -->
+    <string name="quote1">“When you change your thoughts, remember to also change your world.”—Norman Vincent Peale</string>
 </resources>

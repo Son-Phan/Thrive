@@ -1,19 +1,31 @@
-package com.group20.thrive;
+package com.group20.thrive.ui.diary;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class SettingsActivity extends AppCompatActivity {
+import com.group20.thrive.R;
+
+import java.util.Locale;
+
+public class DiaryEntriesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        setTitle("Settings");
+        setContentView(R.layout.activity_diary_entries);
+
+        Intent intent = getIntent();
+        int year = intent.getIntExtra("year", 2021);
+        int month = intent.getIntExtra("month", 10);
+        int dayOfMonth = intent.getIntExtra("dayOfMonth", 22);
+
+        String date = String.format(Locale.ENGLISH,"%d/%d/%d", dayOfMonth, month, year);
+        setTitle(date);
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -29,5 +41,4 @@ public class SettingsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
