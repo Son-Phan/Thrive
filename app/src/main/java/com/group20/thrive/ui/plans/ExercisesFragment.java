@@ -27,7 +27,7 @@ public class ExercisesFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_plans, container, false);
+        View view = inflater.inflate(R.layout.fragment_plan_exercies, container, false);
         init(view);
         exerciseAdapter = new ExercisesAdapter(inflater.getContext(), R.layout.listview_exercises, exerciseArrayList);
         lvExercise.setAdapter(exerciseAdapter);

@@ -3,6 +3,8 @@ package com.group20.thrive.ui.diary;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +12,13 @@ import android.view.MenuItem;
 
 import com.group20.thrive.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class DiaryEntriesActivity extends AppCompatActivity {
-
+    private RecyclerView recyclerView;
+    private DiaryEntriesAdapter diaryEntriesAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,12 @@ public class DiaryEntriesActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
+        recyclerView = findViewById(R.id.recyclerview_in_diary_entries);
+        diaryEntriesAdapter = new DiaryEntriesAdapter(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        diaryEntriesAdapter.setData(getDiaryEntriesProperties());
+        recyclerView.setAdapter(diaryEntriesAdapter);
     }
 
     @Override
@@ -40,5 +51,12 @@ public class DiaryEntriesActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private List<DiaryEntriesProperties> getDiaryEntriesProperties(){
+        List<DiaryEntriesProperties> list = new ArrayList<>();
+        list.add(new DiaryEntriesProperties("29/08/202", "4:39 am", "Workout"));
+        list.add(new DiaryEntriesProperties("29/08/202", "4:39 am", "Workout"));
+        list.add(new DiaryEntriesProperties("29/08/202", "4:39 am", "Workout"));
+        return list;
     }
 }

@@ -1,4 +1,4 @@
-package com.group20.thrive;
+package com.group20.thrive.ui.plans;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.group20.thrive.Exercises;
+import com.group20.thrive.ExercisesAdapter;
+import com.group20.thrive.PlansTest;
+import com.group20.thrive.R;
 
 import java.util.ArrayList;
 

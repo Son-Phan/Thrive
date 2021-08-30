@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/white"
+        android:drawableTint="@color/white"
+        android:background="@drawable/ic_x_button" />
+
+
+    <ListView
+        android:layout_weight="9"
+        android:id="@+id/listviewExercises"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

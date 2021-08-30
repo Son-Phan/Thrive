@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.group20.thrive.ui.plans.ExerciseActivity;
+
 import java.util.ArrayList;
 
 public class PlansTest extends AppCompatActivity {
@@ -25,7 +27,7 @@ public class PlansTest extends AppCompatActivity {
         lvExercise.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(lvExercise.getContext(),ExerciseActivity.class);
+                Intent intent = new Intent(lvExercise.getContext(), ExerciseActivity.class);
                 lvExercise.getContext().startActivity(intent);
                 overridePendingTransition(R.anim.animation_enter_up_activity, R.anim.animation_exit_activity);
             }

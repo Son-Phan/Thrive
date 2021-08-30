@@ -7,4 +7,24 @@
     tools:context=".ui.diary.DiaryEntriesActivity"
     android:background="@color/background">
 
+    <Button
+        android:id="@+id/addEntry_in_diary_entries"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:text="Add new entry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_in_diary_entries"
+        android:layout_width="409dp"
+        android:layout_height="492dp"
+        app:layout_constraintBottom_toTopOf="@+id/addEntry_in_diary_entries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

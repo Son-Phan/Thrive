@@ -3,7 +3,7 @@
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:orientation="vertical"
-android:weightSum="10"
+android:weightSum="20"
 tools:context=".ui.plans.PlansFragment"
     android:id="@+id/fragment_plans_layout"
 xmlns:android="http://schemas.android.com/apk/res/android">
@@ -22,16 +22,40 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 <!--    android:layout_constraintEnd_toEndOf="parent"-->
 <!--    android:layout_constraintStart_toStartOf="parent"/>-->
 
+<TextView
+    android:id="@+id/textview1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="Current Plan"
+    android:textSize="20sp"
+    android:layout_marginLeft="20dp"
+    />
+    <androidx.cardview.widget.CardView
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
 
+    <TextView
+        android:id="@+id/textview2"
 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Other Plans"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        />
 <ListView
 
-    android:layout_weight="10"
+    android:layout_weight="17"
     android:id="@+id/listviewPlans"
     android:divider="@null"
     android:dividerHeight="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
     android:layout_width="wrap_content"
     android:layout_height="0dp" />
 
