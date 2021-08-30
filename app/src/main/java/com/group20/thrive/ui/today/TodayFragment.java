@@ -19,7 +19,7 @@ import java.util.List;
 public class TodayFragment extends Fragment {
 
     private TodayViewModel TodayViewModel;
-    private FragmentTodayBinding binding;
+//    private FragmentTodayBinding binding;
 
     TodayAdapter todayAdapter;
     private RecyclerView recyclerView;
@@ -48,11 +48,11 @@ public class TodayFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        binding = null;
+//    }
 
     private List<Today> getListToday(){
         List<Today> list = new ArrayList<>();

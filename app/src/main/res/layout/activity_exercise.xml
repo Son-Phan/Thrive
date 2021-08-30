@@ -6,14 +6,7 @@
     android:weightSum="10"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/button_exit"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/white"
-        android:drawableTint="@color/white"
-        android:background="@drawable/ic_x_button" />
+
 
 
     <ListView
