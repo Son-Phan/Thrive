@@ -12,9 +12,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.room.Room;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group20.thrive.database.ThriveDatabase;
+import com.group20.thrive.database.User;
+import com.group20.thrive.database.UserDao;
 import com.group20.thrive.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+
+        // run a random query to notify the system to create database
+        ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
+                ThriveDatabase.class, "thrive_database").allowMainThreadQueries().build();
+        UserDao userDao = db.userDao();
+        User A = userDao.getUser();
+
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
