@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group20.thrive.R;
+import com.group20.thrive.database.Diary;
 import com.group20.thrive.ui.today.ExerciseToday;
 import com.group20.thrive.ui.today.ExerciseTodayAdapter;
 import com.group20.thrive.ui.today.Today;
@@ -22,15 +23,16 @@ import java.util.List;
 
 public class DiaryEntriesAdapter extends RecyclerView.Adapter<DiaryEntriesAdapter.DiaryEntriesViewHolder> {
 
-    protected List<DiaryEntriesProperties> diaryEntriesPropertiesList;
+    public void setDiaryList(List<Diary> diaryList) {
+        this.diaryList = diaryList;
+    }
+
+    protected List<Diary> diaryList;
     protected Context context;
     public DiaryEntriesAdapter(Context context) {
         this.context = context;
     }
-    public void setData(List<DiaryEntriesProperties> list){
-        this.diaryEntriesPropertiesList = list;
-        notifyDataSetChanged();
-    }
+
     @NonNull
     @Override
     public DiaryEntriesAdapter.DiaryEntriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,18 +43,18 @@ public class DiaryEntriesAdapter extends RecyclerView.Adapter<DiaryEntriesAdapte
 
     @Override
     public void onBindViewHolder(@NonNull DiaryEntriesViewHolder holder, int position) {
-        DiaryEntriesProperties diaryEntriesProperties= diaryEntriesPropertiesList.get(position);
-        if(diaryEntriesProperties == null){
+        Diary diary = diaryList.get(position);
+        if(diary == null){
             return;
         }
-        holder.textView1.setText(diaryEntriesProperties.getDay());
-        holder.textView2.setText(diaryEntriesProperties.getTime());
-        holder.textView3.setText(diaryEntriesProperties.getActivity());
+        holder.textView1.setText(diary.getEntryDate());
+        holder.textView2.setText(Integer.toString(diary.getActivityDuration()));
+        holder.textView3.setText(diary.getEntryActivities());
     }
 
     @Override
     public int getItemCount() {
-        return diaryEntriesPropertiesList != null?  diaryEntriesPropertiesList.size(): 0;
+        return diaryList != null?  diaryList.size(): 0;
     }
     public class DiaryEntriesViewHolder extends RecyclerView.ViewHolder{
         public TextView textView1, textView2, textView3;

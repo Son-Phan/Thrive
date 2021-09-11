@@ -25,13 +25,12 @@ import java.util.List;
 
 public class DiaryFragment extends Fragment {
 
-    private DiaryViewModel DiaryViewModel;
+
     private FragmentDiaryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DiaryViewModel =
-                new ViewModelProvider(this).get(DiaryViewModel.class);
+
 
         binding = FragmentDiaryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

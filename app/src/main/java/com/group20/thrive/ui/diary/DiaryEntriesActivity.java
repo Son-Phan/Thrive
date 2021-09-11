@@ -3,6 +3,7 @@ package com.group20.thrive.ui.diary;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.group20.thrive.R;
+import com.group20.thrive.ui.plans.PlansViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.Locale;
 public class DiaryEntriesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DiaryEntriesAdapter diaryEntriesAdapter;
+    private DiaryViewModel diaryViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,13 @@ public class DiaryEntriesActivity extends AppCompatActivity {
         int month = intent.getIntExtra("month", 10);
         int dayOfMonth = intent.getIntExtra("dayOfMonth", 22);
 
-        String date = String.format(Locale.ENGLISH,"%d/%d/%d", dayOfMonth, month, year);
+        String date = "";
+        if(month < 10){
+            date = String.format(Locale.ENGLISH,"%d/0%d/%d", dayOfMonth, month, year);
+        }
+        else
+            date = String.format(Locale.ENGLISH,"%d/%d/%d", dayOfMonth, month, year);
+
         setTitle(date);
 
         ActionBar actionBar = getSupportActionBar();
@@ -39,7 +48,13 @@ public class DiaryEntriesActivity extends AppCompatActivity {
         diaryEntriesAdapter = new DiaryEntriesAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        diaryEntriesAdapter.setData(getDiaryEntriesProperties());
+        diaryViewModel = new ViewModelProvider.AndroidViewModelFactory(this.getApplication()).create(DiaryViewModel.class);
+
+        diaryViewModel.getAllEntries(date).observe(this, newData -> {
+            diaryEntriesAdapter.setDiaryList(newData);
+            diaryEntriesAdapter.notifyDataSetChanged();
+            System.out.println(newData);
+        });
         recyclerView.setAdapter(diaryEntriesAdapter);
     }
 
@@ -52,11 +67,5 @@ public class DiaryEntriesActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    private List<DiaryEntriesProperties> getDiaryEntriesProperties(){
-        List<DiaryEntriesProperties> list = new ArrayList<>();
-        list.add(new DiaryEntriesProperties("29/08/202", "4:39 am", "Workout"));
-        list.add(new DiaryEntriesProperties("29/08/202", "4:39 am", "Workout"));
-        list.add(new DiaryEntriesProperties("29/08/202", "4:39 am", "Workout"));
-        return list;
-    }
+
 }

@@ -34,6 +34,7 @@ public abstract class ThriveDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ThriveDatabase.class, THRIVE_DATABASE_NAME)
+                            .fallbackToDestructiveMigration()
                             .createFromAsset("database/thrive_database.db")
                             .build();
                 }

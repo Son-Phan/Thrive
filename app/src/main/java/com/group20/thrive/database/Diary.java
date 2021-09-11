@@ -15,11 +15,18 @@ public class Diary {
     public String entryActivities; // activities separate by comma
     public String entryNote;
 
-    public Diary(String entryDate, String entryMood, int sleepDuration, String entryActivities, String entryNote) {
+    public int getActivityDuration() {
+        return activityDuration;
+    }
+
+    public int activityDuration;
+
+    public Diary(String entryDate, String entryMood, int sleepDuration, String entryActivities,int activityDuration, String entryNote) {
         this.entryDate = entryDate;
         this.entryMood = entryMood;
         this.sleepDuration = sleepDuration;
         this.entryActivities = entryActivities;
+        this.activityDuration = activityDuration;
         this.entryNote = entryNote;
     }
 
