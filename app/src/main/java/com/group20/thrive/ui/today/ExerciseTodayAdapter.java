@@ -11,16 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group20.thrive.R;
+import com.group20.thrive.database.Diary;
 
 import java.util.List;
 
 public class ExerciseTodayAdapter extends RecyclerView.Adapter<ExerciseTodayAdapter.ExerciseTodayViewHolder> {
 
-    private List<ExerciseToday> exerciseTodays;
+    private List<Diary> diaryList;
 
-    public void setData(List<ExerciseToday> list){
-        this.exerciseTodays = list;
-        notifyDataSetChanged();
+    public List<Diary> getDiaryList() {
+        return diaryList;
+    }
+
+    public void setDiaryList(List<Diary> diaryList) {
+        this.diaryList = diaryList;
     }
 
     @NonNull
@@ -33,20 +37,20 @@ public class ExerciseTodayAdapter extends RecyclerView.Adapter<ExerciseTodayAdap
 
     @Override
     public void onBindViewHolder(@NonNull ExerciseTodayViewHolder holder, int position) {
-        ExerciseToday exerciseToday = exerciseTodays.get(position);
-        if(exerciseToday == null){
+        Diary diary = diaryList.get(position);
+        if(diary == null){
             return;
         }
-        holder.textView1.setText(exerciseToday.getTitleName());
-        holder.textView2.setText(exerciseToday.getDuration());
-        holder.imageView.setImageResource(exerciseToday.getId());
+        holder.textView1.setText(diary.getEntryActivities());
+        holder.textView2.setText(Integer.toString(diary.getActivityDuration()));
+        holder.imageView.setImageResource(R.drawable.img);
 
 
     }
 
     @Override
     public int getItemCount() {
-        return exerciseTodays != null?  exerciseTodays.size(): 0;
+        return diaryList != null?  diaryList.size(): 0;
     }
 
     public class ExerciseTodayViewHolder extends RecyclerView.ViewHolder{

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group20.thrive.R;
+import com.group20.thrive.database.Diary;
 
 import java.util.List;
 
@@ -23,12 +24,13 @@ public class TodayAdapter extends RecyclerView.Adapter<TodayAdapter.TodayAdapter
     }
 
 
-    public void setData(List<Today> list){
-        this.todayList = list;
-        notifyDataSetChanged();
-    }
     protected Context context;
-    protected List<Today> todayList;
+
+    public void setDiaryList(List<Diary> diaryList) {
+        this.diaryList = diaryList;
+    }
+
+    protected List<Diary> diaryList;
 
     @NonNull
     @Override
@@ -39,22 +41,22 @@ public class TodayAdapter extends RecyclerView.Adapter<TodayAdapter.TodayAdapter
 
     @Override
     public int getItemCount() {
-        return todayList != null? todayList.size(): 0;
+        return diaryList != null? diaryList.size(): 0;
     }
 
     @Override
     public void onBindViewHolder(@NonNull TodayAdapterViewHolder holder, int position) {
-        Today today = todayList.get(position);
+        Diary today = diaryList.get(position);
         if (today == null){
             return;
         }
-        holder.textView.setText(today.getTitleName());
-        holder.textView1.setText(today.getPercentages());
-        holder.imageView.setImageResource(today.getId());
+        holder.textView.setText(today.getEntryActivities());
+        holder.textView1.setText("60%");
+        holder.imageView.setImageResource(R.drawable.img);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
         holder.recyclerView.setLayoutManager(linearLayoutManager);
         ExerciseTodayAdapter exerciseTodayAdapter = new ExerciseTodayAdapter();
-        exerciseTodayAdapter.setData(today.getExerciseTodayList());
+        exerciseTodayAdapter.setDiaryList(diaryList);
         holder.recyclerView.setAdapter(exerciseTodayAdapter);
     }
 
