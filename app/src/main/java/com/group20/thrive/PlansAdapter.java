@@ -10,17 +10,25 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.group20.thrive.database.Plan;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlansAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<Plans> exerciseList;
 
-    public PlansAdapter(Context context, int layout, List<Plans> exerciseList) {
+    public void setExerciseList(List<Plan> exerciseList) {
+        this.exerciseList = exerciseList;
+    }
+
+    private List<Plan> exerciseList = new ArrayList<>();
+
+    public PlansAdapter(Context context, int layout) {
         this.context = context;
         this.layout = layout;
-        this.exerciseList = exerciseList;
+
     }
 
 
@@ -54,9 +62,9 @@ public class PlansAdapter extends BaseAdapter {
     protected View init(int i, View view){
         TextView txtTitleName = (TextView) view.findViewById(R.id.textviewTitleName);
         ImageView imagePicture = (ImageView) view.findViewById(R.id.imageviewPicture);
-        Plans exercise = exerciseList.get(i);
-        txtTitleName.setText(exercise.getTitleName());
-        imagePicture.setImageResource(exercise.getId());
+        Plan exercise = exerciseList.get(i);
+        txtTitleName.setText(exercise.getPlanName());
+        imagePicture.setImageResource(exercise.getImageLocation());
         return view;
     }
 }

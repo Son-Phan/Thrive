@@ -16,6 +16,8 @@ import androidx.room.Room;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group20.thrive.database.Plan;
+import com.group20.thrive.database.PlanDao;
 import com.group20.thrive.database.ThriveDatabase;
 import com.group20.thrive.database.User;
 import com.group20.thrive.database.UserDao;
@@ -57,8 +59,21 @@ public class MainActivity extends AppCompatActivity {
         // run a random query to notify the system to create database
         ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
                 ThriveDatabase.class, "thrive_database").allowMainThreadQueries().build();
-        UserDao userDao = db.userDao();
-        User A = userDao.getUser();
+//        UserDao userDao = db.userDao();
+//        userDao.addUser(new User("t",0,0,0,0,0));
+//        PlanDao planDao = db.planDao();
+//        planDao.addPlan(new Plan("Natural", "ab", R.drawable.img_1,10,"The desirable end goal of the " +
+//                "Thrive at Work process is a an action plan for your business, " +
+//                "which delivers on a wellness strategy; which in turn fits with your " +
+//                "organisation’s overall strategy and enables the business and its people."));
+//        planDao.addPlan(new Plan("Natural", "ab", R.drawable.img_2,10,"The desirable end goal of the " +
+//                "Thrive at Work process is a an action plan for your business, " +
+//                "which delivers on a wellness strategy; which in turn fits with your " +
+//                "organisation’s overall strategy and enables the business and its people."));
+//        planDao.addPlan(new Plan("Natural", "ab", R.drawable.img_3,10,"The desirable end goal of the " +
+//                "Thrive at Work process is a an action plan for your business, " +
+//                "which delivers on a wellness strategy; which in turn fits with your " +
+//                "organisation’s overall strategy and enables the business and its people."));
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();

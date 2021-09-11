@@ -1,5 +1,6 @@
 package com.group20.thrive.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -13,10 +14,15 @@ public interface PlanDao {
     @Insert
     void insertAll(Plan... plans);
 
-    @Query("SELECT * from [Plan]")
+    @Insert
+    void addPlan(Plan plan);
+    @Query("select * from `plan`")
     List<Plan> getPlan();
 
+    @Query("select * from `plan`")
+    LiveData<List<Plan>> getAllPlans();
+
     @Transaction
-    @Query("SELECT * FROM [Plan]")
+    @Query("select * from `plan`")
     List<PlanWithLessons> getPlansWithLessons();
 }

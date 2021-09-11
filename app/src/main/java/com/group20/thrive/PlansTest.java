@@ -22,7 +22,7 @@ public class PlansTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plans_test);
         init();
-        exerciseAdapter = new PlansAdapter(this, R.layout.listview_plans, exerciseArrayList);
+//        exerciseAdapter = new PlansAdapter(this, R.layout.listview_plans, exerciseArrayList);
         lvExercise.setAdapter(exerciseAdapter);
         lvExercise.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
