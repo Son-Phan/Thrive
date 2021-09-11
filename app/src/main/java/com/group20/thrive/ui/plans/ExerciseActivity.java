@@ -3,6 +3,7 @@ package com.group20.thrive.ui.plans;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,9 +22,10 @@ import java.util.ArrayList;
 public class ExerciseActivity extends AppCompatActivity{
 
     ListView lvExercise;
-    ArrayList<Exercises> exerciseArrayList;
+
     ExercisesAdapter exerciseAdapter;
     Button exit_button;
+    private PlansViewModel plansViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,13 @@ public class ExerciseActivity extends AppCompatActivity{
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         init();
-        exerciseAdapter = new ExercisesAdapter(this, R.layout.listview_exercises, exerciseArrayList);
+        exerciseAdapter = new ExercisesAdapter(this, R.layout.listview_exercises);
+        plansViewModel = new ViewModelProvider.AndroidViewModelFactory(this.getApplication()).create(PlansViewModel.class);
+        plansViewModel.getAllPlans().observe(this, newData -> {
+            exerciseAdapter.setExerciseList(newData);
+            exerciseAdapter.notifyDataSetChanged();
+            System.out.println(newData);
+        });
         lvExercise.setAdapter(exerciseAdapter);
 
     }
@@ -48,47 +56,7 @@ public class ExerciseActivity extends AppCompatActivity{
     }
     private void init(){
         lvExercise = (ListView) findViewById(R.id.listviewExercises);
-        exerciseArrayList = new ArrayList<>();
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
-        exerciseArrayList.add(new Exercises("Natural", "The desirable end goal of the " +
-                "Thrive at Work process is a an action plan for your business, " +
-                "which delivers on a wellness strategy; which in turn fits with your " +
-                "organisation’s overall strategy and enables the business and its people."));
+
 
 
     }
