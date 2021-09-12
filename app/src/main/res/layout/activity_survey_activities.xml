@@ -20,7 +20,7 @@
   <androidx.cardview.widget.CardView
       android:id="@+id/cardView2"
       android:layout_width="384dp"
-      android:layout_height="80dp"
+      android:layout_height="120dp"
       android:layout_marginLeft="20dp"
       android:layout_marginRight="20dp"
       android:orientation="horizontal"
@@ -32,42 +32,54 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.692">
 
-    <RadioButton
-        android:id="@+id/radioButton6"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
+    <CheckBox
+        android:id="@+id/checkbox_tv"
+        android:layout_width="65dp"
+        android:layout_height="85dp"
         android:button="@android:color/transparent"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/tv_image"
+        android:layout_marginTop="30dp"
+
+        android:background="@drawable/tv_image_selector"
         />
 
-    <RadioButton
-        android:id="@+id/radioButton7"
+    <CheckBox
+        android:id="@+id/checkbox_reading"
         android:button="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp" />
+        android:layout_width="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="80dp"
 
-    <RadioButton
-        android:id="@+id/radioButton8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@android:color/transparent"
-        android:layout_marginLeft="150dp" />
+        android:background="@drawable/reading_image_selector"/>
 
-    <RadioButton
-        android:id="@+id/radioButton9"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/checkbox_gaming"
+        android:layout_width="60dp"
+        android:layout_height="72dp"
         android:button="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp" />
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="160dp"
+        android:background="@drawable/game_image_selector"/>
 
-    <RadioButton
-        android:id="@+id/radioButton10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <CheckBox
+        android:id="@+id/checkbox_sport"
+        android:layout_width="60dp"
         android:button="@android:color/transparent"
-        android:layout_marginLeft="50dp" />
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+
+        android:background="@drawable/sport_image_selector"
+        android:layout_marginLeft="240dp" />
+
+    <CheckBox
+        android:id="@+id/checkbox_relax"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:button="@android:color/transparent"
+        android:layout_marginLeft="320dp"
+
+        android:background="@drawable/relax_image_selector"/>
   </androidx.cardview.widget.CardView>
 
   <androidx.cardview.widget.CardView
@@ -80,6 +92,16 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.356" />
+
+  <ImageButton
+      android:id="@+id/save_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background ="@drawable/save_button_image"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

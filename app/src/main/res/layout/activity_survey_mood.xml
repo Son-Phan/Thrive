@@ -34,6 +34,7 @@
             android:layout_height="60dp"
             android:button="@android:color/transparent"
             android:layout_weight="2"
+            android:contentDescription="happy"
             android:background="@drawable/happy_image_selector"
             android:layout_marginRight="10dp"/>
 
@@ -43,6 +44,7 @@
             android:layout_height="60dp"
             android:button="@android:color/transparent"
             android:layout_marginRight="10dp"
+            android:contentDescription="good"
             android:background="@drawable/good_image_selector"
             android:layout_weight="2" />
 
@@ -53,6 +55,7 @@
             android:button="@android:color/transparent"
             android:background="@drawable/medium_image_selector"
             android:layout_marginRight="10dp"
+            android:contentDescription="medium"
             android:layout_weight="2" />
 
         <RadioButton
@@ -62,6 +65,7 @@
             android:button="@android:color/transparent"
             android:background="@drawable/bad_image_selector"
             android:layout_marginRight="10dp"
+            android:contentDescription="bad"
             android:layout_weight="2" />
 
         <RadioButton
@@ -71,6 +75,7 @@
             android:button="@android:color/transparent"
             android:background="@drawable/awful_image_selector"
             android:layout_marginRight="10dp"
+            android:contentDescription="awful"
             android:layout_weight="2" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
