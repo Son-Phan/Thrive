@@ -19,6 +19,7 @@ import com.group20.thrive.ui.today.ExerciseTodayAdapter;
 import com.group20.thrive.ui.today.Today;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DiaryEntriesAdapter extends RecyclerView.Adapter<DiaryEntriesAdapter.DiaryEntriesViewHolder> {
@@ -47,9 +48,21 @@ public class DiaryEntriesAdapter extends RecyclerView.Adapter<DiaryEntriesAdapte
         if(diary == null){
             return;
         }
-        holder.textView1.setText(diary.getEntryDate());
-        holder.textView2.setText(Integer.toString(diary.getActivityDuration()));
-        holder.textView3.setText(diary.getEntryActivities());
+        holder.textView1.setText(diary.getEntryMood());
+        holder.textView2.setText(diary.getEntryTime());
+
+        String [] diaryActivities = diary.getEntryActivities().split(",");
+
+        String result = "";
+        for(int i = 0; i < diaryActivities.length; i += 1){
+
+            result += diaryActivities[i];
+            if(i < diaryActivities.length - 1)
+                result += " \u25CF ";
+        }
+        result = result.substring(1,result.length()-1);
+        holder.textView3.setText(result);
+        holder.imageView.setImageResource(diary.getImageLocation());
     }
 
     @Override
@@ -58,12 +71,13 @@ public class DiaryEntriesAdapter extends RecyclerView.Adapter<DiaryEntriesAdapte
     }
     public class DiaryEntriesViewHolder extends RecyclerView.ViewHolder{
         public TextView textView1, textView2, textView3;
+        public ImageView imageView;
         public DiaryEntriesViewHolder(@NonNull View itemView) {
             super(itemView);
             textView1 = itemView.findViewById(R.id.textView4);
             textView2 = itemView.findViewById(R.id.textView5);
             textView3 = itemView.findViewById(R.id.textView6);
-
+            imageView = itemView.findViewById(R.id.imageView2);
         }
     }
 }

@@ -15,7 +15,10 @@
       app:layout_constraintBottom_toTopOf="@+id/cardView2"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      android:textSize="25sp"
+      android:textStyle="bold"
+      />
 
   <androidx.cardview.widget.CardView
       android:id="@+id/cardView2"
@@ -30,78 +33,239 @@
       app:layout_constraintHorizontal_bias="0.481"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.692">
+      app:layout_constraintVertical_bias="0.857">
 
     <CheckBox
         android:id="@+id/checkbox_tv"
         android:layout_width="65dp"
         android:layout_height="85dp"
-        android:button="@android:color/transparent"
         android:layout_marginTop="30dp"
-
         android:background="@drawable/tv_image_selector"
-        />
+
+        android:button="@android:color/transparent" />
 
     <CheckBox
         android:id="@+id/checkbox_reading"
-        android:button="@android:color/transparent"
         android:layout_width="60dp"
-        android:layout_marginTop="30dp"
         android:layout_height="70dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/reading_image_selector"
 
-        android:background="@drawable/reading_image_selector"/>
+        android:button="@android:color/transparent" />
 
     <CheckBox
         android:id="@+id/checkbox_gaming"
         android:layout_width="60dp"
         android:layout_height="72dp"
-        android:button="@android:color/transparent"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="160dp"
-        android:background="@drawable/game_image_selector"/>
+        android:layout_marginTop="30dp"
+        android:background="@drawable/game_image_selector"
+        android:button="@android:color/transparent" />
 
     <CheckBox
         android:id="@+id/checkbox_sport"
         android:layout_width="60dp"
-        android:button="@android:color/transparent"
         android:layout_height="70dp"
+        android:layout_marginLeft="240dp"
         android:layout_marginTop="30dp"
 
         android:background="@drawable/sport_image_selector"
-        android:layout_marginLeft="240dp" />
+        android:button="@android:color/transparent" />
 
     <CheckBox
         android:id="@+id/checkbox_relax"
         android:layout_width="60dp"
         android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:button="@android:color/transparent"
         android:layout_marginLeft="320dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/relax_image_selector"
 
-        android:background="@drawable/relax_image_selector"/>
+        android:button="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Hobbies" />
   </androidx.cardview.widget.CardView>
 
   <androidx.cardview.widget.CardView
       android:id="@+id/cardView3"
       android:layout_width="384dp"
-      android:layout_height="90dp"
+      android:layout_height="120dp"
+      app:cardCornerRadius="10dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.407"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.356" />
+      app:layout_constraintVertical_bias="0.389">
+
+    <CheckBox
+        android:id="@+id/checkbox_good_sleep"
+        android:layout_width="65dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/good_sleep_selector"
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_medium_sleep"
+        android:layout_width="60dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/medium_sleep_selector"
+
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_bad_sleep"
+        android:layout_width="65dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bad_sleep_selector"
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_sleep_early"
+        android:layout_width="65dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="30dp"
+
+        android:background="@drawable/sleep_early_selector"
+        android:button="@android:color/transparent" />
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Sleep" />
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+
+      android:layout_width="384dp"
+      android:layout_height="210dp"
+      android:orientation="horizontal"
+      app:cardCornerRadius="10dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      app:layout_constraintBottom_toTopOf="@+id/save_button"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.481"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cardView3"
+      app:layout_constraintVertical_bias="0.555">
+
+    <CheckBox
+        android:id="@+id/checkbox_eat_healthy"
+        android:layout_width="65dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/eat_healthy_selector"
+
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_fat_foot"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/fat_food_selector"
+
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_no_meat"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/no_meat_selector"
+
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_homemade"
+        android:layout_width="60dp"
+        android:layout_height="72dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/homemade_selector"
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_no_sweets"
+        android:layout_width="60dp"
+        android:layout_height="72dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/no_sweets_selector"
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_restaurant"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="30dp"
+
+        android:background="@drawable/restaurant_selector"
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_no_soda"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="130dp"
+
+        android:background="@drawable/no_soda_selector"
+        android:button="@android:color/transparent" />
+
+    <CheckBox
+        android:id="@+id/checkbox_delivery"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/delivery_selector"
+
+        android:button="@android:color/transparent" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Food" />
+  </androidx.cardview.widget.CardView>
 
   <ImageButton
       android:id="@+id/save_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background ="@drawable/save_button_image"
+      android:layout_width="58dp"
+      android:layout_height="59dp"
+      android:background="@drawable/save_button_image"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+      app:layout_constraintTop_toBottomOf="@+id/cardView3"
+      app:layout_constraintVertical_bias="0.969" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

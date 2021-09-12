@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         // run a random query to notify the system to create database
-        ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
-                ThriveDatabase.class, "thrive_database.db").allowMainThreadQueries().build();
+//        ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
+//                ThriveDatabase.class, "thrive_database.db").allowMainThreadQueries().build();
 //        UserDao userDao = db.userDao();
 //        userDao.addUser(new User("t",0,0,0,0,0));
 //        DiaryDao dir = db.diaryDao();
