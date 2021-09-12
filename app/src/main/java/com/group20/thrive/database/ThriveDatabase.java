@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
@@ -34,7 +35,7 @@ public abstract class ThriveDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ThriveDatabase.class, THRIVE_DATABASE_NAME)
-                            .fallbackToDestructiveMigration()
+                            .addMigrations(MIGRATION_1_2)
                             .createFromAsset("database/thrive_database.db")
                             .build();
                 }
@@ -42,5 +43,11 @@ public abstract class ThriveDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            // Empty implementation, because the schema isn't changing.
+        }
+    };
 
 }

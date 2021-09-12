@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
         // run a random query to notify the system to create database
         ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
-                ThriveDatabase.class, "thrive_database").allowMainThreadQueries().build();
+                ThriveDatabase.class, "thrive_database.db").allowMainThreadQueries().build();
 //        UserDao userDao = db.userDao();
 //        userDao.addUser(new User("t",0,0,0,0,0));
 //        DiaryDao dir = db.diaryDao();
-//        dir.addDiary(new Diary("12/09/2021", "good", 20, "Push up", 60, "Thanks"));
-//        dir.addDiary(new Diary("12/09/2021", "not bad", 40, "Pull up", 80, "Thanks"));
-//        dir.addDiary(new Diary("12/09/2021", "bad", 60, "Run", 40, "Thanks"));
+//        dir.addDiary(new Diary("14/09/2021", "good", 20, "Push up", 60, "Thanks"));
+//        dir.addDiary(new Diary("14/09/2021", "not bad", 40, "Pull up", 80, "Thanks"));
+//        dir.addDiary(new Diary("14/09/2021", "bad", 60, "Run", 40, "Thanks"));
 //        PlanDao pl = db.planDao();
 //        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
 //                " end goal of the Thrive at Work process is a an action plan for your business, " +
