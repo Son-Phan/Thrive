@@ -33,23 +33,23 @@ public class SurveyActivities extends AppCompatActivity implements View.OnClickL
         String mood = intent.getStringExtra("mood");
         activities = new ArrayList<>();
 
-        CheckBox checkbox_tv = (CheckBox)findViewById(R.id.checkbox_tv);
-        CheckBox checkbox_reading = (CheckBox)findViewById(R.id.checkbox_reading);
-        CheckBox checkbox_gaming = (CheckBox)findViewById(R.id.checkbox_gaming);
-        CheckBox checkbox_sport = (CheckBox)findViewById(R.id.checkbox_sport);
-        CheckBox checkbox_relax = (CheckBox)findViewById(R.id.checkbox_relax);
-        CheckBox checkbox_good_sleep = (CheckBox)findViewById(R.id.checkbox_good_sleep);
-        CheckBox checkbox_medium_sleep = (CheckBox)findViewById(R.id.checkbox_medium_sleep);
-        CheckBox checkbox_bad_sleep = (CheckBox)findViewById(R.id.checkbox_bad_sleep);
-        CheckBox checkbox_sleep_early = (CheckBox)findViewById(R.id.checkbox_sleep_early);
-        CheckBox checkbox_eat_healthy = (CheckBox)findViewById(R.id.checkbox_eat_healthy);
-        CheckBox checkbox_fat_foot = (CheckBox)findViewById(R.id.checkbox_fat_foot);
-        CheckBox checkbox_homemade = (CheckBox)findViewById(R.id.checkbox_homemade);
-        CheckBox checkbox_restaurant = (CheckBox)findViewById(R.id.checkbox_restaurant);
-        CheckBox checkbox_delivery = (CheckBox)findViewById(R.id.checkbox_delivery);
-        CheckBox checkbox_no_meat = (CheckBox)findViewById(R.id.checkbox_no_meat);
-        CheckBox checkbox_no_sweets = (CheckBox)findViewById(R.id.checkbox_no_sweets);
-        CheckBox checkbox_no_soda = (CheckBox)findViewById(R.id.checkbox_no_soda);
+        CheckBox checkbox_tv = findViewById(R.id.checkbox_tv);
+        CheckBox checkbox_reading = findViewById(R.id.checkbox_reading);
+        CheckBox checkbox_gaming = findViewById(R.id.checkbox_gaming);
+        CheckBox checkbox_sport = findViewById(R.id.checkbox_sport);
+        CheckBox checkbox_relax = findViewById(R.id.checkbox_relax);
+        CheckBox checkbox_good_sleep = findViewById(R.id.checkbox_good_sleep);
+        CheckBox checkbox_medium_sleep = findViewById(R.id.checkbox_medium_sleep);
+        CheckBox checkbox_bad_sleep = findViewById(R.id.checkbox_bad_sleep);
+        CheckBox checkbox_sleep_early = findViewById(R.id.checkbox_sleep_early);
+        CheckBox checkbox_eat_healthy = findViewById(R.id.checkbox_eat_healthy);
+        CheckBox checkbox_fat_foot = findViewById(R.id.checkbox_fat_foot);
+        CheckBox checkbox_homemade = findViewById(R.id.checkbox_homemade);
+        CheckBox checkbox_restaurant = findViewById(R.id.checkbox_restaurant);
+        CheckBox checkbox_delivery = findViewById(R.id.checkbox_delivery);
+        CheckBox checkbox_no_meat = findViewById(R.id.checkbox_no_meat);
+        CheckBox checkbox_no_sweets = findViewById(R.id.checkbox_no_sweets);
+        CheckBox checkbox_no_soda = findViewById(R.id.checkbox_no_soda);
         checkbox_tv.setOnClickListener(this);
         checkbox_reading.setOnClickListener(this);
         checkbox_gaming.setOnClickListener(this);
@@ -68,19 +68,16 @@ public class SurveyActivities extends AppCompatActivity implements View.OnClickL
         checkbox_no_sweets.setOnClickListener(this);
         checkbox_no_soda.setOnClickListener(this);
         Intent intent_1 = new Intent(this, MainActivity.class);
-        ImageButton save_button = (ImageButton) findViewById(R.id.save_button);
+        ImageButton save_button = findViewById(R.id.save_button);
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         String currentDateandTime = sdf.format(new Date());
-        save_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
-                        ThriveDatabase.class, "thrive_database.db").allowMainThreadQueries().build();
-                DiaryDao diaryDao = db.diaryDao();
-                diaryDao.addDiary(new Diary(date,currentDateandTime, mood,imageLocation(mood), 60, activities.toString(), 40, "nothing"));
+        save_button.setOnClickListener(view -> {
+            ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
+                    ThriveDatabase.class, ThriveDatabase.THRIVE_DATABASE_NAME).allowMainThreadQueries().build();
+            DiaryDao diaryDao = db.diaryDao();
+            diaryDao.addDiary(new Diary(date,currentDateandTime, mood,imageLocation(mood), 60, activities.toString(), "nothing"));
 
-                startActivity(intent_1);
-            }
+            startActivity(intent_1);
         });
     }
 

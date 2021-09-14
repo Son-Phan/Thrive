@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 @Database(entities = {Plan.class, Lesson.class, Activity.class, Diary.class, User.class, ActivityRecord.class, LessonActivityCrossRef.class}, version = 1)
 public abstract class ThriveDatabase extends RoomDatabase {
 
-    public static final String THRIVE_DATABASE_NAME = "thrive_database.db";
+    public static final String THRIVE_DATABASE_NAME = "thrive_database";
 
     public abstract UserDao userDao();
     public abstract ActivityRecordDao activityRecordDao();
@@ -35,7 +35,6 @@ public abstract class ThriveDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ThriveDatabase.class, THRIVE_DATABASE_NAME)
-                            .addMigrations(MIGRATION_1_2)
                             .createFromAsset("database/thrive_database.db")
                             .build();
                 }
@@ -43,11 +42,5 @@ public abstract class ThriveDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
-        @Override
-        public void migrate(SupportSQLiteDatabase database) {
-            // Empty implementation, because the schema isn't changing.
-        }
-    };
 
 }

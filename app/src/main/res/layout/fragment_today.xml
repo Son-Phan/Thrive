@@ -4,61 +4,307 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_plans_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
+    android:layout_height="match_parent"
     tools:context=".ui.plans.PlansFragment">
-    <!--<TextView-->
-    <!--    android:layout_weight="1"-->
-    <!--    android:id="@+id/text_Plans"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    android:layout_marginStart="8dp"-->
-    <!--    android:layout_marginTop="8dp"-->
-    <!--    android:layout_marginEnd="8dp"-->
-    <!--    android:textAlignment="center"-->
-    <!--    android:textSize="20sp"-->
-    <!--    android:text="Plans"-->
-    <!--    android:layout_constraintBottom_toBottomOf="parent"-->
-    <!--    android:layout_constraintEnd_toEndOf="parent"-->
-    <!--    android:layout_constraintStart_toStartOf="parent"/>-->
 
-
-    <ProgressBar
-        android:id="@+id/progress_circular"
-        style="?android:progressBarStyleHorizontal"
-        android:layout_width="150dp"
-
-        android:layout_height="150dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="20dp"
-        android:indeterminate="false"
-        android:progress="60"
-        android:progressDrawable="@drawable/circle_progress_bar"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview_fragment_today"
+    <TextView
+        android:id="@+id/greetings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Good day!"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_fragment_today"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/morning"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Morning"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle1"
+        app:layout_constraintBaseline_toBottomOf="@id/circle1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.1" />
 
-        android:layout_marginBottom="1dp"
+    <TextView
+        android:id="@+id/afternoon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Afternoon"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="@id/circle2"
+        app:layout_constraintHorizontal_bias="0.1" />
+
+    <TextView
+        android:id="@+id/evening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evening"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="@id/circle3"
+        app:layout_constraintHorizontal_bias="0.1" />
+
+
+
+    <ImageButton
+        android:id="@+id/circle1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/settings_btn"
+        android:minHeight="48dp"
+        android:src="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_circular" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.12" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="60%"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/progress_circular"
-        app:layout_constraintEnd_toEndOf="@+id/progress_circular"
-        app:layout_constraintStart_toStartOf="@+id/progress_circular"
-        app:layout_constraintTop_toTopOf="@+id/progress_circular" />
+    <View
+        android:id="@+id/divider1A"
+        android:layout_width="6dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/divider1B"
+        app:layout_constraintTop_toBottomOf="@id/circle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <View
+        android:id="@+id/divider1B"
+        android:layout_width="6dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/divider1C"
+        app:layout_constraintTop_toBottomOf="@id/divider1A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <View
+        android:id="@+id/divider1C"
+        android:layout_width="6dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/circle2"
+        app:layout_constraintTop_toBottomOf="@id/divider1B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <ImageButton
+        android:id="@+id/circle2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/settings_btn"
+        android:minHeight="48dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toTopOf="@id/circle3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circle1"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <View
+        android:id="@+id/divider2A"
+        android:layout_width="6dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/divider2B"
+        app:layout_constraintTop_toBottomOf="@id/circle2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <View
+        android:id="@+id/divider2B"
+        android:layout_width="6dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/divider2C"
+        app:layout_constraintTop_toBottomOf="@id/divider2A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <View
+        android:id="@+id/divider2C"
+        android:layout_width="6dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/circle3"
+        app:layout_constraintTop_toBottomOf="@id/divider2B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+    <ImageButton
+        android:id="@+id/circle3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/settings_btn"
+        android:minHeight="48dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circle2"
+        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.12" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toEndOf="@+id/circle1"
+        app:layout_constraintTop_toBottomOf="@id/morning">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meditation_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="meditate"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="30dp"
+            android:text="min"
+            android:textSize="14sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toEndOf="@+id/circle2"
+        app:layout_constraintTop_toBottomOf="@id/afternoon">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/running_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="exercise"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="30dp"
+            android:text="min"
+            android:textSize="14sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toEndOf="@+id/circle3"
+        app:layout_constraintTop_toBottomOf="@id/evening">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meditation_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="meditate"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="30dp"
+            android:text="min"
+            android:textSize="14sp" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

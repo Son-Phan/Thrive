@@ -4,22 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group20.thrive.R;
 import com.group20.thrive.database.Diary;
-import com.group20.thrive.ui.today.ExerciseToday;
-import com.group20.thrive.ui.today.ExerciseTodayAdapter;
-import com.group20.thrive.ui.today.Today;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DiaryEntriesAdapter extends RecyclerView.Adapter<DiaryEntriesAdapter.DiaryEntriesViewHolder> {
