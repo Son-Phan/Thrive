@@ -8,7 +8,7 @@ public class ActivityRepository {
 
     private ActivityDao mActivityDao;
 
-    ActivityRepository(Application application) {
+    public ActivityRepository(Application application) {
         ThriveDatabase db = ThriveDatabase.getDatabase(application);
         mActivityDao = db.activityDao();
     }

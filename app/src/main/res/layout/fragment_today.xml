@@ -182,7 +182,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
+        android:id="@+id/activity1"
         android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -193,12 +193,14 @@
         app:layout_constraintTop_toBottomOf="@id/morning">
 
         <ImageView
+            android:id="@+id/activity1Image"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/meditation_icon" />
 
         <TextView
+            android:id="@+id/activity1Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -206,6 +208,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/activity1Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -224,7 +227,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/activity2"
         android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -235,12 +238,14 @@
         app:layout_constraintTop_toBottomOf="@id/afternoon">
 
         <ImageView
+            android:id="@+id/activity2Image"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/running_icon" />
 
         <TextView
+            android:id="@+id/activity2Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -248,6 +253,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/activity2Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -266,7 +272,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/activity3"
         android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -277,12 +283,14 @@
         app:layout_constraintTop_toBottomOf="@id/evening">
 
         <ImageView
+            android:id="@+id/activity3Image"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/meditation_icon" />
 
         <TextView
+            android:id="@+id/activity3Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -290,6 +298,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/activity3Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"

@@ -8,26 +8,32 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.group20.thrive.database.Activity;
+import com.group20.thrive.database.ActivityRecordDao;
+import com.group20.thrive.database.ActivityRepository;
 import com.group20.thrive.database.Diary;
 import com.group20.thrive.database.DiaryRepository;
+import com.group20.thrive.database.LessonRepository;
+import com.group20.thrive.database.User;
+import com.group20.thrive.database.UserRepository;
 
 import java.util.List;
 
 public class TodayViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mText;
-    private DiaryRepository mRepository;
+    private UserRepository userRepository;
+    private LessonRepository lessonRepository;
+
     public TodayViewModel(@NonNull Application application) {
         super(application);
-        mRepository = new DiaryRepository(application);
+        userRepository = new UserRepository(application);
+        lessonRepository = new LessonRepository(application);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<User> getUser() { return userRepository.getUser(); }
+
+    public LiveData<List<Activity>> getActivitiesOfCurrentLesson(int lessonId) {
+        return lessonRepository.getActivitiesOfLesson(lessonId);
     }
-    public LiveData<List<Diary>> getAllEntries(String entryDate) {
-        System.out.println(entryDate);
-        return mRepository.getAllEntries(entryDate);
-    }
-    List<Diary> getEntries(String entryDate) { return mRepository.getEntries(entryDate); }
 }

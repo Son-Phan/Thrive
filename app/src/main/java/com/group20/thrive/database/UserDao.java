@@ -1,6 +1,7 @@
 package com.group20.thrive.database;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -12,6 +13,6 @@ public interface UserDao {
     void addUser(User user);
 
     @Query("SELECT * FROM User")
-    User getUser();
+    LiveData<User> getUser();
 
 }

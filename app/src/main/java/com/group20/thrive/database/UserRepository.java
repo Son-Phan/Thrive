@@ -2,21 +2,23 @@ package com.group20.thrive.database;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 public class UserRepository {
     private UserDao mUserDao;
     private ActivityRecordDao mActivityRecordDao;
 
-    UserRepository(Application application) {
+    public UserRepository(Application application) {
         ThriveDatabase db = ThriveDatabase.getDatabase(application);
         mUserDao = db.userDao();
         mActivityRecordDao = db.activityRecordDao();
     }
 
-    void addUser(User user) { ThriveDatabase.databaseWriteExecutor.execute(() -> mUserDao.addUser(user)); }
+    public void addUser(User user) { ThriveDatabase.databaseWriteExecutor.execute(() -> mUserDao.addUser(user)); }
 
-    User getUser() { return mUserDao.getUser(); }
+    public LiveData<User> getUser() { return mUserDao.getUser(); }
 
-    void addActivityRecord (ActivityRecord record) { ThriveDatabase.databaseWriteExecutor.execute(() -> mActivityRecordDao.addRecord(record)); }
+    public void addActivityRecord (ActivityRecord record) { ThriveDatabase.databaseWriteExecutor.execute(() -> mActivityRecordDao.addRecord(record)); }
 
-    ActivityRecord getActivityRecord(String activityType) { return mActivityRecordDao.getActivityRecord(activityType); }
+    public ActivityRecord getActivityRecord(String activityType) { return mActivityRecordDao.getActivityRecord(activityType); }
 }

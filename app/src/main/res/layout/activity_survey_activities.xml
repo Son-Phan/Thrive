@@ -12,7 +12,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="What have you been up to?"
-      app:layout_constraintBottom_toTopOf="@+id/cardView2"
+      app:layout_constraintBottom_toTopOf="@+id/activity2"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -21,14 +21,14 @@
       />
 
   <androidx.cardview.widget.CardView
-      android:id="@+id/cardView2"
+      android:id="@+id/activity2"
       android:layout_width="384dp"
       android:layout_height="120dp"
       android:layout_marginLeft="20dp"
       android:layout_marginRight="20dp"
       android:orientation="horizontal"
       app:cardCornerRadius="10dp"
-      app:layout_constraintBottom_toTopOf="@+id/cardView3"
+      app:layout_constraintBottom_toTopOf="@+id/activity3"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.481"
       app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
   </androidx.cardview.widget.CardView>
 
   <androidx.cardview.widget.CardView
-      android:id="@+id/cardView3"
+      android:id="@+id/activity3"
       android:layout_width="384dp"
       android:layout_height="120dp"
       app:cardCornerRadius="10dp"
@@ -166,7 +166,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.481"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/cardView3"
+      app:layout_constraintTop_toBottomOf="@+id/activity3"
       app:layout_constraintVertical_bias="0.555">
 
     <CheckBox
@@ -264,7 +264,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/cardView3"
+      app:layout_constraintTop_toBottomOf="@+id/activity3"
       app:layout_constraintVertical_bias="0.969" />
 
 
