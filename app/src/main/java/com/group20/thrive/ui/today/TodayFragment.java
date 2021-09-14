@@ -44,7 +44,7 @@ public class TodayFragment extends Fragment {
 
     }
 
-    public void todayGreetings  (View view) {
+    public void todayGreetings(View view) {
 
         TextView greetings = view.findViewById(R.id.greetings);
 
