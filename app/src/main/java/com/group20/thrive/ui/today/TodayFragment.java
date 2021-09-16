@@ -1,5 +1,6 @@
 package com.group20.thrive.ui.today;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
+import com.group20.thrive.ExerciseActivity;
 import com.group20.thrive.MainActivity;
 import com.group20.thrive.R;
 import com.group20.thrive.database.Activity;
@@ -24,6 +26,7 @@ import com.group20.thrive.databinding.FragmentTodayBinding;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,6 +36,7 @@ public class TodayFragment extends Fragment {
     private TodayViewModel todayViewModel;
     private FragmentTodayBinding binding;
     private int lessonId;
+    private List<Activity> activities;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -51,13 +55,21 @@ public class TodayFragment extends Fragment {
 
         todayGreetings(view);
 
+        CardView activity1 = view.findViewById(R.id.activity1);
+        CardView activity2 = view.findViewById(R.id.activity2);
+        CardView activity3 = view.findViewById(R.id.activity3);
+
         todayViewModel.getUser().observe(getActivity(), newData -> {
             lessonId = newData.getCurrentLesson();
             todayViewModel.getActivitiesOfCurrentLesson(lessonId).observe(getActivity(), newActivities -> {
                 todayActivities(view, newActivities);
+                activities = new ArrayList<>(newActivities);
             });
         });
 
+        activity1.setOnClickListener(view1 -> onActivityClick(activities.get(0)));
+        activity2.setOnClickListener(view1 -> onActivityClick(activities.get(1)));
+        activity3.setOnClickListener(view1 -> onActivityClick(activities.get(2)));
     }
 
     public void todayGreetings(View view) {
@@ -101,6 +113,12 @@ public class TodayFragment extends Fragment {
             activityNames.get(i).setText(activities.get(i).activityName);
             activityTimes.get(i).setText(String.valueOf(activities.get(i).activityLen));
         }
+    }
+
+    public void onActivityClick(Activity activity) {
+        Intent intent = new Intent(getActivity(), ExerciseActivity.class);
+        intent.putExtra("activity", activity);
+        startActivity(intent);
     }
 
     @Override

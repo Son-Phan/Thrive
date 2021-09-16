@@ -5,21 +5,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.group20.thrive.Exercises;
 import com.group20.thrive.ExercisesAdapter;
-import com.group20.thrive.PlansTest;
 import com.group20.thrive.R;
 
-import java.util.ArrayList;
-
-public class ExerciseActivity extends AppCompatActivity{
+public class PlanActivity extends AppCompatActivity{
 
     ListView lvExercise;
 
@@ -29,7 +23,7 @@ public class ExerciseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exercise);
+        setContentView(R.layout.activity_plan);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);

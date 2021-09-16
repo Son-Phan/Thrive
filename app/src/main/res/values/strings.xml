@@ -12,6 +12,12 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="sample_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Phasellus sed porta tellus, id pretium nunc. Sed in leo metus.
+        Vivamus laoreet purus ac justo dignissim, quis tincidunt tortor finibus.
+        Donec et ante ligula. Pellentesque pulvinar a arcu sed varius.
+        Sed orci felis, hendrerit nec ex varius, ultricies placerat neque. Ut.</string>
+
 
     <!-- Quote list -->
     <string name="quote1">“When you change your thoughts, remember to also change your world.”—Norman Vincent Peale</string>

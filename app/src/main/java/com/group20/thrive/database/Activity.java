@@ -3,9 +3,11 @@ package com.group20.thrive.database;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 
 @Entity(tableName = "activity")
-public class Activity {
+public class Activity implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int activityId;
     public String activityName;

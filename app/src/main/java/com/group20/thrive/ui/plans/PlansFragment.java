@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.group20.thrive.Plans;
 import com.group20.thrive.PlansAdapter;
 import com.group20.thrive.R;
-import com.group20.thrive.database.ThriveDatabase;
 
 import java.util.ArrayList;
 
@@ -54,7 +53,7 @@ public class PlansFragment extends Fragment  {
         lvPlans.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), ExerciseActivity.class);
+                Intent intent = new Intent(getActivity(), PlanActivity.class);
                 startActivity(intent);
 
             }
