@@ -7,21 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
 
-import com.group20.thrive.ExerciseActivity;
-import com.group20.thrive.MainActivity;
+import com.group20.thrive.ActivityInfoActivity;
 import com.group20.thrive.R;
 import com.group20.thrive.database.Activity;
-import com.group20.thrive.database.ThriveDatabase;
-import com.group20.thrive.database.User;
 import com.group20.thrive.databinding.FragmentTodayBinding;
 
 import java.time.ZoneId;
@@ -116,7 +111,7 @@ public class TodayFragment extends Fragment {
     }
 
     public void onActivityClick(Activity activity) {
-        Intent intent = new Intent(getActivity(), ExerciseActivity.class);
+        Intent intent = new Intent(getActivity(), ActivityInfoActivity.class);
         intent.putExtra("activity", activity);
         startActivity(intent);
     }

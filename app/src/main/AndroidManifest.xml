@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.group20.thrive">
+    package="com.group20.thrive" >
 
     <application
         android:allowBackup="true"
@@ -9,10 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Thrive">
-        <activity
-            android:name=".PlayVideoActivity"
-            android:exported="true" />
+        android:theme="@style/Theme.Thrive" >
         <activity
             android:name=".ui.diary.SurveyActivities"
             android:exported="true" />
@@ -28,7 +25,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +35,9 @@
         <activity android:name=".SignInActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ui.diary.DiaryEntriesActivity" />
-        <activity android:name=".ExerciseActivity" />
+        <activity android:name=".ActivityInfoActivity" />
+        <activity android:name=".PlayVideoActivity" />
+        <activity android:name=".ExerciseActivity"/>
     </application>
 
 </manifest>

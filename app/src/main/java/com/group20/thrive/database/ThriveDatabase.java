@@ -42,5 +42,4 @@ public abstract class ThriveDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-
 }

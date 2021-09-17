@@ -12,4 +12,5 @@ public interface ActivityRecordDao {
 
     @Query("SELECT * FROM ActivityRecord WHERE activityType = :activityType")
     ActivityRecord getActivityRecord(String activityType);
+
 }

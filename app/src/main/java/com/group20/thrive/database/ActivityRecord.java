@@ -7,12 +7,14 @@ import androidx.room.PrimaryKey;
 public class ActivityRecord {
     @PrimaryKey (autoGenerate = true)
     public int recordId;
-    public String recordTime;
-    public String activityType; // exercise || meditation
-    public int recordLength; // in minutes
+    public String recordTime; // date format dd/MM/yyyy
+    public int activityId; // id is 0 for sleep activity
+    public String activityType; // exercise || meditation || sleep
+    public int recordLength; // in seconds for exercise & meditation, in minutes for sleep
 
-    public ActivityRecord(String recordTime, String activityType, int recordLength) {
+    public ActivityRecord(String recordTime, int activityId, String activityType, int recordLength) {
         this.recordTime = recordTime;
+        this.activityId = activityId;
         this.activityType = activityType;
         this.recordLength = recordLength;
     }
@@ -20,6 +22,8 @@ public class ActivityRecord {
     public int getRecordId() { return recordId; }
 
     public String getRecordTime() { return recordTime; }
+
+    public int getActivityName() { return activityId; }
 
     public String getActivityType() { return activityType; }
 

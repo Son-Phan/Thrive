@@ -19,7 +19,7 @@ public class PlayVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_video);
 
-        setTitle("Instruction");
+        setTitle("Video");
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;

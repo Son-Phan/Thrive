@@ -11,8 +11,10 @@
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.5703125" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5703125" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/rounded_corners_btn.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_activity_info.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_diary_entries.xml" value="0.39351851851851855" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_exercise.xml" value="0.35185185185185186" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_exercise_info.xml" value="0.3907407407407407" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_plan.xml" value="0.38055555555555554" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_play_video.xml" value="0.38055555555555554" />
@@ -29,7 +31,7 @@
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_summary_exercise.xml" value="0.4027777777777778" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_summary_meditation.xml" value="0.4027777777777778" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_summary_sleep.xml" value="0.4027777777777778" />
-        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_today.xml" value="0.4666666666666667" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_today.xml" value="0.27037037037037037" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_today_exercise.xml" value="0.27685185185185185" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_today_sleep.xml" value="0.27685185185185185" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/item_int_listview_exercises.xml" value="0.27685185185185185" />
