@@ -4,18 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.group20.thrive.ExercisesAdapter;
 import com.group20.thrive.R;
+
+import java.util.ArrayList;
 
 public class PlanActivity extends AppCompatActivity{
 
-    ListView lvExercise;
+
 
     ExercisesAdapter exerciseAdapter;
     Button exit_button;
@@ -27,15 +30,25 @@ public class PlanActivity extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
-        init();
-        exerciseAdapter = new ExercisesAdapter(this, R.layout.listview_exercises);
-        plansViewModel = new ViewModelProvider.AndroidViewModelFactory(this.getApplication()).create(PlansViewModel.class);
-        plansViewModel.getAllPlans().observe(this, newData -> {
-            exerciseAdapter.setExerciseList(newData);
-            exerciseAdapter.notifyDataSetChanged();
-            System.out.println(newData);
-        });
-        lvExercise.setAdapter(exerciseAdapter);
+
+        ArrayList<String> days = new ArrayList<>();
+        days.add("Day 7");
+        days.add("Day 6");
+        days.add("Day 5");
+        days.add("Day 4");
+        days.add("Day 3");
+        days.add("Day 2");
+        days.add("Day 1");
+        RecyclerView recyclerView = findViewById(R.id.listviewExercises);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+        exerciseAdapter = new ExercisesAdapter(this, days);
+//        plansViewModel = new ViewModelProvider.AndroidViewModelFactory(this.getApplication()).create(PlansViewModel.class);
+//        plansViewModel.getAllPlans().observe(this, newData -> {
+//            exerciseAdapter.setExerciseList(newData);
+//            exerciseAdapter.notifyDataSetChanged();
+//            System.out.println(newData);
+//        });
+        recyclerView.setAdapter(exerciseAdapter);
 
     }
 
@@ -48,12 +61,7 @@ public class PlanActivity extends AppCompatActivity{
 
         return super.onOptionsItemSelected(item);
     }
-    private void init(){
-        lvExercise = (ListView) findViewById(R.id.listviewExercises);
 
-
-
-    }
 
 
 }
