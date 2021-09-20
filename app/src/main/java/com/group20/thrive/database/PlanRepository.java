@@ -25,4 +25,6 @@ public class PlanRepository {
     }
 
     List<PlanWithLessons> getPlansWithLessons() { return mPlanDao.getPlansWithLessons(); }
+
+    public LiveData<Plan> getUserPlan() { return mPlanDao.getUserPlan(); }
 }

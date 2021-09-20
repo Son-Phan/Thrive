@@ -90,7 +90,6 @@ public class ExerciseActivity extends AppCompatActivity {
                 Toast.makeText(ExerciseActivity.this,
                         "Congratulation! You have finished " + activity.getActivityName() + " exercise.",
                         Toast.LENGTH_SHORT).show();
-                updateActivityRecord();
                 onBackPressed();
             }
         }.start();
@@ -118,6 +117,12 @@ public class ExerciseActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        updateActivityRecord();
+    }
+
     private void updateActivityRecord() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String date = ZonedDateTime.now(ZoneId.systemDefault()).format(formatter);
@@ -126,7 +131,7 @@ public class ExerciseActivity extends AppCompatActivity {
             ThriveDatabase db = Room.databaseBuilder(getApplicationContext(), ThriveDatabase.class,
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             ActivityRecordDao activityRecordDao = db.activityRecordDao();
-            activityRecordDao.addRecord(new ActivityRecord(date, activity.getActivityId(), "exercise", exerciseTime));
+            activityRecordDao.addRecord(new ActivityRecord(date, activity.getActivityId(), activity.getActivityType(), exerciseTime));
         });
     }
 

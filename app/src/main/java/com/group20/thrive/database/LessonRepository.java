@@ -17,6 +17,8 @@ public class LessonRepository {
 
     public Lesson getLesson(int lessonId) { return mLessonDao.getLesson(lessonId); }
 
+    public LiveData<List<Lesson>> getLessonsOfPlan(int planId) { return mLessonDao.getLessonsOfPlan(planId); }
+
     public List<LessonWithActivities> getLessonsWithActivities() { return mLessonDao.getLessonsWithActivities(); }
 
     public LiveData<List<Activity>> getActivitiesOfLesson(int lessonId) { return mLessonDao.getActivitiesOfLesson(lessonId); }

@@ -5,17 +5,22 @@
     android:id="@+id/relativeLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/custom_listview_sample">
+    android:background="@drawable/custom_listview_sample"
+    android:backgroundTint="@color/light_orange">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_exercises_click"
-        android:backgroundTint="@color/white"
-        app:iconTint="#B33939"
+    <TextView
+        android:id="@+id/lessonDay"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="0dp"
+        android:text="Day 10"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

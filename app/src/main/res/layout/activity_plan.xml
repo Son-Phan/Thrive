@@ -1,101 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearLayout"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10">
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listviewExercises"
-        android:layout_width="384dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="25dp"
-        android:divider="@null"
-        android:dividerHeight="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+    android:background="@color/background">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/planName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Plan Name"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="planName"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/planLen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="1 day"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:text="10"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/planName" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="4dp"
+        android:text="days"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/planLen"
+        app:layout_constraintTop_toBottomOf="@+id/planName" />
+
+    <TextView
+        android:id="@+id/planDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Plan Description"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/planLen" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="382dp"
-        android:layout_height="91dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
 
-        android:layout_marginTop="20dp"
-        android:inputType="textLongMessage"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLessons"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="382dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
+        android:id="@+id/activity1"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listviewExercises" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewLessons"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/activity1Image"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meditation_icon" />
+
+        <TextView
+            android:id="@+id/activity1Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="meditate"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/activity1Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="30dp"
+            android:text="min"
+            android:textSize="15sp" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="382dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
+        android:id="@+id/activity2"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity1"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/activity2Image"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meditation_icon" />
+
+        <TextView
+            android:id="@+id/activity2Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="meditate"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/activity2Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="30dp"
+            android:text="min"
+            android:textSize="15sp" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="382dp"
-        android:layout_height="65dp"
-
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
-
+        android:id="@+id/activity3"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity2"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/activity3Image"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meditation_icon" />
+
+        <TextView
+            android:id="@+id/activity3Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="meditate"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/activity3Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="30dp"
+            android:text="min"
+            android:textSize="15sp" />
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

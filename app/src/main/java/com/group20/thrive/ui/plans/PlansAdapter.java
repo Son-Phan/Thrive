@@ -1,4 +1,4 @@
-package com.group20.thrive;
+package com.group20.thrive.ui.plans;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.group20.thrive.R;
 import com.group20.thrive.database.Plan;
 
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ public class PlansAdapter extends BaseAdapter {
     private Context context;
     private int layout;
 
-    public void setExerciseList(List<Plan> exerciseList) {
-        this.exerciseList = exerciseList;
+    public void setPlanList(List<Plan> planList) {
+        this.planList = planList;
     }
 
-    private List<Plan> exerciseList = new ArrayList<>();
+    private List<Plan> planList = new ArrayList<>();
 
     public PlansAdapter(Context context, int layout) {
         this.context = context;
@@ -31,20 +31,19 @@ public class PlansAdapter extends BaseAdapter {
 
     }
 
-
     @Override
     public int getCount() {
-        return exerciseList.size();
+        return planList.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Plan getItem(int i) {
+        return planList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -60,11 +59,23 @@ public class PlansAdapter extends BaseAdapter {
     }
 
     protected View init(int i, View view){
-        TextView txtTitleName = (TextView) view.findViewById(R.id.textviewTitleName);
-        ImageView imagePicture = (ImageView) view.findViewById(R.id.imageviewPicture);
-        Plan exercise = exerciseList.get(i);
-        txtTitleName.setText(exercise.getPlanName());
-        imagePicture.setImageResource(exercise.getImageLocation());
+        TextView planName = view.findViewById(R.id.planName);
+        TextView planLen = view.findViewById(R.id.planLen);
+        TextView planDesc = view.findViewById(R.id.planDesc);
+
+        Plan plan = planList.get(i);
+
+        planName.setText(plan.getPlanName());
+        planLen.setText(String.valueOf(plan.getPlanLength()));
+
+        if (plan.getPlanDescription().length() > 40) {
+            String desc = plan.getPlanDescription().substring(0,40) + "...";
+            planDesc.setText(desc);
+        }
+        else {
+            planDesc.setText(plan.getPlanDescription());
+        }
+
         return view;
     }
 }

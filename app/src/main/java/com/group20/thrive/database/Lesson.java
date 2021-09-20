@@ -22,6 +22,8 @@ public class Lesson {
 
     public int getPlanId() { return planId; }
 
+    public int getLessonDay() { return lessonDay; }
+
     public String getLessonDesc() { return lessonDesc; }
 
     public void setLessonId(int lessonId) { this.lessonId = lessonId; }

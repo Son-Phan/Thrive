@@ -12,10 +12,8 @@ import java.util.List;
 public interface PlanDao {
 
     @Insert
-    void insertAll(Plan... plans);
-
-    @Insert
     void addPlan(Plan plan);
+
     @Query("select * from `plan`")
     List<Plan> getPlan();
 
@@ -25,4 +23,7 @@ public interface PlanDao {
     @Transaction
     @Query("select * from `plan`")
     List<PlanWithLessons> getPlansWithLessons();
+
+    @Query("SELECT * FROM `plan` WHERE planId LIKE (SELECT planId FROM User)")
+    LiveData<Plan> getUserPlan();
 }

@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thrive">
         <activity
-            android:name=".ui.plans.YoutubeViewActivity"
+            android:name=".YoutubeViewActivity"
             android:exported="true" />
         <activity
             android:name=".ui.diary.SurveyActivities"
@@ -26,9 +26,6 @@
             android:exported="true" />
         <activity
             android:name=".ui.plans.PlanActivity"
-            android:exported="true" />
-        <activity
-            android:name=".PlansTest"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

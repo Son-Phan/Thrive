@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    android:background="@drawable/custom_listview_sample"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:layout_marginTop="10dp"
-        android:id="@+id/imageviewPicture"
-        android:layout_width="match_parent"
-        android:layout_height="120dp" />
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/textviewTitleName"
-        android:layout_below="@+id/imageviewPicture"
-        android:text="Title Name"
-        android:textSize="30sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-</RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/currentPlan"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/light_orange">
+
+        <TextView
+            android:id="@+id/planName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="planName"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/planLen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="10"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="40dp"
+            android:text="days"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/planDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="73dp"
+            android:text="description..."
+            android:textSize="14sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

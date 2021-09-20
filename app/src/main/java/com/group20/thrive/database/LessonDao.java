@@ -18,6 +18,9 @@ public interface LessonDao {
     @Query("SELECT * FROM Lesson WHERE lessonId = :lessonId")
     Lesson getLesson(int lessonId);
 
+    @Query("SELECT * FROM Lesson WHERE planId = :planId")
+    LiveData<List<Lesson>> getLessonsOfPlan(int planId);
+
     @Transaction
     @Query("SELECT * FROM Lesson")
     List<LessonWithActivities> getLessonsWithActivities();

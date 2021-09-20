@@ -5,18 +5,14 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.group20.thrive.database.Activity;
-import com.group20.thrive.ui.plans.YoutubeViewActivity;
 
 public class ActivityInfoActivity extends AppCompatActivity {
 
@@ -79,7 +75,7 @@ public class ActivityInfoActivity extends AppCompatActivity {
                 startActivity(intent2);
             } else {
                 Intent intent3 = new Intent(this, YoutubeViewActivity.class);
-                intent3.putExtra("video", activity.getFileName());
+                intent3.putExtra("activity", activity);
                 startActivity(intent3);
             }
         });

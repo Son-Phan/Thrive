@@ -6,74 +6,77 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.group20.thrive.Plans;
-import com.group20.thrive.PlansAdapter;
 import com.group20.thrive.R;
+import com.group20.thrive.database.Plan;
 
-import java.util.ArrayList;
+public class PlansFragment extends Fragment {
 
-public class PlansFragment extends Fragment  {
-
-
-//    private FragmentPlansBinding binding;
     ListView lvPlans;
-    ArrayList<Plans> plansArrayList;
     PlansAdapter plansAdapter;
-    private PlansViewModel plansViewModel;
-    @SuppressLint("FragmentLiveDataObserve")
+    PlansViewModel plansViewModel;
+    Plan userPlan;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        PlansViewModel =
-//                new ViewModelProvider(this).get(PlansViewModel.class);
-//
-//        binding = FragmentPlansBinding.inflate(inflater, container, false);
-//        View root = binding.getRoot();
-//
-//        final TextView textView = binding.textPlans;
-//        PlansViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         View view = inflater.inflate(R.layout.fragment_plans, container, false);
-        init(view);
+
+        lvPlans = view.findViewById(R.id.listviewPlans);
         plansAdapter = new PlansAdapter(inflater.getContext(), R.layout.listview_plans);
         plansViewModel = new ViewModelProvider.AndroidViewModelFactory(this.getActivity().getApplication()).create(PlansViewModel.class);
-        plansViewModel.getAllPlans().observe(this, newData -> {
-            plansAdapter.setExerciseList(newData);
-            plansAdapter.notifyDataSetChanged();
-            System.out.println(newData);
+        plansViewModel.getAllPlans().observe(getViewLifecycleOwner(), newData -> {
+            plansViewModel.getUserPlan().observe(getViewLifecycleOwner(), newData1 -> {
+                newData.remove(newData1.getPlanId() -1);
+                plansAdapter.setPlanList(newData);
+                plansAdapter.notifyDataSetChanged();
+            });
         });
 
         lvPlans.setAdapter(plansAdapter);
 
-        lvPlans.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), PlanActivity.class);
-                startActivity(intent);
-
-            }
+        lvPlans.setOnItemClickListener((adapterView, view1, i, l) -> {
+            Intent intent = new Intent(getActivity(), PlanActivity.class);
+            intent.putExtra("plan", plansAdapter.getItem(i));
+            startActivity(intent);
         });
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        TextView planName = view.findViewById(R.id.planName);
+        TextView planLen = view.findViewById(R.id.planLen);
+        TextView planDesc = view.findViewById(R.id.planDesc);
 
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        binding = null;
-//    }
+        plansViewModel.getUserPlan().observe(getActivity(), newData -> {
+            userPlan = newData;
+            planName.setText(userPlan.getPlanName());
+            planLen.setText(String.valueOf(userPlan.getPlanLength()));
+            if (userPlan.getPlanDescription().length() > 40) {
+                String desc = userPlan.getPlanDescription().substring(0,40) + "...";
+                planDesc.setText(desc);
+            }
+            else {
+                planDesc.setText(userPlan.getPlanDescription());
+            }
+        });
 
-    private void init(View view){
-        lvPlans = (ListView) view.findViewById(R.id.listviewPlans);
+        CardView currentPlan = view.findViewById(R.id.currentPlan);
 
-
-
-
+        currentPlan.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), PlanActivity.class);
+            intent.putExtra("plan", userPlan);
+            startActivity(intent);
+        });
     }
 }
