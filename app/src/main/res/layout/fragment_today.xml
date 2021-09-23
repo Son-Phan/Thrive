@@ -192,12 +192,22 @@
         app:layout_constraintStart_toEndOf="@+id/circle1"
         app:layout_constraintTop_toBottomOf="@id/morning">
 
+        <TextView
+            android:id="@+id/noActivity1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="No assigned activity"
+            android:textSize="20sp" />
+
         <ImageView
             android:id="@+id/activity1Image"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/meditation_icon" />
+            android:src="@drawable/meditation_icon"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/activity1Name"
@@ -205,7 +215,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:text="meditate"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/activity1Time"
@@ -214,15 +225,8 @@
             android:layout_marginStart="70dp"
             android:layout_marginTop="30dp"
             android:text="10"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="30dp"
-            android:text="min"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="invisible"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -237,12 +241,22 @@
         app:layout_constraintStart_toEndOf="@+id/circle2"
         app:layout_constraintTop_toBottomOf="@id/afternoon">
 
+        <TextView
+            android:id="@+id/noActivity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="No assigned activity"
+            android:textSize="20sp"/>
+
         <ImageView
             android:id="@+id/activity2Image"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/running_icon" />
+            android:src="@drawable/running_icon"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/activity2Name"
@@ -250,7 +264,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:text="exercise"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/activity2Time"
@@ -259,15 +274,8 @@
             android:layout_marginStart="70dp"
             android:layout_marginTop="30dp"
             android:text="10"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="30dp"
-            android:text="min"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="invisible"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -282,12 +290,22 @@
         app:layout_constraintStart_toEndOf="@+id/circle3"
         app:layout_constraintTop_toBottomOf="@id/evening">
 
+        <TextView
+            android:id="@+id/noActivity3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="No assigned activity"
+            android:textSize="20sp"/>
+
         <ImageView
             android:id="@+id/activity3Image"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/meditation_icon" />
+            android:src="@drawable/meditation_icon"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/activity3Name"
@@ -295,7 +313,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:text="meditate"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/activity3Time"
@@ -304,15 +323,8 @@
             android:layout_marginStart="70dp"
             android:layout_marginTop="30dp"
             android:text="10"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="30dp"
-            android:text="min"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="invisible"/>
 
     </androidx.cardview.widget.CardView>
 

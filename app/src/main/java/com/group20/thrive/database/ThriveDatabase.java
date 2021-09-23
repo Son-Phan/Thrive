@@ -16,12 +16,11 @@ import java.util.concurrent.Executors;
 public abstract class ThriveDatabase extends RoomDatabase {
 
     public static final String THRIVE_DATABASE_NAME = "thrive_database";
-
     public abstract UserDao userDao();
     public abstract ActivityRecordDao activityRecordDao();
     public abstract PlanDao planDao();
     public abstract LessonDao lessonDao();
-    public abstract ActivityDao activityDao(); // exercise & meditation
+    public abstract ActivityDao activityDao();
     public abstract DiaryDao diaryDao();
 
     private static volatile ThriveDatabase INSTANCE;

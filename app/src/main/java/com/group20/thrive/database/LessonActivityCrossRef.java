@@ -12,13 +12,17 @@ public class LessonActivityCrossRef {
     public int lessonId;
     @ColumnInfo(index = true)
     public int activityId;
+    public String timeOfDay;
 
-    public LessonActivityCrossRef(int lessonId, int activityId) {
+    public LessonActivityCrossRef(int lessonId, int activityId, String timeOfDay) {
         this.lessonId = lessonId;
         this.activityId = activityId;
+        this.timeOfDay = timeOfDay;
     }
 
     public int getLessonId() { return lessonId; }
 
     public int getActivityId() { return activityId; }
+
+    public String getTimeOfDay() { return timeOfDay; }
 }

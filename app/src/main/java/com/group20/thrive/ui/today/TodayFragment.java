@@ -32,6 +32,7 @@ public class TodayFragment extends Fragment {
     private FragmentTodayBinding binding;
     private int lessonId;
     private List<Activity> activities;
+    private String timeOfDay;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,9 +40,8 @@ public class TodayFragment extends Fragment {
                 new ViewModelProvider(this).get(TodayViewModel.class);
 
         binding = FragmentTodayBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        return root;
+        return binding.getRoot();
     }
 
     @Override
@@ -99,14 +99,35 @@ public class TodayFragment extends Fragment {
                 view.findViewById(R.id.activity2Time),
                 view.findViewById(R.id.activity3Time));
 
+        List<TextView> noActivities = Arrays.asList(
+                view.findViewById(R.id.noActivity1),
+                view.findViewById(R.id.noActivity2),
+                view.findViewById(R.id.noActivity3));
+
         for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).activityType.equals("meditation")) {
-                activityImages.get(i).setImageResource(R.drawable.meditation_icon);
-            } else {
-                activityImages.get(i).setImageResource(R.drawable.running_icon);
-            }
-            activityNames.get(i).setText(activities.get(i).activityName);
-            activityTimes.get(i).setText(String.valueOf(activities.get(i).activityLen));
+            int finalI = i;
+            todayViewModel.getActivityTimeOfDay(activities.get(i).getActivityId()).observe(getActivity(), newData -> {
+                timeOfDay = newData;
+
+                int j;
+                if (timeOfDay.equals("morning")) { j = 0;}
+                else if (timeOfDay.equals("afternoon")) { j = 1;}
+                else { j = 2; } // evening
+
+                if (activities.get(finalI).activityType.equals("meditation")) {
+                    activityImages.get(j).setImageResource(R.drawable.meditation_icon);
+                } else {
+                    activityImages.get(j).setImageResource(R.drawable.running_icon);
+                }
+                activityNames.get(j).setText(activities.get(finalI).activityName);
+                String lenText = activities.get(finalI).getActivityLen() + " min";
+                activityTimes.get(j).setText(lenText);
+
+                activityImages.get(j).setVisibility(View.VISIBLE);
+                activityNames.get(j).setVisibility(View.VISIBLE);
+                activityTimes.get(j).setVisibility(View.VISIBLE);
+                noActivities.get(j).setVisibility(View.INVISIBLE);
+            });
         }
     }
 

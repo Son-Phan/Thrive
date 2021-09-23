@@ -81,9 +81,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/sample_desc"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/exerciseTime" />
+
+    <TextView
+        android:id="@+id/illustrationText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Tip: click on play button above for exercise illustration."
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/exerciseDesc"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/startBtn"

@@ -58,6 +58,8 @@ public class ActivityInfoActivity extends AppCompatActivity {
 
         // Instruction video for exercise
         if (exercise) {
+            TextView illustrationText = findViewById(R.id.illustrationText);
+            illustrationText.setVisibility(View.VISIBLE);
             ImageView playBtn = findViewById(R.id.playBtn);
             playBtn.setVisibility(View.VISIBLE);
             playBtn.setOnClickListener(view1 -> {
