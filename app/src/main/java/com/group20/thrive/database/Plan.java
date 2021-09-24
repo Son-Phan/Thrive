@@ -1,6 +1,5 @@
 package com.group20.thrive.database;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -23,7 +22,7 @@ public class Plan implements Serializable {
 
     public int imageLocation;
 
-    public Plan(String planName, String planType, int imageLocation, int planLength, String planDescription) {
+    public Plan(String planName, String planType, Integer imageLocation, Integer planLength, String planDescription) {
         this.imageLocation = imageLocation;
         this.planName = planName;
         this.planType = planType;

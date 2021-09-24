@@ -1,7 +1,6 @@
 package com.group20.thrive.database;
 
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "lesson")
@@ -12,7 +11,7 @@ public class Lesson {
     public int lessonDay;
     public String lessonDesc;
 
-    public Lesson(int planId, int lessonDay, String lessonDesc) {
+    public Lesson(Integer planId, Integer lessonDay, String lessonDesc) {
         this.planId = planId;
         this.lessonDay = lessonDay;
         this.lessonDesc = lessonDesc;
