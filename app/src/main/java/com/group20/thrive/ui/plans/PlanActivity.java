@@ -165,6 +165,8 @@ public class PlanActivity extends AppCompatActivity{
     }
 
     public void onAssignBtnClick(String timeOfDay) {
-        Toast.makeText(this, "placeholder", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CreateNewExersise.class);
+
+        startActivity(intent);
     }
 }

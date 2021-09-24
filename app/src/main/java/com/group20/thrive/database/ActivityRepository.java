@@ -2,6 +2,8 @@ package com.group20.thrive.database;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 import java.util.List;
 
 public class ActivityRepository {
@@ -14,6 +16,6 @@ public class ActivityRepository {
     }
 
     List<Activity> getActivityList(String activityType) { return mActivityDao.getActivityList(activityType); }
-
+    public LiveData<List<Activity>> getActivitiesOfActivityType() { return mActivityDao.getLiveActivityList(); }
     Activity getActivity(int activityId) { return mActivityDao.getActivity(activityId); }
 }

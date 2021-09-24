@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -76,6 +77,13 @@ public class PlansFragment extends Fragment {
         currentPlan.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), PlanActivity.class);
             intent.putExtra("plan", userPlan);
+            startActivity(intent);
+        });
+
+        Button createNewPlanButton = view.findViewById(R.id.createPlan);
+
+        createNewPlanButton.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), CreateNewPlanActivity.class);
             startActivity(intent);
         });
     }
