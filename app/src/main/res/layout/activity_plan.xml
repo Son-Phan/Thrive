@@ -70,6 +70,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
+    <Button
+        android:id="@+id/assignBtn1"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:text="morning activity"
+        android:textSize="18dp"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewLessons"
+        android:backgroundTint="@color/light_orange"
+        android:visibility="invisible"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/activity1"
         android:layout_width="300dp"
@@ -106,15 +120,21 @@
             android:text="10"
             android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="30dp"
-            android:text="min"
-            android:textSize="15sp" />
-
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/assignBtn2"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:text="afternoon activity"
+        android:textSize="18dp"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity1"
+        android:backgroundTint="@color/light_orange"
+        android:visibility="invisible"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/activity2"
@@ -152,15 +172,21 @@
             android:text="10"
             android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="30dp"
-            android:text="min"
-            android:textSize="15sp" />
-
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/assignBtn3"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:text="evening activity"
+        android:textSize="18dp"
+        android:textColor="@color/dark_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity2"
+        android:backgroundTint="@color/light_orange"
+        android:visibility="invisible"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/activity3"
@@ -196,14 +222,6 @@
             android:layout_marginStart="70dp"
             android:layout_marginTop="30dp"
             android:text="10"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="30dp"
-            android:text="min"
             android:textSize="15sp" />
 
     </androidx.cardview.widget.CardView>

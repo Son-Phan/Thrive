@@ -22,7 +22,6 @@ import android.widget.Toast;
 import com.group20.thrive.ActivityInfoActivity;
 import com.group20.thrive.R;
 import com.group20.thrive.database.Activity;
-import com.group20.thrive.database.Lesson;
 import com.group20.thrive.database.Plan;
 
 import java.util.ArrayList;
@@ -35,6 +34,7 @@ public class PlanActivity extends AppCompatActivity{
     LessonsAdapter lessonsAdapter = new LessonsAdapter(this);
     private PlansViewModel plansViewModel;
     private List<Activity> activities;
+    private String timeOfDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,24 +86,35 @@ public class PlanActivity extends AppCompatActivity{
 
     public void updateActivityView(int lessonId) {
 
-        CardView activity1 = findViewById(R.id.activity1);
-        CardView activity2 = findViewById(R.id.activity2);
-        CardView activity3 = findViewById(R.id.activity3);
-        activity1.setVisibility(View.VISIBLE);
-        activity2.setVisibility(View.VISIBLE);
-        activity3.setVisibility(View.VISIBLE);
+        List<CardView> activityCardViews = Arrays.asList(
+                findViewById(R.id.activity1),
+                findViewById(R.id.activity2),
+                findViewById(R.id.activity3));
+
+        List<Button> assignButtons = Arrays.asList(
+                findViewById(R.id.assignBtn1),
+                findViewById(R.id.assignBtn2),
+                findViewById(R.id.assignBtn3));
+
+        assignButtons.get(0).setVisibility(View.VISIBLE);
+        assignButtons.get(1).setVisibility(View.VISIBLE);
+        assignButtons.get(2).setVisibility(View.VISIBLE);
 
         plansViewModel.getActivitiesOfCurrentLesson(lessonId).observe(this, newData -> {
-            lessonActivities(newData);
+            lessonActivities(newData, activityCardViews, assignButtons);
             activities = new ArrayList<>(newData);
         });
 
-        activity1.setOnClickListener(view1 -> onActivityClick(activities.get(0)));
-        activity2.setOnClickListener(view1 -> onActivityClick(activities.get(1)));
-        activity3.setOnClickListener(view1 -> onActivityClick(activities.get(2)));
+        activityCardViews.get(0).setOnClickListener(view -> onActivityClick(activities.get(0)));
+        activityCardViews.get(1).setOnClickListener(view -> onActivityClick(activities.get(1)));
+        activityCardViews.get(2).setOnClickListener(view -> onActivityClick(activities.get(2)));
+
+        assignButtons.get(0).setOnClickListener((view -> onAssignBtnClick("morning")));
+        assignButtons.get(1).setOnClickListener((view -> onAssignBtnClick("afternoon")));
+        assignButtons.get(2).setOnClickListener((view -> onAssignBtnClick("evening")));
     }
 
-    public void lessonActivities(List<Activity> activities) {
+    public void lessonActivities(List<Activity> activities, List<CardView> activityCardViews, List<Button> assignButtons) {
 
         List<ImageView> activityImages = Arrays.asList(
                 findViewById(R.id.activity1Image),
@@ -121,13 +132,29 @@ public class PlanActivity extends AppCompatActivity{
                 findViewById(R.id.activity3Time));
 
         for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).activityType.equals("meditation")) {
-                activityImages.get(i).setImageResource(R.drawable.meditation_icon);
-            } else {
-                activityImages.get(i).setImageResource(R.drawable.running_icon);
-            }
-            activityNames.get(i).setText(activities.get(i).activityName);
-            activityTimes.get(i).setText(String.valueOf(activities.get(i).activityLen));
+            int finalI = i;
+            plansViewModel.getActivityTimeOfDay(activities.get(i).getActivityId()).observe(this, newData -> {
+                timeOfDay = newData;
+
+                int j;
+                if (timeOfDay.equals("morning")) { j = 0;}
+                else if (timeOfDay.equals("afternoon")) { j = 1;}
+                else { j = 2; } // evening
+
+                if (activities.get(finalI).activityType.equals("meditation")) {
+                    activityImages.get(j).setImageResource(R.drawable.meditation_icon);
+                } else {
+                    activityImages.get(j).setImageResource(R.drawable.running_icon);
+                }
+                activityNames.get(j).setText(activities.get(finalI).activityName);
+                String lenText = activities.get(finalI).getActivityLen() + " min";
+                activityTimes.get(j).setText(lenText);
+
+                activityCardViews.get(j).setVisibility(View.VISIBLE);
+                activityImages.get(j).setVisibility(View.VISIBLE);
+                activityNames.get(j).setVisibility(View.VISIBLE);
+                activityTimes.get(j).setVisibility(View.VISIBLE);
+            });
         }
     }
 
@@ -135,5 +162,9 @@ public class PlanActivity extends AppCompatActivity{
         Intent intent = new Intent(this, ActivityInfoActivity.class);
         intent.putExtra("activity", activity);
         startActivity(intent);
+    }
+
+    public void onAssignBtnClick(String timeOfDay) {
+        Toast.makeText(this, "placeholder", Toast.LENGTH_SHORT).show();
     }
 }
