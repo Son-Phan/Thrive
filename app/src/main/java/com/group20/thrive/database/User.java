@@ -59,5 +59,5 @@ public class User {
 
     public void setCurrentPlan(int currentPlan) { this.currentPlan = currentPlan; }
 
-    public void setCurrentLesson(int currentLesson) { this.currentPlan = currentLesson; }
+    public void setCurrentLesson(int currentLesson) { this.currentLesson = currentLesson; }
 }
