@@ -20,6 +20,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
     }
     compileOptions {
@@ -30,8 +31,10 @@ android {
         viewBinding true
     }
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
-
+//        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        unitTests {
+            includeAndroidResources = true
+        }
         unitTests.all {
             useJUnitPlatform() // <--- this is the important part
         }
@@ -40,7 +43,7 @@ android {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-
+    androidTestUtil 'com.android.support.test:orchestrator:1.0.1'
 
     // Required for local unit tests (JUnit 4 framework)
     // Core library
@@ -62,6 +65,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-web:3.4.0'
     androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.4.0'
+    testImplementation 'org.robolectric:robolectric:4.4'
 
     // The following Espresso dependency can be either "implementation"
     // or "androidTestImplementation", depending on whether you want the
