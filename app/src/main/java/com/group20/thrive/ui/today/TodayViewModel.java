@@ -21,7 +21,6 @@ import java.util.List;
 
 public class TodayViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> mText;
     private UserRepository userRepository;
     private LessonRepository lessonRepository;
 

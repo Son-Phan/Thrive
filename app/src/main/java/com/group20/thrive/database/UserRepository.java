@@ -4,6 +4,10 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
+import com.group20.thrive.ui.profile.Record;
+
+import java.util.List;
+
 public class UserRepository {
     private UserDao mUserDao;
     private ActivityRecordDao mActivityRecordDao;
@@ -21,4 +25,8 @@ public class UserRepository {
     public void addActivityRecord (ActivityRecord record) { ThriveDatabase.databaseWriteExecutor.execute(() -> mActivityRecordDao.addRecord(record)); }
 
     public ActivityRecord getActivityRecord(String activityType) { return mActivityRecordDao.getActivityRecord(activityType); }
+
+    public LiveData<List<Record>> getRecordsOfActivityTypeInAWeek(String activityType) { return mActivityRecordDao.getRecordsOfActivityTypeInAWeek(activityType); }
+
+    public LiveData<List<Record>> getRecordsOfActivityType(String activityType) { return mActivityRecordDao.getRecordsOfActivityType(activityType); }
 }
