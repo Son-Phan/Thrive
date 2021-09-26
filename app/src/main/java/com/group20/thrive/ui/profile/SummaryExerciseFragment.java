@@ -39,7 +39,7 @@ public class SummaryExerciseFragment extends Fragment {
         ProfileViewModel =
                 new ViewModelProvider(this).get(com.group20.thrive.ui.profile.ProfileViewModel.class);
 
-        TextView streakLength = view.findViewById(R.id.streakLen);
+        TextView streakLength = view.findViewById(R.id.diaryEntryCount);
         TextView averageTime = view.findViewById(R.id.averageTime);
         TextView goalTime = view.findViewById(R.id.goalTime);
 
@@ -64,7 +64,7 @@ public class SummaryExerciseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        chart = view.findViewById(R.id.graphView);
+        chart = view.findViewById(R.id.pieChart);
 
         chart.getDescription().setEnabled(false);
 

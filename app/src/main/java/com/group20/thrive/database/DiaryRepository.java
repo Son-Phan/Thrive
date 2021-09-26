@@ -4,6 +4,8 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
+import com.group20.thrive.ui.profile.MoodCount;
+
 import java.util.List;
 
 public class DiaryRepository {
@@ -18,4 +20,8 @@ public class DiaryRepository {
         return mDiaryDao.getAllEntries(entryDate);
     }
     public List<Diary> getEntries(String entryDate) { return mDiaryDao.getEntries(entryDate); }
+
+    public LiveData<Integer> getNumOfEntryDays() { return mDiaryDao.getNumOfEntryDays(); }
+
+    public LiveData<List<MoodCount>> getMoodCount() { return mDiaryDao.getMoodCount(); }
 }

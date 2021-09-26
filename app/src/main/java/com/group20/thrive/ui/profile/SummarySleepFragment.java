@@ -20,7 +20,7 @@ public class SummarySleepFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_summary_sleep, container, false);
 
-        GraphView graphView = view.findViewById(R.id.graphView);
+        GraphView graphView = view.findViewById(R.id.pieChart);
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
                 new DataPoint(0,4),

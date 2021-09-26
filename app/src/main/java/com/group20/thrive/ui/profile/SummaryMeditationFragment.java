@@ -21,9 +21,6 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.group20.thrive.R;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,7 @@ public class SummaryMeditationFragment extends Fragment {
         ProfileViewModel =
                 new ViewModelProvider(this).get(com.group20.thrive.ui.profile.ProfileViewModel.class);
 
-        TextView streakLength = view.findViewById(R.id.streakLen);
+        TextView streakLength = view.findViewById(R.id.diaryEntryCount);
         TextView averageTime = view.findViewById(R.id.averageTime);
         TextView goalTime = view.findViewById(R.id.goalTime);
 
@@ -67,7 +64,7 @@ public class SummaryMeditationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        chart = view.findViewById(R.id.graphView);
+        chart = view.findViewById(R.id.pieChart);
 
         chart.getDescription().setEnabled(false);
 

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.group20.thrive.database.ActivityRecord;
 import com.group20.thrive.database.ActivityRepository;
+import com.group20.thrive.database.DiaryRepository;
 import com.group20.thrive.database.User;
 import com.group20.thrive.database.UserRepository;
 
@@ -18,10 +19,12 @@ import java.util.List;
 public class ProfileViewModel extends AndroidViewModel {
 
     private UserRepository userRepository;
+    private DiaryRepository diaryRepository;
 
     public ProfileViewModel(@NonNull Application application) {
         super(application);
         userRepository = new UserRepository(application);
+        diaryRepository = new DiaryRepository(application);
     }
 
     public LiveData<User> getUser() { return userRepository.getUser(); }
@@ -29,4 +32,8 @@ public class ProfileViewModel extends AndroidViewModel {
     public LiveData<List<Record>> getRecordsOfActivityTypeInAWeek(String activityType) { return userRepository.getRecordsOfActivityTypeInAWeek(activityType); }
 
     public LiveData<List<Record>> getRecordsOfActivityType(String activityType) { return userRepository.getRecordsOfActivityType(activityType); }
+
+    public LiveData<Integer> getNumOfEntryDays() { return diaryRepository.getNumOfEntryDays(); }
+
+    public LiveData<List<MoodCount>> getMoodCount() { return diaryRepository.getMoodCount(); }
 }
