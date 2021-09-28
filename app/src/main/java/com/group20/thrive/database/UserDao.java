@@ -13,6 +13,9 @@ public interface UserDao {
     void addUser(User user);
 
     @Query("SELECT * FROM User")
+    User getCurrUser();
+
+    @Query("SELECT * FROM User")
     LiveData<User> getUser();
 
 }

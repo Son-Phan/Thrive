@@ -31,7 +31,7 @@ public class TodayFragment extends Fragment {
     private TodayViewModel todayViewModel;
     private FragmentTodayBinding binding;
     private int lessonId;
-    private List<Activity> activities;
+    private List<Activity> myActivities;
     private String timeOfDay;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -57,14 +57,14 @@ public class TodayFragment extends Fragment {
         todayViewModel.getUser().observe(getActivity(), newData -> {
             lessonId = newData.getCurrentLesson();
             todayViewModel.getActivitiesOfCurrentLesson(lessonId).observe(getActivity(), newActivities -> {
+                myActivities = new ArrayList<>(newActivities);
                 todayActivities(view, newActivities);
-                activities = new ArrayList<>(newActivities);
             });
         });
 
-        activity1.setOnClickListener(view1 -> onActivityClick(activities.get(0)));
-        activity2.setOnClickListener(view1 -> onActivityClick(activities.get(1)));
-        activity3.setOnClickListener(view1 -> onActivityClick(activities.get(2)));
+        activity1.setOnClickListener(view1 -> onActivityClick(myActivities.get(0)));
+        activity2.setOnClickListener(view1 -> onActivityClick(myActivities.get(1)));
+        activity3.setOnClickListener(view1 -> onActivityClick(myActivities.get(2)));
     }
 
     public void todayGreetings(View view) {
@@ -127,6 +127,7 @@ public class TodayFragment extends Fragment {
                 activityNames.get(j).setVisibility(View.VISIBLE);
                 activityTimes.get(j).setVisibility(View.VISIBLE);
                 noActivities.get(j).setVisibility(View.INVISIBLE);
+                myActivities.set(j, activities.get(finalI));
             });
         }
     }

@@ -1,5 +1,7 @@
 package com.group20.thrive.ui.profile;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,7 +31,10 @@ public class SummaryExerciseFragment extends Fragment {
 
     private com.group20.thrive.ui.profile.ProfileViewModel ProfileViewModel;
     private BarChart chart;
-    public TextView noData;
+    private TextView noData;
+    private TextView streakCount;
+
+    private static final String PREF_NAME = "MyPrefs";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,12 +44,11 @@ public class SummaryExerciseFragment extends Fragment {
         ProfileViewModel =
                 new ViewModelProvider(this).get(com.group20.thrive.ui.profile.ProfileViewModel.class);
 
-        TextView streakLength = view.findViewById(R.id.diaryEntryCount);
-        TextView averageTime = view.findViewById(R.id.averageTime);
-        TextView goalTime = view.findViewById(R.id.goalTime);
+        streakCount = view.findViewById(R.id.exerciseStreakCount);
+        TextView averageTime = view.findViewById(R.id.exerciseAverageTime);
+        TextView goalTime = view.findViewById(R.id.exerciseGoalTime);
 
         ProfileViewModel.getUser().observe(getActivity(), newData -> {
-            streakLength.setText(String.valueOf(newData.getCurrentStreak()));
             String goal = newData.getExerciseGoal() + " min";
             goalTime.setText(goal);
         });
@@ -61,10 +65,18 @@ public class SummaryExerciseFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sharedPrefs = getActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        streakCount.setText(String.valueOf(sharedPrefs.getInt("exerciseStreak", 0)));
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        chart = view.findViewById(R.id.pieChart);
+        chart = view.findViewById(R.id.exerciseBarChart);
 
         chart.getDescription().setEnabled(false);
 

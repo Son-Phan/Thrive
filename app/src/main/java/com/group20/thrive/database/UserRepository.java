@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import com.group20.thrive.ui.profile.Record;
+import com.group20.thrive.ui.profile.TodayRecord;
 
 import java.util.List;
 
@@ -18,15 +19,31 @@ public class UserRepository {
         mActivityRecordDao = db.activityRecordDao();
     }
 
-    public void addUser(User user) { ThriveDatabase.databaseWriteExecutor.execute(() -> mUserDao.addUser(user)); }
+    public void addUser(User user) {
+        ThriveDatabase.databaseWriteExecutor.execute(() -> mUserDao.addUser(user));
+    }
 
-    public LiveData<User> getUser() { return mUserDao.getUser(); }
+    public LiveData<User> getUser() {
+        return mUserDao.getUser();
+    }
 
-    public void addActivityRecord (ActivityRecord record) { ThriveDatabase.databaseWriteExecutor.execute(() -> mActivityRecordDao.addRecord(record)); }
+    public void addActivityRecord(ActivityRecord record) {
+        ThriveDatabase.databaseWriteExecutor.execute(() -> mActivityRecordDao.addRecord(record));
+    }
 
-    public ActivityRecord getActivityRecord(String activityType) { return mActivityRecordDao.getActivityRecord(activityType); }
+    public ActivityRecord getActivityRecord(String activityType) {
+        return mActivityRecordDao.getActivityRecord(activityType);
+    }
 
-    public LiveData<List<Record>> getRecordsOfActivityTypeInAWeek(String activityType) { return mActivityRecordDao.getRecordsOfActivityTypeInAWeek(activityType); }
+    public LiveData<List<Record>> getRecordsOfActivityTypeInAWeek(String activityType) {
+        return mActivityRecordDao.getRecordsOfActivityTypeInAWeek(activityType);
+    }
 
-    public LiveData<List<Record>> getRecordsOfActivityType(String activityType) { return mActivityRecordDao.getRecordsOfActivityType(activityType); }
+    public LiveData<List<Record>> getRecordsOfActivityType(String activityType) {
+        return mActivityRecordDao.getRecordsOfActivityType(activityType);
+    }
+
+    public LiveData<TodayRecord> getTimeSpentOfActivityTypeInADay(String recordTime, String activityType) {
+        return mActivityRecordDao.getTimeSpentOfActivityTypeInADay(recordTime, activityType);
+    }
 }

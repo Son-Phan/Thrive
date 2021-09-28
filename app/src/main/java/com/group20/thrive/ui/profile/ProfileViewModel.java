@@ -36,4 +36,6 @@ public class ProfileViewModel extends AndroidViewModel {
     public LiveData<Integer> getNumOfEntryDays() { return diaryRepository.getNumOfEntryDays(); }
 
     public LiveData<List<MoodCount>> getMoodCount() { return diaryRepository.getMoodCount(); }
+
+    public LiveData<TodayRecord> getTimeSpentOfActivityTypeInADay(String recordTime, String activityType) { return userRepository.getTimeSpentOfActivityTypeInADay(recordTime, activityType); }
 }

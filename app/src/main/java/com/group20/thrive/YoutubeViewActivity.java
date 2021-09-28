@@ -31,7 +31,6 @@ public class YoutubeViewActivity extends AppCompatActivity {
 
     private Activity activity;
     private long startTime;
-    private long endTIme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +86,7 @@ public class YoutubeViewActivity extends AppCompatActivity {
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             ActivityRecordDao activityRecordDao = db.activityRecordDao();
             activityRecordDao.addRecord(new ActivityRecord(date, activity.getActivityId(), activity.getActivityType(), meditateTime));
+            db.close();
         });
     }
 }

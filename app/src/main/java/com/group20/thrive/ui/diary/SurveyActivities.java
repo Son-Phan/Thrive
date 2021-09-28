@@ -76,6 +76,7 @@ public class SurveyActivities extends AppCompatActivity implements View.OnClickL
                     ThriveDatabase.class, ThriveDatabase.THRIVE_DATABASE_NAME).allowMainThreadQueries().build();
             DiaryDao diaryDao = db.diaryDao();
             diaryDao.addDiary(new Diary(date,currentDateandTime, mood,imageLocation(mood), 60, activities.toString(), "nothing"));
+            db.close();
 
             startActivity(intent_1);
         });

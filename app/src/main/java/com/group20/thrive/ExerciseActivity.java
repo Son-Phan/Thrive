@@ -63,13 +63,13 @@ public class ExerciseActivity extends AppCompatActivity {
             if (timerRunning) {
                 pauseTimer();
             } else {
-                startTimer();
+                if (timeLeftInMillis > 0)
+                    startTimer();
             }
         });
 
         finishBtn.setOnClickListener(view1 -> {
             countDownTimer.cancel();
-            updateActivityRecord();
             onBackPressed();
         });
     }
@@ -90,7 +90,6 @@ public class ExerciseActivity extends AppCompatActivity {
                 Toast.makeText(ExerciseActivity.this,
                         "Congratulation! You have finished " + activity.getActivityName() + " exercise.",
                         Toast.LENGTH_SHORT).show();
-                onBackPressed();
             }
         }.start();
 
@@ -132,6 +131,7 @@ public class ExerciseActivity extends AppCompatActivity {
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             ActivityRecordDao activityRecordDao = db.activityRecordDao();
             activityRecordDao.addRecord(new ActivityRecord(date, activity.getActivityId(), activity.getActivityType(), exerciseTime));
+            db.close();
         });
     }
 

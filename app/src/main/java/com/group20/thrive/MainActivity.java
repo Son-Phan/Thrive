@@ -1,6 +1,8 @@
 package com.group20.thrive;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -31,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private static final String PREF_NAME = "MyPrefs";
+    private static final String EXERCISE_STREAK_KEY = "exerciseStreak";
+    private static final String MEDITATION_STREAK_KEY = "meditationStreak";
+    private static final String SLEEP_STREAK_KEY = "sleepStreak";
+    private static final String EXERCISE_DATE_KEY = "exerciseDate";
+    private static final String MEDITATION_DATE_KEY = "meditationDate";
+    private static final String SLEEP_DATE_KEY = "sleepDate";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,54 +62,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        setUpStreakData();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-        // run a random query to notify the system to create database
-//        ThriveDatabase db = Room.databaseBuilder(getApplicationContext(),
-//                ThriveDatabase.class, "thrive_database.db").allowMainThreadQueries().build();
-//        UserDao userDao = db.userDao();
-//        userDao.addUser(new User("t",0,0,0,0,0));
-//        DiaryDao dir = db.diaryDao();
-//        dir.addDiary(new Diary("14/09/2021", "good", 20, "Push up", 60, "Thanks"));
-//        dir.addDiary(new Diary("14/09/2021", "not bad", 40, "Pull up", 80, "Thanks"));
-//        dir.addDiary(new Diary("14/09/2021", "bad", 60, "Run", 40, "Thanks"));
-//        PlanDao pl = db.planDao();
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
-//        pl.addPlan(new Plan("natural", "ab", R.drawable.img,10, "The desirable" +
-//                " end goal of the Thrive at Work process is a an action plan for your business, " +
-//                "which delivers on a wellness strategy; which in turn fits with your organisation’" +
-//                "s overall strategy and enables the business and its people."));
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -111,6 +80,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setUpStreakData() {
+        SharedPreferences sharedPrefs = this.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        if (!sharedPrefs.contains(EXERCISE_STREAK_KEY)) { editor.putInt(EXERCISE_STREAK_KEY, 0); }
+        if (!sharedPrefs.contains(MEDITATION_STREAK_KEY)) { editor.putInt(MEDITATION_STREAK_KEY, 0); }
+        if (!sharedPrefs.contains(SLEEP_STREAK_KEY)) { editor.putInt(SLEEP_STREAK_KEY, 0); }
 
+        if (!sharedPrefs.contains(EXERCISE_DATE_KEY)) { editor.putString(EXERCISE_DATE_KEY, "00/00/0000"); }
+        if (!sharedPrefs.contains(MEDITATION_DATE_KEY)) { editor.putString(MEDITATION_DATE_KEY, "00/00/0000"); }
+        if (!sharedPrefs.contains(SLEEP_DATE_KEY)) { editor.putString(SLEEP_DATE_KEY, "00/00/0000"); }
+
+        editor.apply();
+    }
 
 }
