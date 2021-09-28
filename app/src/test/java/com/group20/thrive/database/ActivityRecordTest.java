@@ -4,9 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ActivityRecordTest {
-
     ActivityRecord activityRecord;
     @BeforeEach
     void setUp() {
@@ -25,7 +26,7 @@ class ActivityRecordTest {
 
     @Test
     void getActivityName() {
-        assertEquals(10, activityRecord.getActivityName());
+        assertEquals(10, activityRecord.getActivityId());
     }
 
     @Test

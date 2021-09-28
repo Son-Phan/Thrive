@@ -23,7 +23,7 @@ public class ActivityRecord {
 
     public String getRecordTime() { return recordTime; }
 
-    public int getActivityName() { return activityId; }
+    public int getActivityId() { return activityId; }
 
     public String getActivityType() { return activityType; }
 
