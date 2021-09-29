@@ -26,4 +26,8 @@ public interface PlanDao {
 
     @Query("SELECT * FROM `plan` WHERE planId LIKE (SELECT planId FROM User)")
     LiveData<Plan> getUserPlan();
+    @Query("DELETE  FROM `plan` WHERE planName = :planName")
+    void deletePlan(String planName);
+    @Query("SELECT * FROM `plan` WHERE planName = :planName")
+    Plan getEachPlan(String planName);
 }
