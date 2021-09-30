@@ -1,17 +1,19 @@
 package com.group20.thrive.database;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 
-@Entity(primaryKeys = {"lessonId", "activityId"})
+@Entity(primaryKeys = {"lessonId", "activityId", "timeOfDay"})
 public class LessonActivityCrossRef {
     @ColumnInfo(index = true)
     public int lessonId;
     @ColumnInfo(index = true)
     public int activityId;
+    @NonNull
     public String timeOfDay;
 
     public LessonActivityCrossRef(int lessonId, int activityId, String timeOfDay) {

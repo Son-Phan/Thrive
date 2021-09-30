@@ -11,6 +11,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class LessonDaoTest {
     private ThriveDatabase thriveDatabase;
     private LessonDao lessonDao;
@@ -22,7 +26,8 @@ public class LessonDaoTest {
         thriveDatabase = Room.inMemoryDatabaseBuilder(context, ThriveDatabase.class).build();
         lessonDao = thriveDatabase.lessonDao();
         lesson = new Lesson(10,19,"Work hard");
-        lessonDao.insertAll(lesson);
+        List<Lesson> lessonList = Collections.singletonList(lesson);
+        lessonDao.insertAll(lessonList);
     }
 
     @After

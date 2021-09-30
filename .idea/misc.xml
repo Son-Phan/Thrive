@@ -14,10 +14,15 @@
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/circle_progress_bar.xml" value="0.39444444444444443" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/custom_listview_sample.xml" value="0.48026315789473684" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/divider.xml" value="0.2929824561403509" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/divider_horizontal.xml" value="0.48026315789473684" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.5703125" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5703125" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/drawable/rounded_corners_btn.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_activity_info.xml" value="0.4666666666666667" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_assign_activity.xml" value="0.4666666666666667" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_choice_radio_group.xml" value="0.4666666666666667" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_create_new_exersise.xml" value="0.4666666666666667" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_create_plan.xml" value="0.4548245614035088" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_diary_entries.xml" value="0.39351851851851855" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_exercise.xml" value="0.35185185185185186" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_exercise_info.xml" value="0.3907407407407407" />
@@ -27,6 +32,7 @@
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_settings.xml" value="0.39351851851851855" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_sign_in_test.xml" value="0.5333333333333333" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_survey_activities.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/activity_youtube_view.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_activity_in_diary_page.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/fragment_diary.xml" value="0.31145833333333334" />
@@ -48,6 +54,7 @@
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/listview_lessons.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/listview_plans.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/popup_window_sign_in_activity.xml" value="0.5" />
+        <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/recyclerview_activity.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/recyclerview_lessons.xml" value="0.4666666666666667" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/layout/sign_up_dialog_custom.xml" value="0.5333333333333333" />
         <entry key="..\:/Users/chaus/AndroidStudioProjects/Thrive/app/src/main/res/mipmap-anydpi-v26/add.xml" value="0.2929824561403509" />

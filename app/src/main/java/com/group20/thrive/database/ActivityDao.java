@@ -15,8 +15,9 @@ public interface ActivityDao {
 
     @Query("SELECT * FROM Activity WHERE activityType = :activityType")
     List<Activity> getActivityList(String activityType);
+
     @Query("SELECT * FROM Activity")
-    LiveData<List<Activity>> getLiveActivityList();
+    LiveData<List<Activity>> getAllActivities();
 
     @Query("SELECT * FROM Activity WHERE activityId = :activityId")
     Activity getActivity(int activityId);

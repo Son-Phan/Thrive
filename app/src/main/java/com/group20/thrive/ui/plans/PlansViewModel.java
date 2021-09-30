@@ -19,13 +19,7 @@ public class PlansViewModel extends AndroidViewModel {
     private PlanRepository planRepository;
     private LessonRepository lessonRepository;
     private LiveData<List<Plan>> mAllPlans;
-    private LiveData<List<Activity>> mAllActivities;
     private ActivityRepository activityRepository;
-
-    public LiveData<List<Activity>> getmAllActivities() {
-        return this.mAllActivities;
-    }
-
 
     public PlansViewModel(@NonNull Application application) {
         super(application);
@@ -34,14 +28,9 @@ public class PlansViewModel extends AndroidViewModel {
         lessonRepository = new LessonRepository(application);
         mAllPlans = planRepository.getAllPlans();
         activityRepository = new ActivityRepository(application);
-        mAllActivities = activityRepository.getActivitiesOfActivityType();
     }
     public LiveData<List<Plan>> getAllPlans() {
         return mAllPlans;
-    }
-
-    public List<Plan> getPlan() {
-        return planRepository.getPlan();
     }
 
     public LiveData<Plan> getUserPlan() { return planRepository.getUserPlan(); }
@@ -52,5 +41,7 @@ public class PlansViewModel extends AndroidViewModel {
         return lessonRepository.getActivitiesOfLesson(lessonId);
     }
 
-    public LiveData<String> getActivityTimeOfDay(int activityId) { return lessonRepository.getActivityTimeOfDay(activityId); }
+    public LiveData<List<String>> getActivityTimeOfDay(int lessonId, int activityId) { return lessonRepository.getActivityTimeOfDay(lessonId, activityId); }
+
+    public LiveData<List<Activity>> getAllActivities() { return activityRepository.getAllActivities(); }
 }

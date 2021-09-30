@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d8074296ccd3cc165fd3db84d3446846",
+    "identityHash": "17d1939f065bafba9be01e5e89d21b7b",
     "entities": [
       {
         "tableName": "plan",
@@ -312,7 +312,7 @@
       },
       {
         "tableName": "LessonActivityCrossRef",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lessonId` INTEGER NOT NULL, `activityId` INTEGER NOT NULL, `timeOfDay` TEXT, PRIMARY KEY(`lessonId`, `activityId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lessonId` INTEGER NOT NULL, `activityId` INTEGER NOT NULL, `timeOfDay` TEXT NOT NULL, PRIMARY KEY(`lessonId`, `activityId`, `timeOfDay`))",
         "fields": [
           {
             "fieldPath": "lessonId",
@@ -330,13 +330,14 @@
             "fieldPath": "timeOfDay",
             "columnName": "timeOfDay",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
             "lessonId",
-            "activityId"
+            "activityId",
+            "timeOfDay"
           ],
           "autoGenerate": false
         },
@@ -364,7 +365,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd8074296ccd3cc165fd3db84d3446846')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '17d1939f065bafba9be01e5e89d21b7b')"
     ]
   }
 }

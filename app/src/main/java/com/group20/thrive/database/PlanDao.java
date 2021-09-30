@@ -14,8 +14,8 @@ public interface PlanDao {
     @Insert
     void addPlan(Plan plan);
 
-    @Query("select * from `plan`")
-    List<Plan> getPlan();
+    @Query("SELECT planId FROM `plan` WHERE planName LIKE :planName")
+    Integer getPlanId(String planName);
 
     @Query("select * from `plan`")
     LiveData<List<Plan>> getAllPlans();

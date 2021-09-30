@@ -16,6 +16,10 @@ public class ActivityRepository {
     }
 
     List<Activity> getActivityList(String activityType) { return mActivityDao.getActivityList(activityType); }
-    public LiveData<List<Activity>> getActivitiesOfActivityType() { return mActivityDao.getLiveActivityList(); }
+
+    public LiveData<List<Activity>> getAllActivities() { return mActivityDao.getAllActivities(); }
+
     Activity getActivity(int activityId) { return mActivityDao.getActivity(activityId); }
+
+
 }

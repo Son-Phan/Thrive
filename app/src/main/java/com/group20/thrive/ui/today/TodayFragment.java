@@ -32,7 +32,9 @@ public class TodayFragment extends Fragment {
     private FragmentTodayBinding binding;
     private int lessonId;
     private List<Activity> myActivities;
-    private String timeOfDay;
+    private Activity morningActivity;
+    private Activity afternoonActivity;
+    private Activity eveningActivity;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,13 +60,19 @@ public class TodayFragment extends Fragment {
             lessonId = newData.getCurrentLesson();
             todayViewModel.getActivitiesOfCurrentLesson(lessonId).observe(getActivity(), newActivities -> {
                 myActivities = new ArrayList<>(newActivities);
-                todayActivities(view, newActivities);
+                todayActivities(view, newActivities, lessonId);
             });
         });
 
-        activity1.setOnClickListener(view1 -> onActivityClick(myActivities.get(0)));
-        activity2.setOnClickListener(view1 -> onActivityClick(myActivities.get(1)));
-        activity3.setOnClickListener(view1 -> onActivityClick(myActivities.get(2)));
+        if (morningActivity != null) {
+            activity1.setOnClickListener(view1 -> onActivityClick(morningActivity));
+        }
+        if (afternoonActivity != null) {
+            activity2.setOnClickListener(view1 -> onActivityClick(afternoonActivity));
+        }
+        if (eveningActivity != null) {
+            activity3.setOnClickListener(view1 -> onActivityClick(eveningActivity));
+        }
     }
 
     public void todayGreetings(View view) {
@@ -82,7 +90,7 @@ public class TodayFragment extends Fragment {
         greetings.setText(text);
     }
 
-    public void todayActivities(View view, List<Activity> activities) {
+    public void todayActivities(View view, List<Activity> activities, int lessonId) {
 
         List<ImageView> activityImages = Arrays.asList(
                 view.findViewById(R.id.activity1Image),
@@ -106,28 +114,37 @@ public class TodayFragment extends Fragment {
 
         for (int i = 0; i < activities.size(); i++) {
             int finalI = i;
-            todayViewModel.getActivityTimeOfDay(activities.get(i).getActivityId()).observe(getActivity(), newData -> {
-                timeOfDay = newData;
+            todayViewModel.getActivityTimeOfDay(lessonId, activities.get(i).getActivityId()).observe(getActivity(), newData -> {
+                for (int k = 0; k < newData.size(); k++) {
+                    int j;
+                    if (newData.get(k).equals("morning")) {
+                        j = 0;
+                        morningActivity = activities.get(finalI);
+                    }
+                    else if (newData.get(k).equals("afternoon")) {
+                        j = 1;
+                        afternoonActivity = activities.get(finalI);
+                    }
+                    else { //evening
+                        j = 2;
+                        eveningActivity = activities.get(finalI);
+                    }
 
-                int j;
-                if (timeOfDay.equals("morning")) { j = 0;}
-                else if (timeOfDay.equals("afternoon")) { j = 1;}
-                else { j = 2; } // evening
+                    if (activities.get(finalI).activityType.equals("meditation")) {
+                        activityImages.get(j).setImageResource(R.drawable.meditation_icon);
+                    } else {
+                        activityImages.get(j).setImageResource(R.drawable.running_icon);
+                    }
+                    activityNames.get(j).setText(activities.get(finalI).activityName);
+                    String lenText = activities.get(finalI).getActivityLen() + " min";
+                    activityTimes.get(j).setText(lenText);
 
-                if (activities.get(finalI).activityType.equals("meditation")) {
-                    activityImages.get(j).setImageResource(R.drawable.meditation_icon);
-                } else {
-                    activityImages.get(j).setImageResource(R.drawable.running_icon);
+                    activityImages.get(j).setVisibility(View.VISIBLE);
+                    activityNames.get(j).setVisibility(View.VISIBLE);
+                    activityTimes.get(j).setVisibility(View.VISIBLE);
+                    noActivities.get(j).setVisibility(View.INVISIBLE);
+                    myActivities.set(j, activities.get(finalI));
                 }
-                activityNames.get(j).setText(activities.get(finalI).activityName);
-                String lenText = activities.get(finalI).getActivityLen() + " min";
-                activityTimes.get(j).setText(lenText);
-
-                activityImages.get(j).setVisibility(View.VISIBLE);
-                activityNames.get(j).setVisibility(View.VISIBLE);
-                activityTimes.get(j).setVisibility(View.VISIBLE);
-                noActivities.get(j).setVisibility(View.INVISIBLE);
-                myActivities.set(j, activities.get(finalI));
             });
         }
     }

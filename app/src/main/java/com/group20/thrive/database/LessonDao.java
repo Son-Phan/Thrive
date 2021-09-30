@@ -14,7 +14,10 @@ import java.util.List;
 public interface LessonDao {
 
     @Insert
-    void insertAll(Lesson... lessons);
+    void insertAll(List<Lesson> lessons);
+
+    @Insert
+    void insertLessonActivity(LessonActivityCrossRef lessonActivityCrossRef);
 
     @Query("SELECT * FROM Lesson WHERE lessonId = :lessonId")
     Lesson getLesson(int lessonId);
@@ -30,9 +33,9 @@ public interface LessonDao {
     @RewriteQueriesToDropUnusedColumns
     @Query("SELECT * FROM Activity " +
             " INNER JOIN LessonActivityCrossRef ON LessonActivityCrossRef.activityId = Activity.activityId " +
-            "WHERE LessonActivityCrossRef.lessonId LIKE :lessonId")
+            "WHERE LessonActivityCrossRef.lessonId LIKE :lessonId GROUP BY LessonActivityCrossRef.activityId")
     LiveData<List<Activity>> getActivitiesOfLesson(int lessonId);
 
-    @Query("SELECT timeOfDay FROM LessonActivityCrossRef WHERE activityId LIKE :activityId")
-    LiveData<String> getActivityTimeOfDay(int activityId);
+    @Query("SELECT timeOfDay FROM LessonActivityCrossRef WHERE lessonId LIKE :lessonId AND activityId LIKE :activityId")
+    LiveData<List<String>> getActivityTimeOfDay(int lessonId, int activityId);
 }

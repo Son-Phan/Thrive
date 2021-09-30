@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,15 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.group20.thrive.R;
 import com.group20.thrive.database.Lesson;
-import com.group20.thrive.database.Plan;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class LessonsAdapter extends RecyclerView.Adapter<LessonsAdapter.ViewHolder>{
 
-    private LayoutInflater mInflater;
     private List<Lesson> lessons = new ArrayList<>();
     Context mContext;
 

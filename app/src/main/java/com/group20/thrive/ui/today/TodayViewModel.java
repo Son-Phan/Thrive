@@ -36,5 +36,5 @@ public class TodayViewModel extends AndroidViewModel {
         return lessonRepository.getActivitiesOfLesson(lessonId);
     }
 
-    public LiveData<String> getActivityTimeOfDay(int activityId) { return lessonRepository.getActivityTimeOfDay(activityId); }
+    public LiveData<List<String>> getActivityTimeOfDay(int lessonId, int activityId) { return lessonRepository.getActivityTimeOfDay(lessonId, activityId); }
 }

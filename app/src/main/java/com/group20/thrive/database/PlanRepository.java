@@ -18,7 +18,6 @@ public class PlanRepository {
     public LiveData<List<Plan>> getAllPlans() {
         return mAllPlans;
     }
-    public List<Plan> getPlan() { return mPlanDao.getPlan(); }
 
     void insert(Plan plan) {
         ThriveDatabase.databaseWriteExecutor.execute(() -> mPlanDao.addPlan(plan));

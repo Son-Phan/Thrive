@@ -83,7 +83,7 @@ public class PlansFragment extends Fragment {
         Button createNewPlanButton = view.findViewById(R.id.createPlan);
 
         createNewPlanButton.setOnClickListener(view1 -> {
-            Intent intent = new Intent(getActivity(), CreateNewPlanActivity.class);
+            Intent intent = new Intent(getActivity(), CreatePlanActivity.class);
             startActivity(intent);
         });
     }
