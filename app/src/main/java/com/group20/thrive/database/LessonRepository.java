@@ -24,4 +24,7 @@ public class LessonRepository {
     public LiveData<List<Activity>> getActivitiesOfLesson(int lessonId) { return mLessonDao.getActivitiesOfLesson(lessonId); }
 
     public LiveData<List<String>> getActivityTimeOfDay(int lessonId, int activityId) { return mLessonDao.getActivityTimeOfDay(lessonId, activityId); }
+
+    public void deleteLesson(int planId) { mLessonDao.deleteLesson(planId);}
+    public List<Lesson> getLessonOfPlan_list(int planId) { return  mLessonDao.getLessonsOfPlan_list(planId);}
 }

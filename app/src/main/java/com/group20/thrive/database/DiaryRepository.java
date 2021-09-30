@@ -24,4 +24,6 @@ public class DiaryRepository {
     public LiveData<Integer> getNumOfEntryDays() { return mDiaryDao.getNumOfEntryDays(); }
 
     public LiveData<List<MoodCount>> getMoodCount() { return mDiaryDao.getMoodCount(); }
+
+    public void deleteDiary(String entryMood){ mDiaryDao.deleteDiary(entryMood);}
 }

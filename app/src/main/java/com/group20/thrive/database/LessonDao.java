@@ -24,7 +24,8 @@ public interface LessonDao {
 
     @Query("SELECT * FROM Lesson WHERE planId = :planId")
     LiveData<List<Lesson>> getLessonsOfPlan(int planId);
-
+    @Query("SELECT * FROM Lesson WHERE planId = :planId")
+    List<Lesson> getLessonsOfPlan_list(int planId);
     @Transaction
     @Query("SELECT * FROM Lesson")
     List<LessonWithActivities> getLessonsWithActivities();
@@ -38,4 +39,7 @@ public interface LessonDao {
 
     @Query("SELECT timeOfDay FROM LessonActivityCrossRef WHERE lessonId LIKE :lessonId AND activityId LIKE :activityId")
     LiveData<List<String>> getActivityTimeOfDay(int lessonId, int activityId);
+
+    @Query("DELETE  FROM Lesson WHERE planId = :planId")
+    void deleteLesson(Integer planId);
 }

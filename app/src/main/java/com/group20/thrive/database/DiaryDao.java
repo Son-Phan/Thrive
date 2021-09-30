@@ -30,4 +30,7 @@ public interface DiaryDao {
 
     @Query("SELECT entryMood AS mood, COUNT(*) AS moodCount  FROM Diary GROUP BY entryMood")
     LiveData<List<MoodCount>> getMoodCount();
+
+    @Query("DELETE  FROM Diary WHERE entryMood = :entryMood")
+    void deleteDiary(String entryMood);
 }

@@ -20,6 +20,5 @@ public class ActivityRepository {
     public LiveData<List<Activity>> getAllActivities() { return mActivityDao.getAllActivities(); }
 
     Activity getActivity(int activityId) { return mActivityDao.getActivity(activityId); }
-
-
+    void deleteActivity(String activityType) {  mActivityDao.deleteActivity(activityType); }
 }
