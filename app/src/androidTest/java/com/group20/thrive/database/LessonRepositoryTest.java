@@ -11,6 +11,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LessonRepositoryTest {
     private ThriveDatabase thriveDatabase;
     private LessonRepository lessonRepository;
@@ -24,7 +27,9 @@ public class LessonRepositoryTest {
                 ThriveDatabase.THRIVE_DATABASE_NAME).build();
         lessonDao = thriveDatabase.lessonDao();
         lesson = new Lesson(10, 10, "nothing");
-        lessonDao.insertAll(lesson);
+        List<Lesson> lessonList = new ArrayList<>();
+        lessonList.add(lesson);
+        lessonDao.insertAll(lessonList);
         lessonRepository = new LessonRepository(ApplicationProvider.getApplicationContext());
     }
 
@@ -72,7 +77,7 @@ public class LessonRepositoryTest {
 
     @Test
     public void getActivityTimeOfDay() {
-        assertNotNull(lessonRepository.getActivityTimeOfDay(4));
+        assertNotNull(lessonRepository.getActivityTimeOfDay(1, 4));
     }
 
     @Test
