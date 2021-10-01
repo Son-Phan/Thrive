@@ -49,7 +49,7 @@ public class SummaryMeditationFragment extends Fragment {
         TextView goalTime = view.findViewById(R.id.meditationGoalTime);
 
         ProfileViewModel.getUser().observe(getActivity(), newData -> {
-            String goal = newData.getExerciseGoal() + " min";
+            String goal = newData.getMeditationGoal() + " min";
             goalTime.setText(goal);
         });
 

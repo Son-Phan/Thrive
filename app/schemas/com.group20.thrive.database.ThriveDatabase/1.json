@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "17d1939f065bafba9be01e5e89d21b7b",
+    "identityHash": "3bc56816e89e3883bd9a5b4c9b875834",
     "entities": [
       {
         "tableName": "plan",
@@ -206,7 +206,7 @@
       },
       {
         "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userName` TEXT NOT NULL, `exerciseGoal` INTEGER NOT NULL, `meditationGoal` INTEGER NOT NULL, `sleepGoal` INTEGER NOT NULL, `currentStreak` INTEGER NOT NULL, `longestStreak` INTEGER NOT NULL, `currentPlan` INTEGER NOT NULL, `currentLesson` INTEGER NOT NULL, PRIMARY KEY(`userName`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userName` TEXT NOT NULL, `exerciseGoal` INTEGER NOT NULL, `meditationGoal` INTEGER NOT NULL, `userActivityGoal` INTEGER NOT NULL, `currentPlan` INTEGER NOT NULL, `currentLesson` INTEGER NOT NULL, PRIMARY KEY(`userName`))",
         "fields": [
           {
             "fieldPath": "userName",
@@ -227,20 +227,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "sleepGoal",
-            "columnName": "sleepGoal",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "currentStreak",
-            "columnName": "currentStreak",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "longestStreak",
-            "columnName": "longestStreak",
+            "fieldPath": "userActivityGoal",
+            "columnName": "userActivityGoal",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -365,7 +353,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '17d1939f065bafba9be01e5e89d21b7b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3bc56816e89e3883bd9a5b4c9b875834')"
     ]
   }
 }

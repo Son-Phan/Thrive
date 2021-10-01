@@ -38,7 +38,9 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ActivitiesAdapter.ViewHolder holder, int position) {
-        if(activities.get(position).getActivityType().equals("exercise")) {
+        if (activities.get(position).getActivityType().equals("userActivity")) {
+            holder.activityImage.setImageResource(R.drawable.thinking);
+        } else if(activities.get(position).getActivityType().equals("exercise")) {
             holder.activityImage.setImageResource(R.drawable.running_icon);
         } else {
             holder.activityImage.setImageResource(R.drawable.meditation_icon);

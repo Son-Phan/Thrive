@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment {
 
     private final String exercise = "exercise";
     private final String meditation = "meditation";
-    private final String sleep = "sleep";
+    private final String userActivity = "userActivity";
 
     private String today;
 
@@ -90,9 +90,9 @@ public class ProfileFragment extends Fragment {
             if (newData.getNumOfRecords() > 0)
                 updateStreak(newData.getTotalTimeSpent(), meditation);
         });
-        ProfileViewModel.getTimeSpentOfActivityTypeInADay(today, sleep).observe(this, newData -> {
+        ProfileViewModel.getTimeSpentOfActivityTypeInADay(today, userActivity).observe(this, newData -> {
             if (newData.getNumOfRecords() > 0)
-                updateStreak(newData.getTotalTimeSpent(), sleep);
+                updateStreak(newData.getTotalTimeSpent(), userActivity);
         });
     }
 
@@ -113,7 +113,7 @@ public class ProfileFragment extends Fragment {
 
             if (activityType.equals(exercise)) { goal *= user.getExerciseGoal(); }
             else if (activityType.equals(meditation)) { goal *= user.getMeditationGoal(); }
-            else { goal *= user.getSleepGoal(); }
+            else { goal *= user.getUserActivityGoal(); }
 
             if (timeSpent >= goal) {
                 if (date.equals(yesterday)) { streakCount += 1; }

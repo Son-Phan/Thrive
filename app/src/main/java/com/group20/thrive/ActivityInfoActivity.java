@@ -24,8 +24,6 @@ public class ActivityInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_info);
 
-        setTitle("Exercise");
-
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -33,7 +31,7 @@ public class ActivityInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Activity activity = (Activity) intent.getSerializableExtra("activity");
 
-        if (activity.getActivityType().equals("user")) {
+        if (activity.getActivityType().equals("userActivity")) {
             setTitle("User Activity");
             user = true;
         } else if (activity.getActivityType().equals("exercise")) {

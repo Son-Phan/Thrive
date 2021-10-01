@@ -75,7 +75,7 @@ public class createActivityActivity extends AppCompatActivity {
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             ActivityDao activityDao = db.activityDao();
             LessonDao lessonDao = db.lessonDao();
-            activityDao.addActivity(new Activity(activityName, "user", activityLen, activityDesc, "null"));
+            activityDao.addActivity(new Activity(activityName, "userActivity", activityLen, activityDesc, "null"));
             int activityId = activityDao.getActivityId(activityName);
             lessonDao.insertLessonActivity(new LessonActivityCrossRef(lessonId, activityId, timeOfDay));
             db.close();

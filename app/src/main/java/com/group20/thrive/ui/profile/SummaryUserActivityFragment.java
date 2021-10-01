@@ -27,7 +27,7 @@ import com.group20.thrive.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SummarySleepFragment extends Fragment {
+public class SummaryUserActivityFragment extends Fragment {
 
     private com.group20.thrive.ui.profile.ProfileViewModel ProfileViewModel;
     private BarChart chart;
@@ -38,28 +38,28 @@ public class SummarySleepFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_summary_sleep, container, false);
+        View view = inflater.inflate(R.layout.fragment_summary_user_activity, container, false);
 
         ProfileViewModel =
                 new ViewModelProvider(this).get(com.group20.thrive.ui.profile.ProfileViewModel.class);
 
-        TextView streakCount = view.findViewById(R.id.sleepStreakCount);
-        TextView averageTime = view.findViewById(R.id.sleepAverageTime);
-        TextView goalTime = view.findViewById(R.id.sleepGoalTime);
+        TextView streakCount = view.findViewById(R.id.userActivityStreakCount);
+        TextView averageTime = view.findViewById(R.id.userActivityAverageTime);
+        TextView goalTime = view.findViewById(R.id.userActivityGoalTime);
 
         SharedPreferences sharedPrefs = getActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        streakCount.setText(String.valueOf(sharedPrefs.getInt("sleepStreak", 0)));
+        streakCount.setText(String.valueOf(sharedPrefs.getInt("userActivityStreak", 0)));
 
         ProfileViewModel.getUser().observe(getActivity(), newData -> {
-            String goal = newData.getExerciseGoal() + " hours";
+            String goal = newData.getExerciseGoal() + " min";
             goalTime.setText(goal);
         });
 
-        ProfileViewModel.getRecordsOfActivityType("sleep").observe(getActivity(), newData -> {
+        ProfileViewModel.getRecordsOfActivityType("userActivity").observe(getActivity(), newData -> {
             int sum = 0;
             for (int i = 0; i < newData.size(); i++) { sum += newData.get(i).getRecordLength(); }
             float avgTime = (float) sum / newData.size() / 60;
-            String text = round(avgTime, 1) + " hours";
+            String text = round(avgTime, 1) + " min";
             averageTime.setText(text);
         });
 
@@ -70,13 +70,13 @@ public class SummarySleepFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        chart = view.findViewById(R.id.sleepBarChart);
+        chart = view.findViewById(R.id.userActivityBarChart);
 
         chart.getDescription().setEnabled(false);
 
         noData = view.findViewById(R.id.noData);
 
-        ProfileViewModel.getRecordsOfActivityTypeInAWeek("sleep").observe(getActivity(), this::setUpGraph);
+        ProfileViewModel.getRecordsOfActivityTypeInAWeek("userActivity").observe(getActivity(), this::setUpGraph);
     }
 
     @Override

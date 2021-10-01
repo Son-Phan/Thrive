@@ -11,19 +11,15 @@ public class User {
     public String userName;
     public int exerciseGoal;
     public int meditationGoal;
-    public int sleepGoal;
-    public int currentStreak;
-    public int longestStreak;
+    public int userActivityGoal;
     public int currentPlan;
     public int currentLesson;
 
-    public User(@NonNull String userName, int exerciseGoal, int meditationGoal, int sleepGoal, int currentStreak, int longestStreak, int currentPlan, int currentLesson) {
+    public User(@NonNull String userName, int exerciseGoal, int meditationGoal, int userActivityGoal, int currentPlan, int currentLesson) {
         this.userName = userName;
         this.exerciseGoal = exerciseGoal;
         this.meditationGoal = meditationGoal;
-        this.sleepGoal = sleepGoal;
-        this.currentStreak = currentStreak;
-        this.longestStreak = longestStreak;
+        this.userActivityGoal = userActivityGoal;
         this.currentPlan = currentPlan;
         this.currentLesson = currentLesson;
     }
@@ -35,11 +31,7 @@ public class User {
 
     public int getMeditationGoal() { return meditationGoal; }
 
-    public int getSleepGoal() { return sleepGoal; }
-
-    public int getCurrentStreak() { return currentStreak; }
-
-    public int getLongestStreak() { return longestStreak; }
+    public int getUserActivityGoal() { return userActivityGoal; }
 
     public int getCurrentPlan() { return currentPlan; }
 
@@ -51,11 +43,7 @@ public class User {
 
     public void setMeditationGoal(int meditationGoal) { this.meditationGoal = meditationGoal; }
 
-    public void setSleepGoal(int sleepGoal) { this.sleepGoal = sleepGoal; }
-
-    public void setCurrentStreak(int currentStreak) { this.currentStreak = currentStreak; }
-
-    public void setLongestStreak(int longestStreak) { this.longestStreak = longestStreak; }
+    public void setUserActivityGoal(int userActivityGoal) { this.userActivityGoal = userActivityGoal; }
 
     public void setCurrentPlan(int currentPlan) { this.currentPlan = currentPlan; }
 

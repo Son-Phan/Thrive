@@ -147,8 +147,9 @@ public class PlanActivity extends AppCompatActivity{
                         j = 2;
                         eveningActivity = activities.get(finalI);
                     }
-
-                    if (activities.get(finalI).activityType.equals("meditation")) {
+                    if (activities.get(finalI).activityType.equals("userActivity")) {
+                        activityImages.get(j).setImageResource(R.drawable.thinking);
+                    } else if (activities.get(finalI).activityType.equals("meditation")) {
                         activityImages.get(j).setImageResource(R.drawable.meditation_icon);
                     } else {
                         activityImages.get(j).setImageResource(R.drawable.running_icon);

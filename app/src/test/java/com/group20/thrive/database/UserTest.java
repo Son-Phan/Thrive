@@ -12,7 +12,7 @@ class UserTest {
     User user;
     @BeforeEach
     public void setUp(){
-        user = new User("trung", 10,15,20,20,354,40,60);
+        user = new User("trung", 10,15,20,1,1);
     }
     @Test
     void getUserName() {
@@ -31,27 +31,17 @@ class UserTest {
 
     @Test
     void getSleepGoal() {
-        assertEquals(20, user.getSleepGoal());
-    }
-
-    @Test
-    void getCurrentStreak() {
-        assertEquals(20, user.getCurrentStreak());
-    }
-
-    @Test
-    void getLongestStreak() {
-        assertEquals(354,user.getLongestStreak());
+        assertEquals(20, user.getUserActivityGoal());
     }
 
     @Test
     void getCurrentPlan() {
-        assertEquals(40, user.getCurrentPlan());
+        assertEquals(1, user.getCurrentPlan());
     }
 
     @Test
     void getCurrentLesson() {
-        assertEquals(60, user.getCurrentLesson());
+        assertEquals(1, user.getCurrentLesson());
     }
 
     @Test
@@ -73,21 +63,9 @@ class UserTest {
     }
 
     @Test
-    void setSleepGoal() {
-        user.setSleepGoal(354);
-        assertEquals(354, user.getSleepGoal());
-    }
-
-    @Test
-    void setCurrentStreak() {
-        user.setCurrentStreak(1);
-        assertEquals(1, user.getCurrentStreak());
-    }
-
-    @Test
-    void setLongestStreak() {
-        user.setLongestStreak(14);
-        assertEquals(14, user.getLongestStreak());
+    void setUserActivityGoal() {
+        user.setUserActivityGoal(354);
+        assertEquals(354, user.getUserActivityGoal());
     }
 
     @Test

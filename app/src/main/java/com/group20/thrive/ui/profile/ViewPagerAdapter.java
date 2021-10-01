@@ -10,14 +10,14 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     private final Fragment[] mFragments = new Fragment[] {
             new SummaryExerciseFragment(),
             new SummaryMeditationFragment(),
-            new SummarySleepFragment(),
+            new SummaryUserActivityFragment(),
             new SummaryMoodFragment()
     };
 
     public final String[] mFragmentNames = new String[] {
             "Exercise",
             "Meditate",
-            "Sleep",
+            "User Activity",
             "Mood"
     };
 

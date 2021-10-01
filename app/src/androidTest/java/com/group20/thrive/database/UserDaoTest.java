@@ -20,7 +20,7 @@ public class UserDaoTest {
         Context context = ApplicationProvider.getApplicationContext();
         thriveDatabase = Room.inMemoryDatabaseBuilder(context, ThriveDatabase.class).build();
         userDao = thriveDatabase.userDao();
-        user = new User("trung", 10,10,10,10,10,10,10);
+        user = new User("trung", 10,10,10,10,10);
         userDao.addUser(user);
     }
 

@@ -11,7 +11,7 @@ public class Activity implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int activityId;
     public String activityName;
-    public String activityType; // exercise || meditation
+    public String activityType; // exercise || meditation || userActivity
     public int activityLen;     // minutes
     public String activityDesc;
     public String fileName;

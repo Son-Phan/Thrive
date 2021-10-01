@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -14,17 +13,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.room.Room;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.group20.thrive.database.Diary;
-import com.group20.thrive.database.DiaryDao;
-import com.group20.thrive.database.Plan;
-import com.group20.thrive.database.PlanDao;
-import com.group20.thrive.database.ThriveDatabase;
-import com.group20.thrive.database.User;
-import com.group20.thrive.database.UserDao;
 import com.group20.thrive.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String PREF_NAME = "MyPrefs";
     private static final String EXERCISE_STREAK_KEY = "exerciseStreak";
     private static final String MEDITATION_STREAK_KEY = "meditationStreak";
-    private static final String SLEEP_STREAK_KEY = "sleepStreak";
+    private static final String USER_ACTIVITY_STREAK_KEY = "userActivityStreak";
     private static final String EXERCISE_DATE_KEY = "exerciseDate";
     private static final String MEDITATION_DATE_KEY = "meditationDate";
-    private static final String SLEEP_DATE_KEY = "sleepDate";
+    private static final String USER_ACTIVITY_DATE_KEY = "userActivityDate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPrefs.edit();
         if (!sharedPrefs.contains(EXERCISE_STREAK_KEY)) { editor.putInt(EXERCISE_STREAK_KEY, 0); }
         if (!sharedPrefs.contains(MEDITATION_STREAK_KEY)) { editor.putInt(MEDITATION_STREAK_KEY, 0); }
-        if (!sharedPrefs.contains(SLEEP_STREAK_KEY)) { editor.putInt(SLEEP_STREAK_KEY, 0); }
+        if (!sharedPrefs.contains(USER_ACTIVITY_STREAK_KEY)) { editor.putInt(USER_ACTIVITY_STREAK_KEY, 0); }
 
         if (!sharedPrefs.contains(EXERCISE_DATE_KEY)) { editor.putString(EXERCISE_DATE_KEY, "00/00/0000"); }
         if (!sharedPrefs.contains(MEDITATION_DATE_KEY)) { editor.putString(MEDITATION_DATE_KEY, "00/00/0000"); }
-        if (!sharedPrefs.contains(SLEEP_DATE_KEY)) { editor.putString(SLEEP_DATE_KEY, "00/00/0000"); }
+        if (!sharedPrefs.contains(USER_ACTIVITY_DATE_KEY)) { editor.putString(USER_ACTIVITY_DATE_KEY, "00/00/0000"); }
 
         editor.apply();
     }
