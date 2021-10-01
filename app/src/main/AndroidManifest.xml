@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thrive">
         <activity
+            android:name=".ui.plans.createActivityActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.plans.AssignActivityActivity"
             android:exported="true" />
         <activity

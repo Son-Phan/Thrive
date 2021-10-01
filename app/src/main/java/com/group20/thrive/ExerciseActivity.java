@@ -26,6 +26,7 @@ import java.time.ZonedDateTime;
 public class ExerciseActivity extends AppCompatActivity {
 
     private Activity activity;
+    private boolean exercise;
 
     private long startTimeInMillis = 60000; // == 1min
     private CountDownTimer countDownTimer;
@@ -40,10 +41,15 @@ public class ExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
 
-        setTitle("Exercise");
-
         Intent intent = getIntent();
         activity = (Activity) intent.getSerializableExtra("activity");
+
+        if (activity.getActivityType().equals("exercise")) {
+            setTitle("Exercise");
+            exercise = true;
+        } else {
+            setTitle("User Activity");
+        }
 
         TextView title = findViewById(R.id.title);
         title.setText(activity.getActivityName());
@@ -88,7 +94,7 @@ public class ExerciseActivity extends AppCompatActivity {
                 timerRunning = false;
                 countDownTimer.cancel();
                 Toast.makeText(ExerciseActivity.this,
-                        "Congratulation! You have finished " + activity.getActivityName() + " exercise.",
+                        "Congratulation! You have finished " + activity.getActivityName() + " activity.",
                         Toast.LENGTH_SHORT).show();
             }
         }.start();
@@ -112,7 +118,11 @@ public class ExerciseActivity extends AppCompatActivity {
 
     private void updateTip() {
         if (startTimeInMillis - timeLeftInMillis > 60000) {
-            tip.setText("TIP \n It is recommended to take a 30-45 seconds break between sets");
+            if (exercise) {
+                tip.setText("TIP \n It is recommended to take a 30-45 seconds break between sets");
+            } else {
+                tip.setText("TIP \n Not really sure what you're doing but good luck (^v^)");
+            }
         }
     }
 

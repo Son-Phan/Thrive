@@ -8,9 +8,9 @@ public class ActivityRecord {
     @PrimaryKey (autoGenerate = true)
     public int recordId;
     public String recordTime; // date format dd/MM/yyyy
-    public int activityId; // id is 0 for sleep activity
-    public String activityType; // exercise || meditation || sleep
-    public int recordLength; // in seconds for exercise & meditation, in minutes for sleep
+    public int activityId;
+    public String activityType; // exercise || meditation || user
+    public int recordLength; // in seconds
 
     public ActivityRecord(String recordTime, int activityId, String activityType, int recordLength) {
         this.recordTime = recordTime;

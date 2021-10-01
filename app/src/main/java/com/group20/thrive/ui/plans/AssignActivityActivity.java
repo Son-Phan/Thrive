@@ -62,8 +62,10 @@ public class AssignActivityActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(activitiesAdapter);
 
-        Button assignedBtn = findViewById(R.id.assignedBtn);
-        assignedBtn.setOnClickListener(view -> onDoneBtnClick());
+        Button assignBtn = findViewById(R.id.assignBtn);
+        assignBtn.setOnClickListener(view -> onAssignBtnClick());
+        Button createBtn = findViewById(R.id.createBtn);
+        createBtn.setOnClickListener(view -> onCreateBtnClick());
     }
 
     public void onItemClick(Activity activity){
@@ -71,7 +73,7 @@ public class AssignActivityActivity extends AppCompatActivity {
         chosenActivity = activity;
     }
 
-    public void onDoneBtnClick() {
+    public void onAssignBtnClick() {
         if (chosenActivity == null) {
             Toast.makeText(this, "Please choose an activity", Toast.LENGTH_SHORT).show();
         } else {
@@ -84,5 +86,12 @@ public class AssignActivityActivity extends AppCompatActivity {
             });
             onBackPressed();
         }
+    }
+
+    public void onCreateBtnClick() {
+        Intent intent = new Intent(this, createActivityActivity.class);
+        intent.putExtra("lessonId", lessonId);
+        intent.putExtra("timeOfDay", timeOfDay);
+        startActivity(intent);
     }
 }

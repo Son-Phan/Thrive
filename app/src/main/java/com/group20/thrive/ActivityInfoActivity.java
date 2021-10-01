@@ -17,6 +17,7 @@ import com.group20.thrive.database.Activity;
 public class ActivityInfoActivity extends AppCompatActivity {
 
     private boolean exercise; // true if exercise and false if meditation
+    private boolean user; // true of user created activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,10 @@ public class ActivityInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Activity activity = (Activity) intent.getSerializableExtra("activity");
 
-        if (activity.getActivityType().equals("exercise")) {
+        if (activity.getActivityType().equals("user")) {
+            setTitle("User Activity");
+            user = true;
+        } else if (activity.getActivityType().equals("exercise")) {
             setTitle("Exercise");
             exercise = true;
         } else {
@@ -50,7 +54,9 @@ public class ActivityInfoActivity extends AppCompatActivity {
 
         //set thumbnail
         ImageView thumbnail = findViewById(R.id.thumbnail);
-        if (exercise) {
+        if (user) {
+            thumbnail.setImageResource(R.drawable.cat_motivation_meme_1);
+        } else if (exercise) {
             thumbnail.setImageResource(R.drawable.exercise_thumbnail);
         } else {
             thumbnail.setImageResource(R.drawable.meditation_thumbnail);
@@ -71,7 +77,7 @@ public class ActivityInfoActivity extends AppCompatActivity {
 
         Button startBtn = findViewById(R.id.startBtn);
         startBtn.setOnClickListener(view1 -> {
-            if (exercise) {
+            if (exercise || user) {
                 Intent intent2 = new Intent(this, ExerciseActivity.class);
                 intent2.putExtra("activity", activity);
                 startActivity(intent2);

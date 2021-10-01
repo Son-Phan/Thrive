@@ -43,10 +43,10 @@ public class CreatePlanActivity extends AppCompatActivity {
         String planDesc = planDescInput.getText().toString();
 
         if (planName.isEmpty() || planLength.isEmpty()) {
-            Toast.makeText(this, "Please enter your plan name and length", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "name and length please, can't make one without info you know", Toast.LENGTH_SHORT).show();
         } else {
             int planLen = Integer.parseInt(planLength);
-            if (planDesc.isEmpty()) { planDesc = "No description."; }
+            if (planDesc.isEmpty()) { planDesc = "So how to describe this plan? null."; }
             addNewPlan(planName, planLen, planDesc);
             onBackPressed();
         }
@@ -62,7 +62,7 @@ public class CreatePlanActivity extends AppCompatActivity {
             int planId = planDao.getPlanId(planName);
             List<Lesson> lessons = new ArrayList<>();
             for (int i = 1; i < planLen+1; i++) {
-                lessons.add(new Lesson(planId, i, "empty"));
+                lessons.add(new Lesson(planId, i, "not sure if its useful"));
             }
             lessonDao.insertAll(lessons);
             db.close();

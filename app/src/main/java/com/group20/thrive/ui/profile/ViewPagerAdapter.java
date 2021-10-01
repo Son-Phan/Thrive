@@ -11,14 +11,14 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             new SummaryExerciseFragment(),
             new SummaryMeditationFragment(),
             new SummarySleepFragment(),
-            new SummaryDiaryFragment()
+            new SummaryMoodFragment()
     };
 
     public final String[] mFragmentNames = new String[] {
             "Exercise",
             "Meditate",
             "Sleep",
-            "Diary"
+            "Mood"
     };
 
     public ViewPagerAdapter(FragmentActivity fa){

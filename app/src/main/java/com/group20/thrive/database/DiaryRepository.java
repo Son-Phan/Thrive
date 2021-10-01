@@ -21,7 +21,7 @@ public class DiaryRepository {
     }
     public List<Diary> getEntries(String entryDate) { return mDiaryDao.getEntries(entryDate); }
 
-    public LiveData<Integer> getNumOfEntryDays() { return mDiaryDao.getNumOfEntryDays(); }
+    public LiveData<Integer> getTotalMoodCount() { return mDiaryDao.getTotalMoodCount(); }
 
     public LiveData<List<MoodCount>> getMoodCount() { return mDiaryDao.getMoodCount(); }
 

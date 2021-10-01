@@ -25,10 +25,9 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.group20.thrive.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class SummaryDiaryFragment extends Fragment {
+public class SummaryMoodFragment extends Fragment {
 
     private com.group20.thrive.ui.profile.ProfileViewModel ProfileViewModel;
     private PieChart chart;
@@ -36,14 +35,14 @@ public class SummaryDiaryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_summary_diary, container, false);
+        View view = inflater.inflate(R.layout.fragment_summary_mood, container, false);
 
         ProfileViewModel =
                 new ViewModelProvider(this).get(com.group20.thrive.ui.profile.ProfileViewModel.class);
 
-        TextView diaryEntryCount = view.findViewById(R.id.diaryEntryCount);
+        TextView totalMoodCount = view.findViewById(R.id.totalMoodCount);
 
-        ProfileViewModel.getNumOfEntryDays().observe(getActivity(), newData -> diaryEntryCount.setText(String.valueOf(newData)));
+        ProfileViewModel.getTotalMoodCount().observe(getActivity(), newData -> totalMoodCount.setText(String.valueOf(newData)));
 
         return view;
     }
@@ -59,9 +58,6 @@ public class SummaryDiaryFragment extends Fragment {
         chart.setExtraOffsets(5, 10, 5, 5);
 
         chart.setDragDecelerationFrictionCoef(0.95f);
-
-        chart.setCenterText(new SpannableString("Mood Count"));
-        chart.setCenterTextSize(16f);
 
         chart.setDrawHoleEnabled(true);
         chart.setHoleColor(Color.TRANSPARENT);
@@ -101,9 +97,12 @@ public class SummaryDiaryFragment extends Fragment {
 
     public void setData(List<MoodCount> moodCountList) {
 
-        if (moodCountList.isEmpty()) { noData.setVisibility(View.VISIBLE); }
-
-        List<String> moodList = Arrays.asList("awful", "bad", "medium", "good", "happy");
+        if (moodCountList.isEmpty()) {
+            noData.setVisibility(View.VISIBLE);
+        } else {
+            chart.setCenterText(new SpannableString("Mood Count"));
+            chart.setCenterTextSize(16f);
+        }
 
         ArrayList<PieEntry> values = new ArrayList<>();
 

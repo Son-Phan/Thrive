@@ -132,8 +132,10 @@ public class TodayFragment extends Fragment {
 
                     if (activities.get(finalI).activityType.equals("meditation")) {
                         activityImages.get(j).setImageResource(R.drawable.meditation_icon);
-                    } else {
+                    } else if(activities.get(finalI).activityType.equals("exercise")) {
                         activityImages.get(j).setImageResource(R.drawable.running_icon);
+                    } else {
+                        activityImages.get(j).setImageResource(R.drawable.thinking);
                     }
                     activityNames.get(j).setText(activities.get(finalI).activityName);
                     String lenText = activities.get(finalI).getActivityLen() + " min";

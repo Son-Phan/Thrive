@@ -25,8 +25,8 @@ public interface DiaryDao {
     @Query("SELECT * FROM Diary WHERE entryDate = :entryDate")
     LiveData<List<Diary>> getAllEntries(String entryDate);
 
-    @Query("SELECT COUNT(DISTINCT entryDate) FROM DIARY")
-    LiveData<Integer> getNumOfEntryDays();
+    @Query("SELECT COUNT(*) FROM DIARY")
+    LiveData<Integer> getTotalMoodCount();
 
     @Query("SELECT entryMood AS mood, COUNT(*) AS moodCount  FROM Diary GROUP BY entryMood")
     LiveData<List<MoodCount>> getMoodCount();

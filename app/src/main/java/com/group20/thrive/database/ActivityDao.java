@@ -12,6 +12,9 @@ import java.util.List;
 public interface ActivityDao {
 
     @Insert
+    void addActivity(Activity activity);
+
+    @Insert
     void insertAll(Activity... activities);
 
     @Query("SELECT * FROM Activity WHERE activityType = :activityType")
@@ -25,4 +28,7 @@ public interface ActivityDao {
 
     @Query("DELETE  FROM Activity WHERE activityType = :activityType")
     void deleteActivity(String activityType);
+
+    @Query("SELECT activityId FROM Activity WHERE activityName = :activityName")
+    Integer getActivityId(String activityName);
 }
