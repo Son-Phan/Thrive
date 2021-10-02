@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,9 +68,15 @@ public class ProfileFragment extends Fragment {
                 (tab, position) -> tab.setText(((com.group20.thrive.ui.profile.ViewPagerAdapter) (mViewPager.getAdapter())).mFragmentNames[position])
         ).attach();
 
-        ImageButton btn = view.findViewById(R.id.imageButton);
+        TextView userName = view.findViewById(R.id.userName);
 
-        btn.setOnClickListener(view1 -> {
+        ProfileViewModel.getUser().observe(getActivity(), newData -> {
+            userName.setText(newData.getUserName());
+        });
+
+        ImageButton settingsBtn = view.findViewById(R.id.settingsBtn);
+
+        settingsBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent (getActivity(), SettingsActivity.class);
             startActivity(intent);
         });

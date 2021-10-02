@@ -19,8 +19,6 @@ import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
-import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -103,7 +101,7 @@ public class ProfileActivityTest {
     @Test
     public void imageButtonExist(){
         ViewInteraction imageButton = onView(
-                allOf(withId(R.id.imageButton),
+                allOf(withId(R.id.settingsBtn),
                         withParent(withParent(withId(R.id.nav_host_fragment_activity_main))),
                         isDisplayed()));
         imageButton.check(matches(isDisplayed()));

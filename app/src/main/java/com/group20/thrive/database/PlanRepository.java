@@ -27,6 +27,9 @@ public class PlanRepository {
 
     public LiveData<Plan> getUserPlan() { return mPlanDao.getUserPlan(); }
 
+    public LiveData<List<String>> getAllPlanNames() { return mPlanDao.getAllPlanNames(); }
+
+    public List<Plan> getPlan() { return mPlanDao.getPlan(); }
     public void deletePlan(String planName) { mPlanDao.deletePlan(planName);}
     public Plan getEachPlan(String planName) {return mPlanDao.getEachPlan(planName);}
 }

@@ -8,14 +8,13 @@
     android:background="@color/background">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/changeUserName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="What are you looking at?"
+        android:layout_height="60dp"
+        android:text="Change user name"
         android:textColor="@color/black"
         android:gravity="start|center_vertical"
+        android:onClick="ChangeUserNamePopUpWindow"
         android:backgroundTint="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,21 +22,19 @@
 
     <View
         android:id="@+id/divider1"
-        android:layout_width="300dp"
-        android:layout_height="1dp"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
         android:background="@android:color/black"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeUserName" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/changeExerciseGoal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="There's nothing here"
+        android:layout_height="60dp"
+        android:text="Change exercise goal"
         android:textColor="@color/black"
         android:gravity="start|center_vertical"
         android:backgroundTint="@color/background"
@@ -46,27 +43,116 @@
         app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
     <View
-        android:id="@+id/divider"
-        android:layout_width="300dp"
-        android:layout_height="1dp"
+        android:id="@+id/divider2"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
         android:background="@android:color/black"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeExerciseGoal" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/changeMeditationGoal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Try to add something will ya"
+        android:layout_height="60dp"
+        android:text="Change meditation goal"
         android:textColor="@color/black"
         android:gravity="start|center_vertical"
         android:backgroundTint="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeMeditationGoal" />
+
+    <Button
+        android:id="@+id/changeUserActivityGoal"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Change user created activity goal"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:backgroundTint="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeUserActivityGoal" />
+
+    <Button
+        android:id="@+id/changeCurrentPlan"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Change current plan"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:backgroundTint="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeCurrentPlan" />
+
+    <Button
+        android:id="@+id/deletePlan"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:text="Delete Plan"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:backgroundTint="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deletePlan" />
+
+    <Button
+        android:id="@+id/deleteActivity"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Delete user created activity"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:backgroundTint="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

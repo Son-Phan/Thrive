@@ -23,12 +23,18 @@ public interface ActivityDao {
     @Query("SELECT * FROM Activity")
     LiveData<List<Activity>> getAllActivities();
 
+    @Query("SELECT activityName FROM activity WHERE activityType LIKE :activityType")
+    LiveData<List<String>> getActivityNamesOfType(String activityType);
+
     @Query("SELECT * FROM Activity WHERE activityId = :activityId")
     Activity getActivity(int activityId);
 
-    @Query("DELETE  FROM Activity WHERE activityType = :activityType")
-    void deleteActivity(String activityType);
+    @Query("DELETE FROM Activity WHERE activityType = :activityType")
+    void deleteActivityOfType(String activityType);
 
     @Query("SELECT activityId FROM Activity WHERE activityName = :activityName")
     Integer getActivityId(String activityName);
+
+    @Query("DELETE FROM Activity WHERE activityName LIKE :activityName")
+    void deleteActivity(String activityName);
 }

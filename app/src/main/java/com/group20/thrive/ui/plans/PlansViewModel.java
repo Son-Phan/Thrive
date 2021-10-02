@@ -44,4 +44,8 @@ public class PlansViewModel extends AndroidViewModel {
     public LiveData<List<String>> getActivityTimeOfDay(int lessonId, int activityId) { return lessonRepository.getActivityTimeOfDay(lessonId, activityId); }
 
     public LiveData<List<Activity>> getAllActivities() { return activityRepository.getAllActivities(); }
+
+    public LiveData<List<String>> getAllPlanNames() { return planRepository.getAllPlanNames(); }
+
+    public LiveData<List<String>> getActivityNamesOfType(String activityType) { return activityRepository.getActivityNamesOfType(activityType); }
 }
