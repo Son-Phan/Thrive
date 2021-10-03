@@ -42,4 +42,7 @@ public interface LessonDao {
 
     @Query("DELETE FROM Lesson WHERE planId = :planId")
     void deleteLesson(Integer planId);
+
+    @Query("UPDATE LessonActivityCrossRef SET activityId = :activityId WHERE lessonId LIKE :lessonId AND timeOfDay LIKE :timeOfDay")
+    void updateAssignActivity(int activityId, int lessonId, String timeOfDay);
 }

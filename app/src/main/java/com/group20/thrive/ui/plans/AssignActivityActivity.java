@@ -26,6 +26,7 @@ public class AssignActivityActivity extends AppCompatActivity {
 
     private int lessonId;
     private String timeOfDay;
+    private boolean reassign;
     private RecyclerView recyclerView;
     private ActivitiesAdapter activitiesAdapter = new ActivitiesAdapter(this);
     private PlansViewModel plansViewModel;
@@ -41,6 +42,7 @@ public class AssignActivityActivity extends AppCompatActivity {
         Intent intent = getIntent();
         lessonId = intent.getIntExtra("lessonId", 0);
         timeOfDay = intent.getStringExtra("timeOfDay");
+        reassign = intent.getBooleanExtra("reassign", false);
 
         TextView instruction = findViewById(R.id.instruction);
         String text = "Select the activity you want to do in the " + timeOfDay;
@@ -81,7 +83,11 @@ public class AssignActivityActivity extends AppCompatActivity {
                 ThriveDatabase db = Room.databaseBuilder(getApplicationContext(), ThriveDatabase.class,
                         ThriveDatabase.THRIVE_DATABASE_NAME).build();
                 LessonDao lessonDao = db.lessonDao();
+                if (reassign) {
+                    lessonDao.updateAssignActivity(chosenActivity.getActivityId(), lessonId, timeOfDay);
+                } else {
                 lessonDao.insertLessonActivity(new LessonActivityCrossRef(lessonId, chosenActivity.getActivityId(), timeOfDay));
+                }
                 db.close();
             });
             onBackPressed();

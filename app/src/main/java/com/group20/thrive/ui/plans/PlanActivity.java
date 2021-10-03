@@ -12,10 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.group20.thrive.ActivityInfoActivity;
@@ -34,6 +39,8 @@ public class PlanActivity extends AppCompatActivity{
     private Activity morningActivity;
     private Activity afternoonActivity;
     private Activity eveningActivity;
+    private PopupWindow accessReassignActivity;
+    private int lessonID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +91,7 @@ public class PlanActivity extends AppCompatActivity{
     }
 
     public void updateActivityView(int lessonId) {
+        lessonID = lessonId;
 
         List<CardView> activityCardViews = Arrays.asList(
                 findViewById(R.id.activity1),
@@ -101,15 +109,16 @@ public class PlanActivity extends AppCompatActivity{
 
         plansViewModel.getActivitiesOfCurrentLesson(lessonId).observe(this, newData -> lessonActivities(lessonId, newData, activityCardViews));
 
-        activityCardViews.get(0).setOnClickListener(view -> onActivityClick(morningActivity));
-        activityCardViews.get(1).setOnClickListener(view -> onActivityClick(afternoonActivity));
-        activityCardViews.get(2).setOnClickListener(view -> onActivityClick(eveningActivity));
+        activityCardViews.get(0).setOnClickListener(view -> accessReassignActivity(view, morningActivity, "morning"));
+        activityCardViews.get(1).setOnClickListener(view -> accessReassignActivity(view, afternoonActivity, "afternoon"));
+        activityCardViews.get(2).setOnClickListener(view -> accessReassignActivity(view, eveningActivity, "evening"));
 
-        assignButtons.get(0).setOnClickListener((view -> onAssignBtnClick(lessonId, "morning")));
-        assignButtons.get(1).setOnClickListener((view -> onAssignBtnClick(lessonId, "afternoon")));
-        assignButtons.get(2).setOnClickListener((view -> onAssignBtnClick(lessonId, "evening")));
+        assignButtons.get(0).setOnClickListener((view -> onAssignBtnClick(lessonId, "morning", false)));
+        assignButtons.get(1).setOnClickListener((view -> onAssignBtnClick(lessonId, "afternoon", false)));
+        assignButtons.get(2).setOnClickListener((view -> onAssignBtnClick(lessonId, "evening", false)));
     }
 
+    // set up activity card views
     public void lessonActivities(int lessonId, List<Activity> activities, List<CardView> activityCardViews) {
         morningActivity = null;
         afternoonActivity = null;
@@ -177,16 +186,46 @@ public class PlanActivity extends AppCompatActivity{
         }
     }
 
-    public void onActivityClick(Activity activity) {
+    public void accessReassignActivity(View view, Activity activity, String timeOfDay) {
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.popup_window_activity_access_reassign, null);
+
+        // create the popup window
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        accessReassignActivity = new PopupWindow(popupView, width, height, true);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window token
+        accessReassignActivity.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        Button accessActivityBtn = popupView.findViewById(R.id.accessActivityBtn);
+        Button reassignActivityBtn = popupView.findViewById(R.id.reassignActivityBtn);
+
+        accessActivityBtn.setOnClickListener(v -> {
+            onAccessActivityClick(activity);
+            accessReassignActivity.dismiss();
+        });
+        reassignActivityBtn.setOnClickListener(v -> {
+            onAssignBtnClick(lessonID, timeOfDay, true);
+            accessReassignActivity.dismiss();
+        });
+    }
+
+    public void onAccessActivityClick(Activity activity) {
         Intent intent = new Intent(this, ActivityInfoActivity.class);
         intent.putExtra("activity", activity);
         startActivity(intent);
     }
 
-    public void onAssignBtnClick(int lessonId, String timeOfDay) {
+    public void onAssignBtnClick(int lessonId, String timeOfDay, boolean reassign) {
         Intent intent = new Intent(this, AssignActivityActivity.class);
         intent.putExtra("lessonId", lessonId);
         intent.putExtra("timeOfDay", timeOfDay);
+        intent.putExtra("reassign", reassign);
         startActivity(intent);
     }
 }

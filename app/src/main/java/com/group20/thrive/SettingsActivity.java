@@ -249,7 +249,8 @@ public class SettingsActivity extends AppCompatActivity {
             } else {
                 plansViewModel.getActivityNamesOfType("userActivity").observe(this, newData -> {
                     if (newData.contains(dataName)) {
-
+                        deleteData(dataName, dataType);
+                        ChangeCurrentPlanPopUpWindow.dismiss();
                     } else {
                         Toast.makeText(this, "Not on the list, either you got the wrong name or there is nothing in the list", Toast.LENGTH_SHORT).show();
                     }
@@ -281,7 +282,9 @@ public class SettingsActivity extends AppCompatActivity {
                 ThriveDatabase db = Room.databaseBuilder(getApplicationContext(), ThriveDatabase.class,
                         ThriveDatabase.THRIVE_DATABASE_NAME).build();
                 ActivityDao activityDao = db.activityDao();
+                int activityId = activityDao.getActivityId(dataName);
                 activityDao.deleteActivity(dataName);
+                activityDao.deleteLessonActivityCrossRef(activityId);
                 db.close();
             });
         }

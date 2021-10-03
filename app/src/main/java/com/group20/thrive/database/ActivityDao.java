@@ -37,4 +37,7 @@ public interface ActivityDao {
 
     @Query("DELETE FROM Activity WHERE activityName LIKE :activityName")
     void deleteActivity(String activityName);
+
+    @Query("DELETE FROM LessonActivityCrossRef WHERE activityId LIKE :activityId")
+    void deleteLessonActivityCrossRef(int activityId);
 }
