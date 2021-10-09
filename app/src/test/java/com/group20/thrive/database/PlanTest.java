@@ -16,12 +16,8 @@ class PlanTest {
 
     @BeforeEach
     public void setUp(){
-        plan = new Plan("Exercise", "work", 111, 10, "You are the best");
+        plan = new Plan("Exercise",  10, "You are the best");
         plan.setPlanId(10);
-    }
-    @Test
-    void getImageLocation() {
-        assertEquals(111, plan.getImageLocation());
     }
 
     @Test
@@ -32,11 +28,6 @@ class PlanTest {
     @Test
     void getPlanName() {
         assertEquals("Exercise", plan.getPlanName());
-    }
-
-    @Test
-    void getPlanType() {
-        assertEquals("work", plan.getPlanType());
     }
 
     @Test
@@ -59,7 +50,7 @@ class PlanTest {
     @DisplayName("Should not create plan when all parameter are null")
     public void shouldThrowRunTimeExceptionWhenPlanTypeIsNull(){
         Assertions.assertThrows(RuntimeException.class, () -> {
-            plan = new Plan(null, null, null, null, null);
+            plan = new Plan(null, null, null);
         });
 
     }

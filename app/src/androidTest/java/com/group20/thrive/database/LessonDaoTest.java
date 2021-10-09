@@ -25,7 +25,7 @@ public class LessonDaoTest {
         Context context = ApplicationProvider.getApplicationContext();
         thriveDatabase = Room.inMemoryDatabaseBuilder(context, ThriveDatabase.class).build();
         lessonDao = thriveDatabase.lessonDao();
-        lesson = new Lesson(10,19,"Work hard");
+        lesson = new Lesson(10,19);
         List<Lesson> lessonList = Collections.singletonList(lesson);
         lessonDao.insertAll(lessonList);
     }
@@ -35,10 +35,6 @@ public class LessonDaoTest {
         thriveDatabase.close();
     }
 
-    @Test
-    public void getLessonDesc(){
-        assertEquals(lessonDao.getLesson(1).getLessonDesc(), lesson.getLessonDesc());
-    }
     @Test
     public void getLessonDay(){
         assertEquals(lessonDao.getLesson(1).getLessonDay(), lesson.getLessonDay());

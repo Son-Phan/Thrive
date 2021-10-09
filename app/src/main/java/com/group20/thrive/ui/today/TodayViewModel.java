@@ -32,7 +32,7 @@ public class TodayViewModel extends AndroidViewModel {
 
     public LiveData<User> getUser() { return userRepository.getUser(); }
 
-    public LiveData<List<Activity>> getActivitiesOfCurrentLesson(int lessonId) {
+    public LiveData<List<Activity>> getActivitiesOfLesson(int lessonId) {
         return lessonRepository.getActivitiesOfLesson(lessonId);
     }
 

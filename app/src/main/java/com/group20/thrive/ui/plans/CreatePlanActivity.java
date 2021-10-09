@@ -58,11 +58,11 @@ public class CreatePlanActivity extends AppCompatActivity {
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             PlanDao planDao = db.planDao();
             LessonDao lessonDao = db.lessonDao();
-            planDao.addPlan(new Plan(planName, "EM", 0, planLen, planDesc));
+            planDao.addPlan(new Plan(planName,  planLen, planDesc));
             int planId = planDao.getPlanId(planName);
             List<Lesson> lessons = new ArrayList<>();
             for (int i = 1; i < planLen+1; i++) {
-                lessons.add(new Lesson(planId, i, "not sure if its useful"));
+                lessons.add(new Lesson(planId, i));
             }
             lessonDao.insertAll(lessons);
             db.close();

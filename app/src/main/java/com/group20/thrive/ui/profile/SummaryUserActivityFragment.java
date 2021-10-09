@@ -51,7 +51,7 @@ public class SummaryUserActivityFragment extends Fragment {
         streakCount.setText(String.valueOf(sharedPrefs.getInt("userActivityStreak", 0)));
 
         ProfileViewModel.getUser().observe(getActivity(), newData -> {
-            String goal = newData.getExerciseGoal() + " min";
+            String goal = newData.getUserActivityGoal() + " min";
             goalTime.setText(goal);
         });
 

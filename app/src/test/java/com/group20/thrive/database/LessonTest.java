@@ -18,7 +18,7 @@ class LessonTest {
     Lesson lesson;
     @BeforeEach
     public void setup(){
-        lesson = new Lesson(1,10, "Try the best");
+        lesson = new Lesson(1,10);
     }
     @Test
     void getLessonId() {
@@ -36,11 +36,6 @@ class LessonTest {
     }
 
     @Test
-    void getLessonDesc() {
-        assertEquals("Try the best", lesson.getLessonDesc());
-    }
-
-    @Test
     void setLessonId() {
         lesson.setLessonId(10);
         assertEquals(10, lesson.getLessonId());
@@ -50,7 +45,7 @@ class LessonTest {
     @DisplayName("Should not create lesson when all parameter are null")
     public void shouldThrowRunTimeExceptionWhenLessonDescIsNull(){
         Assertions.assertThrows(RuntimeException.class, () -> {
-            Lesson lesson = new Lesson(null,null, null);
+            Lesson lesson = new Lesson(null,null);
         });
 
     }

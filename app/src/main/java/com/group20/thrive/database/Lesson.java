@@ -9,12 +9,10 @@ public class Lesson {
     public int lessonId;
     public int planId;
     public int lessonDay;
-    public String lessonDesc;
 
-    public Lesson(Integer planId, Integer lessonDay, String lessonDesc) {
+    public Lesson(Integer planId, Integer lessonDay) {
         this.planId = planId;
         this.lessonDay = lessonDay;
-        this.lessonDesc = lessonDesc;
     }
 
     public int getLessonId() { return lessonId; }
@@ -22,8 +20,6 @@ public class Lesson {
     public int getPlanId() { return planId; }
 
     public int getLessonDay() { return lessonDay; }
-
-    public String getLessonDesc() { return lessonDesc; }
 
     public void setLessonId(int lessonId) { this.lessonId = lessonId; }
 }

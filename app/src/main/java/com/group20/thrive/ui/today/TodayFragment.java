@@ -32,9 +32,6 @@ public class TodayFragment extends Fragment {
     private FragmentTodayBinding binding;
     private int lessonId;
     private List<Activity> myActivities;
-    private Activity morningActivity;
-    private Activity afternoonActivity;
-    private Activity eveningActivity;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,21 +55,15 @@ public class TodayFragment extends Fragment {
 
         todayViewModel.getUser().observe(getActivity(), newData -> {
             lessonId = newData.getCurrentLesson();
-            todayViewModel.getActivitiesOfCurrentLesson(lessonId).observe(getActivity(), newActivities -> {
+            todayViewModel.getActivitiesOfLesson(lessonId).observe(getActivity(), newActivities -> {
                 myActivities = new ArrayList<>(newActivities);
                 todayActivities(view, newActivities, lessonId);
             });
         });
 
-        if (morningActivity != null) {
-            activity1.setOnClickListener(view1 -> onActivityClick(morningActivity));
-        }
-        if (afternoonActivity != null) {
-            activity2.setOnClickListener(view1 -> onActivityClick(afternoonActivity));
-        }
-        if (eveningActivity != null) {
-            activity3.setOnClickListener(view1 -> onActivityClick(eveningActivity));
-        }
+        activity1.setOnClickListener(view1 -> onActivityClick(myActivities.get(0)));
+        activity2.setOnClickListener(view1 -> onActivityClick(myActivities.get(1)));
+        activity3.setOnClickListener(view1 -> onActivityClick(myActivities.get(2)));
     }
 
     public void todayGreetings(View view) {
@@ -119,15 +110,12 @@ public class TodayFragment extends Fragment {
                     int j;
                     if (newData.get(k).equals("morning")) {
                         j = 0;
-                        morningActivity = activities.get(finalI);
                     }
                     else if (newData.get(k).equals("afternoon")) {
                         j = 1;
-                        afternoonActivity = activities.get(finalI);
                     }
                     else { //evening
                         j = 2;
-                        eveningActivity = activities.get(finalI);
                     }
 
                     if (activities.get(finalI).activityType.equals("meditation")) {
@@ -149,12 +137,18 @@ public class TodayFragment extends Fragment {
                 }
             });
         }
+        // for unassigned activity
+        while (myActivities.size() < 3) {
+            myActivities.add(null);
+        }
     }
 
     public void onActivityClick(Activity activity) {
-        Intent intent = new Intent(getActivity(), ActivityInfoActivity.class);
-        intent.putExtra("activity", activity);
-        startActivity(intent);
+        if (activity != null) {
+            Intent intent = new Intent(getActivity(), ActivityInfoActivity.class);
+            intent.putExtra("activity", activity);
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -153,6 +153,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteActivity" />
 
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="120dp"
+        android:background="@android:color/black"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+    <Button
+        android:id="@+id/signOutBtn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
+        android:text="sign out"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:backgroundTint="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

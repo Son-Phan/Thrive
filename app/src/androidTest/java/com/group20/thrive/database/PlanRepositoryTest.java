@@ -22,7 +22,7 @@ public class PlanRepositoryTest {
         thriveDatabase = Room.databaseBuilder(context, ThriveDatabase.class,
                 ThriveDatabase.THRIVE_DATABASE_NAME).build();
         planDao = thriveDatabase.planDao();
-        plan = new Plan("trung","trung", 10,10,"nothing");
+        plan = new Plan("trung",10,"nothing");
         planDao.addPlan(plan);
         planRepository = new PlanRepository(ApplicationProvider.getApplicationContext());
     }
@@ -45,16 +45,10 @@ public class PlanRepositoryTest {
     @Test
     public void getPlanId(){
         assertEquals(planRepository.getEachPlan("trung").getPlanId(), planDao.getEachPlan("trung").getPlanId());
-    } @Test
-    public void getPlanType(){
-        assertEquals(planRepository.getEachPlan("trung").getPlanType(), planDao.getEachPlan("trung").getPlanType());
-    } @Test
-    public void getPlanDescription(){
-        assertEquals(planRepository.getEachPlan("trung").getPlanDescription(), planDao.getEachPlan("trung").getPlanDescription());
     }
     @Test
-    public void getImageLocation(){
-        assertEquals(planRepository.getEachPlan("trung").getImageLocation(), planDao.getEachPlan("trung").getImageLocation());
+    public void getPlanDescription(){
+        assertEquals(planRepository.getEachPlan("trung").getPlanDescription(), planDao.getEachPlan("trung").getPlanDescription());
     }
 
 

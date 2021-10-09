@@ -12,20 +12,11 @@ public class Plan implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int planId;
     public String planName;
-    public String planType;
     public int planLength;
     public String planDescription;
 
-    public int getImageLocation() {
-        return imageLocation;
-    }
-
-    public int imageLocation;
-
-    public Plan(String planName, String planType, Integer imageLocation, Integer planLength, String planDescription) {
-        this.imageLocation = imageLocation;
+    public Plan(String planName, Integer planLength, String planDescription) {
         this.planName = planName;
-        this.planType = planType;
         this.planLength = planLength;
         this.planDescription = planDescription;
     }
@@ -34,11 +25,10 @@ public class Plan implements Serializable {
 
     public String getPlanName() { return planName; }
 
-    public String getPlanType() { return planType; }
-
     public int getPlanLength() { return planLength; }
 
     public String getPlanDescription () { return planDescription; }
+
     public void setPlanId(int planId) {
         this.planId = planId;
     }

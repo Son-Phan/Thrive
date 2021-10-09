@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3bc56816e89e3883bd9a5b4c9b875834",
+    "identityHash": "91b10ef2e13b786cadbcd5fb512d52b5",
     "entities": [
       {
         "tableName": "plan",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`planId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planName` TEXT, `planType` TEXT, `planLength` INTEGER NOT NULL, `planDescription` TEXT, `imageLocation` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`planId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planName` TEXT, `planLength` INTEGER NOT NULL, `planDescription` TEXT)",
         "fields": [
           {
             "fieldPath": "planId",
@@ -21,12 +21,6 @@
             "notNull": false
           },
           {
-            "fieldPath": "planType",
-            "columnName": "planType",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
             "fieldPath": "planLength",
             "columnName": "planLength",
             "affinity": "INTEGER",
@@ -37,12 +31,6 @@
             "columnName": "planDescription",
             "affinity": "TEXT",
             "notNull": false
-          },
-          {
-            "fieldPath": "imageLocation",
-            "columnName": "imageLocation",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -56,7 +44,7 @@
       },
       {
         "tableName": "lesson",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lessonId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planId` INTEGER NOT NULL, `lessonDay` INTEGER NOT NULL, `lessonDesc` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lessonId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planId` INTEGER NOT NULL, `lessonDay` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "lessonId",
@@ -75,12 +63,6 @@
             "columnName": "lessonDay",
             "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "lessonDesc",
-            "columnName": "lessonDesc",
-            "affinity": "TEXT",
-            "notNull": false
           }
         ],
         "primaryKey": {
@@ -353,7 +335,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3bc56816e89e3883bd9a5b4c9b875834')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '91b10ef2e13b786cadbcd5fb512d52b5')"
     ]
   }
 }

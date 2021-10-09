@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.group20.thrive.database.ActivityDao;
 import com.group20.thrive.database.LessonDao;
 import com.group20.thrive.database.Plan;
@@ -70,6 +72,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         deletePlan.setOnClickListener(view -> deleteDataPopUpWindow(view, "plan"));
         deleteActivity.setOnClickListener(view -> deleteDataPopUpWindow(view, "activity"));
+
+        Button signOut = findViewById(R.id.signOutBtn);
+
+        signOut.setOnClickListener(view -> signOut());
     }
 
     // create change user name pop up window
@@ -130,9 +136,14 @@ public class SettingsActivity extends AppCompatActivity {
 
         Button newUserGoalConfirmBtn = popupView.findViewById(R.id.newUserGoalConfirmBtn);
         newUserGoalConfirmBtn.setOnClickListener(v -> {
-            int newUserGoal = Integer.parseInt(userGoalInput.getText().toString());
-            updateUserGoal(newUserGoal, goalChange);
-            ChangeUserGoalPopUpWindow.dismiss();
+            String newGoalInput = userGoalInput.getText().toString();
+            if (newGoalInput.isEmpty()) {
+                Toast.makeText(this, "nothing?! don't give up, aim higher, you can do it!", Toast.LENGTH_SHORT).show();
+            } else {
+                int newUserGoal = Integer.parseInt(userGoalInput.getText().toString());
+                updateUserGoal(newUserGoal, goalChange);
+                ChangeUserGoalPopUpWindow.dismiss();
+            }
         });
     }
 
@@ -229,6 +240,10 @@ public class SettingsActivity extends AppCompatActivity {
         // which view you pass in doesn't matter, it is only used for the window token
         ChangeCurrentPlanPopUpWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
+        TextView title = popupView.findViewById(R.id.deleteData);
+        String text = "Enter " + dataType + " name";
+        title.setText(text);
+
         EditText deleteDataInput = popupView.findViewById(R.id.deleteDataInput);
 
         Button deleteDataConfirmBtn = popupView.findViewById(R.id.deleteDataConfirmBtn);
@@ -252,7 +267,7 @@ public class SettingsActivity extends AppCompatActivity {
                         deleteData(dataName, dataType);
                         ChangeCurrentPlanPopUpWindow.dismiss();
                     } else {
-                        Toast.makeText(this, "Not on the list, either you got the wrong name or there is nothing in the list", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Not on the list, either you got the wrong name or I have the wrong list", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -288,6 +303,13 @@ public class SettingsActivity extends AppCompatActivity {
                 db.close();
             });
         }
+    }
+
+    public void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     @Override

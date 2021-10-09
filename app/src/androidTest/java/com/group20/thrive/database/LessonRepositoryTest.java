@@ -26,7 +26,7 @@ public class LessonRepositoryTest {
         thriveDatabase = Room.databaseBuilder(context, ThriveDatabase.class,
                 ThriveDatabase.THRIVE_DATABASE_NAME).build();
         lessonDao = thriveDatabase.lessonDao();
-        lesson = new Lesson(10, 10, "nothing");
+        lesson = new Lesson(10, 10);
         List<Lesson> lessonList = new ArrayList<>();
         lessonList.add(lesson);
         lessonDao.insertAll(lessonList);
@@ -42,10 +42,6 @@ public class LessonRepositoryTest {
     @Test
     public void planId(){
         assertEquals(lessonRepository.getLessonOfPlan_list(10).get(0).getPlanId(), lessonDao.getLessonsOfPlan_list(10).get(0).getPlanId());
-    }
-    @Test
-    public void getLessonDesc(){
-        assertEquals(lessonRepository.getLessonOfPlan_list(10).get(0).getLessonDesc(), lessonDao.getLessonsOfPlan_list(10).get(0).getLessonDesc());
     }
     @Test
     public void getLessonDay(){

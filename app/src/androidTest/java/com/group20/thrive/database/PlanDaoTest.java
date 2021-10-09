@@ -20,7 +20,7 @@ public class PlanDaoTest {
         Context context = ApplicationProvider.getApplicationContext();
         thriveDatabase = Room.inMemoryDatabaseBuilder(context, ThriveDatabase.class).build();
         planDao = thriveDatabase.planDao();
-        plan = new Plan("trung", "work", 10, 15, "Work hard");
+        plan = new Plan("trung", 10, "Work hard");
         planDao.addPlan(plan);
     }
 
@@ -38,14 +38,7 @@ public class PlanDaoTest {
     public void getPlanName(){
         assertEquals(planDao.getPlan().get(0).getPlanName(), plan.getPlanName());
     }
-    @Test
-    public void getImageLocation(){
-        assertEquals(planDao.getPlan().get(0).getImageLocation(), plan.getImageLocation());
-    }
-    @Test
-    public void getPlanType(){
-        assertEquals(planDao.getPlan().get(0).getPlanType(), plan.getPlanType());
-    }
+
     @Test
     public void getPlanDescription(){
         assertEquals(planDao.getPlan().get(0).getPlanDescription(), plan.getPlanDescription());
