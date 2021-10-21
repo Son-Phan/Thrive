@@ -103,14 +103,14 @@ public class SignInActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Sign in success, update UI with the signed-in user's information
+                        // Sign up success, update UI with the signed-in user's information
                         Log.d(TAG, "createUserWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
                         finish();
                     } else {
-                        // If sign in fails, display a message to the user.
+                        // If sign up fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                        Toast.makeText(SignInActivity.this, "Authentication failed.",
+                        Toast.makeText(SignInActivity.this, "Please try again",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
