@@ -72,15 +72,19 @@ public class TodayFragment extends Fragment {
 
         int currentTime = ZonedDateTime.now(ZoneId.systemDefault()).getHour();
 
+
+
+        greetings.setText(getSessionOfDay(currentTime));
+    }
+
+    public String getSessionOfDay(int currentTime){
         String text;
 
         if (currentTime > 6 && currentTime < 12) { text = "Good Morning!"; }
         else if (currentTime > 12 && currentTime < 18) { text = "Good Afternoon!"; }
         else { text = "Good Evening!"; }
-
-        greetings.setText(text);
+        return text;
     }
-
     public void todayActivities(View view, List<Activity> activities, int lessonId) {
 
         List<ImageView> activityImages = Arrays.asList(

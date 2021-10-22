@@ -43,11 +43,6 @@ public class ActivityRecordDaoTest {
     }
 
     @Test
-    public void getActivityId(){
-        assertEquals(activityRecordDao.getActivityRecord("Work").getActivityId(), activityRecord.getActivityId());
-    }
-
-    @Test
     public void getActivityType(){
         assertEquals(activityRecordDao.getActivityRecord("Work").getActivityType(), activityRecord.getActivityType());
     }

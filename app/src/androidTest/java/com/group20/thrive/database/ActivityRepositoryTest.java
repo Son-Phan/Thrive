@@ -61,11 +61,6 @@ public class ActivityRepositoryTest {
         assertNotNull(activityRepository.getActivityList("Work"));
     }
 
-    @Test
-    public void getLiveActivityList(){
-        assertNotNull(activityRepository.getActivitiesOfActivityType());
-
-    }
 
     @Test
     public void getActivity(){

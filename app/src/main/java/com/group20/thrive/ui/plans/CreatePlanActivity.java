@@ -47,21 +47,26 @@ public class CreatePlanActivity extends AppCompatActivity {
         } else {
             int planLen = Integer.parseInt(planLength);
             if (planDesc.isEmpty()) { planDesc = "So how to describe this plan? null."; }
-            addNewPlan(planName, planLen, planDesc);
-            onBackPressed();
+            Plan plan = new Plan(planName,  planLen, planDesc);
+            if( plan.checkValidLength()){
+                addNewPlan(plan);
+                onBackPressed();
+            }
+            else
+                Toast.makeText(this, "Length should be between 1 and 29", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void addNewPlan(String planName, int planLen, String planDesc) {
+    public void addNewPlan(Plan plan) {
         Executors.newSingleThreadExecutor().execute(() -> {
             ThriveDatabase db = Room.databaseBuilder(getApplicationContext(), ThriveDatabase.class,
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             PlanDao planDao = db.planDao();
             LessonDao lessonDao = db.lessonDao();
-            planDao.addPlan(new Plan(planName,  planLen, planDesc));
-            int planId = planDao.getPlanId(planName);
+            planDao.addPlan(plan);
+            int planId = planDao.getPlanId(plan.getPlanName());
             List<Lesson> lessons = new ArrayList<>();
-            for (int i = 1; i < planLen+1; i++) {
+            for (int i = 1; i < plan.getPlanLength()+1; i++) {
                 lessons.add(new Lesson(planId, i));
             }
             lessonDao.insertAll(lessons);

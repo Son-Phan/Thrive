@@ -16,9 +16,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.test.espresso.ViewInteraction;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -30,65 +28,32 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @LargeTest
-@RunWith(AndroidJUnit4ClassRunner.class)
-// WARNING: Espresso Test Recorder was paused during recording.
-// The generated test may be missing actions which might lead to unexpected behavior.
-public class DiaryActivityTest2 {
+@RunWith(AndroidJUnit4.class)
+public class TodayFragmentTesting {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void textViewExist(){
+    public void todayFragmentTesting() {
         ViewInteraction bottomNavigationItemView = onView(
-                allOf(withId(R.id.navigation_diary), withContentDescription("Diary"),
+                allOf(withId(R.id.navigation_today), withContentDescription("Today"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.nav_view),
                                         0),
-                                1),
+                                0),
                         isDisplayed()));
         bottomNavigationItemView.perform(click());
 
         ViewInteraction textView = onView(
-                allOf(withText("Diary"),
+                allOf(withText("Today"),
                         withParent(allOf(withId(R.id.action_bar),
                                 withParent(withId(R.id.action_bar_container)))),
                         isDisplayed()));
-        textView.check(matches(withText("Diary")));
-
-        ViewInteraction textView2 = onView(
-                allOf(withId(R.id.quoteTitle), withText("Quote Of The Day"),
-                        withParent(withParent(withId(R.id.nav_host_fragment_activity_main))),
-                        isDisplayed()));
-        textView2.check(matches(withText("Quote Of The Day")));
-
+        textView.check(matches(withText("Today")));
 
     }
-    @Test
-    public void buttonExist(){
-        ViewInteraction bottomNavigationItemView = onView(
-                allOf(withId(R.id.navigation_diary), withContentDescription("Diary"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.nav_view),
-                                        0),
-                                1),
-                        isDisplayed()));
-        bottomNavigationItemView.perform(click());
-        ViewInteraction button = onView(
-                allOf(withId(R.id.addEntry), withText("ADD NEW ENTRY"),
-                        withParent(withParent(withId(R.id.nav_host_fragment_activity_main))),
-                        isDisplayed()));
-        button.check(matches(isDisplayed()));
-
-        ViewInteraction button2 = onView(
-                allOf(withId(R.id.addEntry), withText("ADD NEW ENTRY"),
-                        withParent(withParent(withId(R.id.nav_host_fragment_activity_main))),
-                        isDisplayed()));
-        button2.check(matches(isDisplayed()));
-    }
-
 
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {

@@ -62,21 +62,28 @@ public class createActivityActivity extends AppCompatActivity {
         } else {
             int activityLen = Integer.parseInt(activityLength);
             if (activityDesc.isEmpty()) { activityDesc = "You should have typed something here cause I have no idea what this is about."; }
-            addNewActivity(activityName, activityLen, activityDesc);
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+            Activity activity = new Activity(activityName, "userActivity", activityLen, activityDesc, "null");
+            if(activity.checkValidLenActivity())
+            {
+                addNewActivity(activity);
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this, "Time be good when be between 1 and 60 minutes", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    public void addNewActivity(String activityName, int activityLen, String activityDesc) {
+    public void addNewActivity(Activity activity) {
         Executors.newSingleThreadExecutor().execute(() -> {
             ThriveDatabase db = Room.databaseBuilder(getApplicationContext(), ThriveDatabase.class,
                     ThriveDatabase.THRIVE_DATABASE_NAME).build();
             ActivityDao activityDao = db.activityDao();
             LessonDao lessonDao = db.lessonDao();
-            activityDao.addActivity(new Activity(activityName, "userActivity", activityLen, activityDesc, "null"));
-            int activityId = activityDao.getActivityId(activityName);
+            activityDao.addActivity(activity);
+            int activityId = activityDao.getActivityId(activity.getActivityName());
             lessonDao.insertLessonActivity(new LessonActivityCrossRef(lessonId, activityId, timeOfDay));
             db.close();
         });

@@ -1,6 +1,7 @@
 package com.group20.thrive.database;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +20,15 @@ class PlanTest {
         plan = new Plan("Exercise",  10, "You are the best");
         plan.setPlanId(10);
     }
-
+    @Test
+    public void checkValidLength(){
+        plan = new Plan("Exercise",  0, "You are the best");
+        assertEquals(false, plan.checkValidLength());
+        plan = new Plan("Exercise",  10, "You are the best");
+        assertEquals(true, plan.checkValidLength());
+        plan = new Plan("Exercise",  30, "You are the best");
+        assertEquals(false, plan.checkValidLength());
+    }
     @Test
     void getPlanId() {
         assertEquals(10, plan.getPlanId());

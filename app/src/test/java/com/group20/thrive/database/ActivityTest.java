@@ -9,7 +9,15 @@ class ActivityTest {
     @Test
     void getActivityId() {
     }
-
+    @Test
+    public void checkValidLenActivity(){
+        Activity activity = new Activity("Push up","Work out", 0, "Try the best","Nothing");
+        assertEquals(false, activity.checkValidLenActivity());
+        activity = new Activity("Push up","Work out", 30, "Try the best","Nothing");
+        assertEquals(true, activity.checkValidLenActivity());
+        activity = new Activity("Push up","Work out", 61, "Try the best","Nothing");
+        assertEquals(false, activity.checkValidLenActivity());
+    }
     @Test
     void getActivityName() {
         Activity activity = new Activity("Push up","Work out", 10, "Try the best","Nothing");

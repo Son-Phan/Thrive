@@ -43,10 +43,6 @@ public class DiaryRepositoryTest {
         assertNotNull(diaryRepository.getEntries("11/11/1111"));
     }
 
-    @Test
-    public void getNumOfEntryDays() {
-        assertNotNull(diaryRepository.getNumOfEntryDays());
-    }
 
     @Test
     public void getMoodCount() {

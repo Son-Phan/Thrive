@@ -28,6 +28,12 @@ public class Activity implements Serializable {
 
     public String getActivityName () { return activityName; }
 
+    public boolean checkValidLenActivity(){
+        if(activityLen > 0 && activityLen < 61){
+            return true;
+        }
+        return false;
+    }
     public String getActivityType () { return activityType; }
 
     public int getActivityLen () { return activityLen; }

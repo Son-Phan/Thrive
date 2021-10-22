@@ -27,6 +27,11 @@ public class Plan implements Serializable {
 
     public int getPlanLength() { return planLength; }
 
+    public boolean checkValidLength(){
+        if( 0 < planLength && planLength < 30)
+            return true;
+        return false;
+    }
     public String getPlanDescription () { return planDescription; }
 
     public void setPlanId(int planId) {
